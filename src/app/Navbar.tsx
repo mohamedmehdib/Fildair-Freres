@@ -24,15 +24,15 @@ export default function Navbar() {
       } px-8`}
     >
         <Link className="w-16" href="/"><Image src="/logo.png" alt="Logo" width={500} height={500}/></Link>
-        <ul className="flex">
+        <ul className="flex space-x-8 text-2xl text-white">
           <li>
-            <Link href="/">Home</Link>
+            <Link href="/">Accueil</Link>
           </li>
           <li>
             <Link href="/">Services</Link>
           </li>
           <li>
-            <Link href="/">Contact Us</Link>
+            <Link href="/">Contact</Link>
           </li>
         </ul>
         <Link className="bg-white text-[#274e9d] rounded-lg text-lg font-medium px-4 py-3 hover:bg-amber-950 transition-colors" href="/Account" >Account</Link>

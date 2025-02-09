@@ -26,7 +26,7 @@ export default function Navbar() {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setIsMenuOpen(false); // Close the mobile menu after clicking a link
+      setIsMenuOpen(false);
     }
   };
 
@@ -36,12 +36,10 @@ export default function Navbar() {
         isScrolled ? "h-20 shadow-lg px-4 md:px-10 lg:px-12" : "h-24 px-3 md:px-6 lg:px-16"
       } transition-all`}
     >
-      {/* Logo */}
       <Link href="/" className="w-16">
         <Image src="/logo.png" alt="Logo" width={500} height={500} />
       </Link>
 
-      {/* Mobile Menu Button */}
       <button
         onClick={toggleMenu}
         className="md:hidden text-white focus:outline-none"
@@ -79,7 +77,6 @@ export default function Navbar() {
         )}
       </button>
 
-      {/* Desktop Menu */}
       <ul className="hidden md:flex space-x-8 text-lg text-white">
         <li>
           <button
@@ -96,7 +93,6 @@ export default function Navbar() {
           >
             Services
           </button>
-          {/* Dropdown Menu */}
           <ul className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-[#274e9d] shadow-lg rounded-lg mt-2 py-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
             <li>
               <Link
@@ -127,7 +123,7 @@ export default function Navbar() {
                 href="/Service4"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
-                Mise à niveau de l`&apos;équipement
+                Mise à niveau de l&apos;équipement
               </Link>
             </li>
           </ul>
@@ -142,15 +138,13 @@ export default function Navbar() {
         </li>
       </ul>
 
-      {/* Account Button */}
       <Link
         href="/Account"
-        className="hidden md:block bg-white text-[#274e9d] rounded-lg text-lg font-medium px-4 py-2 border border-white hover:bg-[#274e9d] hover:text-white transition-colors"
+        className="hidden md:block bg-white text-[#274e9d] rounded-lg text-lg font-medium px-4 py-2 border-2 border-white hover:bg-[#274e9d] hover:text-white transition-colors"
       >
         Account
       </Link>
 
-      {/* Mobile Menu */}
       <div
         className={`md:hidden absolute top-full left-0 w-full bg-[#274e9d] shadow-lg overflow-hidden transition-all duration-500 ${
           isMenuOpen ? "max-h-96" : "max-h-0"

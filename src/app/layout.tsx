@@ -3,7 +3,7 @@ import "./globals.css";
 import "leaflet/dist/leaflet.css";
 
 export const metadata: Metadata = {
-  title: "Bloggi",
+  title: "Fildair Freres",
   description: "The ultimate destination for all your shopping needs.",
 };
 

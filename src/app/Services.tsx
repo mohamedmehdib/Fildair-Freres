@@ -28,7 +28,7 @@ export default function Services() {
             alt='ceo'
             width={100}
             height={100}
-            className='rounded-full w-14 sm:w-16 border-2 border-indigo-500 transition-transform duration-300 hover:scale-110'
+            className='rounded-full w-14 sm:w-16 border-2 border-indigo-500'
           />
           <div className='flex flex-col'>
             <span className='font-medium text-lg'>Bilel Abassi</span>
@@ -69,7 +69,7 @@ export default function Services() {
             <p className='text-zinc-500 text-sm sm:text-base'>{service.description}</p>
             <Link
               href="/"
-              className='inline-block px-4 py-2 sm:px-5 sm:py-3 rounded-md bg-[#274e9d] text-white text-sm sm:text-base hover:bg-[#1a3a7a] transition-colors duration-300'
+              className='inline-block px-4 py-2 sm:px-5 sm:py-3 rounded-md bg-[#274e9d] text-white text-sm sm:text-base border-2 border-[#274e9d] hover:bg-white hover:text-[#274e9d] transition-colors duration-300'
             >
               En savoir plus
             </Link>

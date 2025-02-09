@@ -4,10 +4,10 @@ import Hero from "./Hero";
 import Services from "./Services";
 import Navbar from "./Navbar";
 import dynamic from "next/dynamic";
+import AboutUs from "./AboutUs";
 
-// Dynamically import the Map component without SSR
 const Map = dynamic(() => import("./Map"), {
-  ssr: false, // This disables SSR for the Map component
+  ssr: false,
 });
 
 export default function Home() {
@@ -16,6 +16,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
+      <AboutUs />
       <Map />
       <Footer />
     </div>

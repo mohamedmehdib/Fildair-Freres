@@ -2,10 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Caveat } from "next/font/google";
 import Image from "next/image";
-
-const rancho = Caveat({ subsets: ["latin"], weight: "400" });
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,6 +24,17 @@ export default function Navbar() {
       } px-8`}
     >
         <Link className="w-16" href="/"><Image src="/logo.png" alt="Logo" width={500} height={500}/></Link>
+        <ul className="flex">
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/">Services</Link>
+          </li>
+          <li>
+            <Link href="/">Contact Us</Link>
+          </li>
+        </ul>
         <Link className="bg-white text-[#274e9d] rounded-lg text-lg font-medium px-4 py-3 hover:bg-amber-950 transition-colors" href="/Account" >Account</Link>
     </div>
   );

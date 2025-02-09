@@ -17,7 +17,7 @@ export default function Services() {
                     Nos services de sauveteurs en plongée en toute sécurité proposent des professionnels formés pour garantir un environnement de baignade sûr, et nous proposons également des recommandations pour des fonctionnalités de sécurité supplémentaires.
                 </p>
                 <p className='text-zinc-600 font-medium py-4'>
-                    Résultats de la consolidation d'équipe de marque après une valeur de préparation Web premium, un e-business activé par le Web, un engagement stratégique activé par le Web...
+                    Résultats de la consolidation d&apos;équipe de marque après une valeur de préparation Web premium, un e-business activé par le Web, un engagement stratégique activé par le Web...
                 </p>
             </div>
             <div className='flex items-center'>

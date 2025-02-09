@@ -24,7 +24,7 @@ export default function Hero() {
 
   return (
     <div className="md:h-[80vh] flex md:flex-row flex-col-reverse items-center md:justify-around justify-center bg-[#274e9d] relative overflow-hidden pt-10 md:py-10">
-      <Image src="/hero.jpeg" alt="Hero" width={1000} height={1000} style={{ transform: `translateY(${scrollY * 3}px)` }}/>
+      <Image priority src="/hero.jpeg" alt="Hero" width={1000} height={1000} style={{ transform: `translateY(${scrollY * 3}px)` }}/>
     </div>
   );
 }

@@ -1,7 +1,9 @@
 "use client"
 import Footer from "./Footer";
 import Hero from "./Hero";
+import Map from "./Map";
 import Navbar from "./Navbar";
+import Services from "./Services";
 
 
 export default function Home() {
@@ -9,6 +11,8 @@ export default function Home() {
     <div className="min-h-screen bg-">
       <Navbar/>
       <Hero/>
+      <Services/>
+      <Map/>
       <Footer/>
     </div>
   );

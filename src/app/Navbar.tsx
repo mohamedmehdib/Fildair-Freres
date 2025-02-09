@@ -5,8 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +21,18 @@ export default function Navbar() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleServicesDropdown = () => {
+    setIsServicesDropdownOpen(!isServicesDropdownOpen);
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false); // Close the mobile menu after clicking a link
+    }
   };
 
   return (
@@ -70,22 +83,68 @@ export default function Navbar() {
           </svg>
         )}
       </button>
+
       {/* Desktop Menu */}
       <ul className="hidden md:flex space-x-8 text-lg text-white">
         <li>
-          <Link href="/" className="hover:text-indigo-300 transition-colors">
+          <button
+            onClick={() => scrollToSection("accueil")}
+            className="hover:text-indigo-300 transition-colors"
+          >
             Accueil
-          </Link>
+          </button>
         </li>
-        <li>
-          <Link href="/" className="hover:text-indigo-300 transition-colors">
+        <li className="relative">
+          <button
+            onClick={toggleServicesDropdown}
+            className="hover:text-indigo-300 transition-colors"
+          >
             Services
-          </Link>
+          </button>
+          {isServicesDropdownOpen && (
+            <ul className="absolute top-full left-0 bg-[#274e9d] shadow-lg rounded-lg mt-2 py-2 w-48">
+              <li>
+                <button
+                  onClick={() => scrollToSection("service1")}
+                  className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
+                >
+                  Service 1
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection("service2")}
+                  className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
+                >
+                  Service 2
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection("service3")}
+                  className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
+                >
+                  Service 3
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection("service4")}
+                  className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
+                >
+                  Service 4
+                </button>
+              </li>
+            </ul>
+          )}
         </li>
         <li>
-          <Link href="/" className="hover:text-indigo-300 transition-colors">
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="hover:text-indigo-300 transition-colors"
+          >
             Contact
-          </Link>
+          </button>
         </li>
       </ul>
 
@@ -105,19 +164,64 @@ export default function Navbar() {
       >
         <ul className="flex flex-col items-center space-y-4 py-4 text-white">
           <li>
-            <Link href="/" className="hover:text-indigo-300 transition-colors">
+            <button
+              onClick={() => scrollToSection("accueil")}
+              className="hover:text-indigo-300 transition-colors"
+            >
               Accueil
-            </Link>
+            </button>
           </li>
           <li>
-            <Link href="/" className="hover:text-indigo-300 transition-colors">
+            <button
+              onClick={toggleServicesDropdown}
+              className="hover:text-indigo-300 transition-colors"
+            >
               Services
-            </Link>
+            </button>
+            {isServicesDropdownOpen && (
+              <ul className="mt-2 space-y-2">
+                <li>
+                  <button
+                    onClick={() => scrollToSection("service1")}
+                    className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
+                  >
+                    Service 1
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("service2")}
+                    className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
+                  >
+                    Service 2
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("service3")}
+                    className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
+                  >
+                    Service 3
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("service4")}
+                    className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
+                  >
+                    Service 4
+                  </button>
+                </li>
+              </ul>
+            )}
           </li>
           <li>
-            <Link href="/" className="hover:text-indigo-300 transition-colors">
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="hover:text-indigo-300 transition-colors"
+            >
               Contact
-            </Link>
+            </button>
           </li>
           <li>
             <Link

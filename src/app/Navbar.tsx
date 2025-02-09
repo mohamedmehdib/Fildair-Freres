@@ -7,7 +7,6 @@ import Image from "next/image";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,10 +22,6 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleServicesDropdown = () => {
-    setIsServicesDropdownOpen(!isServicesDropdownOpen);
-  };
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -39,7 +34,7 @@ export default function Navbar() {
     <nav
       className={`bg-[#274e9d] z-20 duration-500 fixed w-full flex justify-between items-center ${
         isScrolled ? "h-20 shadow-lg px-4 md:px-10 lg:px-12" : "h-24 px-3 md:px-6 lg:px-16"
-      } px-4 md:px-10 lg:px-16 transition-all`}
+      } transition-all`}
     >
       {/* Logo */}
       <Link href="/" className="w-16">
@@ -94,49 +89,48 @@ export default function Navbar() {
             Accueil
           </button>
         </li>
-        <li className="relative">
+        <li className="relative group">
           <button
-            onClick={toggleServicesDropdown}
+            onClick={() => scrollToSection("services")}
             className="hover:text-indigo-300 transition-colors"
           >
             Services
           </button>
-          {isServicesDropdownOpen && (
-            <ul className="absolute top-full left-0 bg-[#274e9d] shadow-lg rounded-lg mt-2 py-2 w-48">
-              <li>
-                <button
-                  onClick={() => scrollToSection("service1")}
-                  className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
-                >
-                  Service 1
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("service2")}
-                  className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
-                >
-                  Service 2
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("service3")}
-                  className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
-                >
-                  Service 3
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("service4")}
-                  className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
-                >
-                  Service 4
-                </button>
-              </li>
-            </ul>
-          )}
+          {/* Dropdown Menu */}
+          <ul className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-[#274e9d] shadow-lg rounded-lg mt-2 py-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+            <li>
+              <Link
+                href="/Service1"
+                className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
+              >
+                Conception de piscine sur mesure
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/Service2"
+                className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
+              >
+                Nettoyage de piscine
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/Service3"
+                className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
+              >
+                Entretien de la piscine
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/Service4"
+                className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
+              >
+                Mise à niveau de l'équipement
+              </Link>
+            </li>
+          </ul>
         </li>
         <li>
           <button
@@ -173,47 +167,11 @@ export default function Navbar() {
           </li>
           <li>
             <button
-              onClick={toggleServicesDropdown}
+              onClick={() => scrollToSection("services")}
               className="hover:text-indigo-300 transition-colors"
             >
               Services
             </button>
-            {isServicesDropdownOpen && (
-              <ul className="mt-2 space-y-2">
-                <li>
-                  <button
-                    onClick={() => scrollToSection("service1")}
-                    className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
-                  >
-                    Service 1
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("service2")}
-                    className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
-                  >
-                    Service 2
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("service3")}
-                    className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
-                  >
-                    Service 3
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection("service4")}
-                    className="block w-full text-left px-4 py-2 hover:bg-indigo-700"
-                  >
-                    Service 4
-                  </button>
-                </li>
-              </ul>
-            )}
           </li>
           <li>
             <button

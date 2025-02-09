@@ -127,7 +127,7 @@ export default function Navbar() {
                 href="/Service4"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
-                Mise à niveau de l'équipement
+                Mise à niveau de l`&apos;équipement
               </Link>
             </li>
           </ul>

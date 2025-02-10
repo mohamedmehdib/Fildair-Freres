@@ -1,5 +1,4 @@
 'use client'; // Add this line for Next.js 13+ with the app directory
-
 import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -7,7 +6,18 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import Image from 'next/image';
 
-const testimonials = [
+// Define the type for a testimonial
+interface Testimonial {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+  stars: number;
+  feedback: string;
+}
+
+// Sample testimonials data
+const testimonials: Testimonial[] = [
   {
     id: 1,
     name: 'John Doe',
@@ -46,9 +56,9 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
-  const swiperRef = useRef<any>(null);
-  const [maxHeight, setMaxHeight] = useState<number>(0);
+export default function Testimonials(): React.ReactElement {
+  const swiperRef = useRef<HTMLElement | null>(null); // Ref for Swiper DOM element
+  const [maxHeight, setMaxHeight] = useState<number>(0); // State for tallest slide height
 
   // Calculate the height of the tallest slide
   useEffect(() => {
@@ -56,9 +66,10 @@ export default function Testimonials() {
       const slides = swiperRef.current.querySelectorAll('.swiper-slide');
       let tallestHeight = 0;
 
-      slides.forEach((slide: HTMLElement) => {
-        if (slide.offsetHeight > tallestHeight) {
-          tallestHeight = slide.offsetHeight;
+      slides.forEach((slide: Element) => {
+        const slideElement = slide as HTMLElement; // Cast to HTMLElement
+        if (slideElement.offsetHeight > tallestHeight) {
+          tallestHeight = slideElement.offsetHeight;
         }
       });
 
@@ -68,10 +79,12 @@ export default function Testimonials() {
 
   return (
     <div className='pt-20 pb-20'>
+      {/* External Icon Library */}
       <link
         rel='stylesheet'
         href='https://unicons.iconscout.com/release/v4.0.8/css/line.css'
       />
+
       {/* Title Section */}
       <div className='flex items-center justify-center py-5 space-x-4'>
         <hr className='bg-[#305eb8] h-1 w-14' />
@@ -80,7 +93,7 @@ export default function Testimonials() {
       </div>
 
       {/* Testimonials Slider */}
-      <div className='px-10 pb-10 mx-10'> {/* Add margin and padding to the container */}
+      <div className='px-10 pb-10 mx-10'>
         <Swiper
           modules={[Autoplay, Pagination]}
           pagination={{
@@ -109,12 +122,12 @@ export default function Testimonials() {
             swiperRef.current = swiper.el; // Store Swiper DOM element
           }}
         >
-          {testimonials.map((testimonial) => (
+          {testimonials.map((testimonial: Testimonial) => (
             <SwiperSlide
               key={testimonial.id}
-              style={{ height: maxHeight > 0 ? maxHeight : 'auto' }} // Set height dynamically
+              style={{ height: maxHeight > 0 ? maxHeight : 'auto' }}
             >
-              <div className='bg-white p-8 rounded-lg shadow-lg text-center flex flex-col justify-between h-full pb-10 mx-4'> {/* Add margin and padding to the slide */}
+              <div className='bg-white p-8 rounded-lg shadow-lg text-center flex flex-col justify-between h-full pb-10 mx-4'>
                 {/* Client Image */}
                 <div className='relative w-24 h-24 mx-auto mb-6'>
                   <Image

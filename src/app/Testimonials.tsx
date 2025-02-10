@@ -1,6 +1,6 @@
 'use client'; // Add this line for Next.js 13+ with the app directory
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -47,8 +47,27 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const swiperRef = useRef<any>(null);
+  const [maxHeight, setMaxHeight] = useState<number>(0);
+
+  // Calculate the height of the tallest slide
+  useEffect(() => {
+    if (swiperRef.current) {
+      const slides = swiperRef.current.querySelectorAll('.swiper-slide');
+      let tallestHeight = 0;
+
+      slides.forEach((slide: HTMLElement) => {
+        if (slide.offsetHeight > tallestHeight) {
+          tallestHeight = slide.offsetHeight;
+        }
+      });
+
+      setMaxHeight(tallestHeight);
+    }
+  }, []);
+
   return (
-    <div className='pt-20 pb-20 bg-gray-50'>
+    <div className='pt-20 pb-20'>
       <link
         rel='stylesheet'
         href='https://unicons.iconscout.com/release/v4.0.8/css/line.css'
@@ -61,7 +80,7 @@ export default function Testimonials() {
       </div>
 
       {/* Testimonials Slider */}
-      <div className='px-10'>
+      <div className='px-10 pb-10 mx-10'> {/* Add margin and padding to the container */}
         <Swiper
           modules={[Autoplay, Pagination]}
           pagination={{
@@ -86,10 +105,16 @@ export default function Testimonials() {
             },
           }}
           loop={true}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper.el; // Store Swiper DOM element
+          }}
         >
           {testimonials.map((testimonial) => (
-            <SwiperSlide key={testimonial.id}>
-              <div className='bg-white p-8 rounded-lg shadow-lg text-center flex flex-col justify-between h-full'>
+            <SwiperSlide
+              key={testimonial.id}
+              style={{ height: maxHeight > 0 ? maxHeight : 'auto' }} // Set height dynamically
+            >
+              <div className='bg-white p-8 rounded-lg shadow-lg text-center flex flex-col justify-between h-full pb-10 mx-4'> {/* Add margin and padding to the slide */}
                 {/* Client Image */}
                 <div className='relative w-24 h-24 mx-auto mb-6'>
                   <Image
@@ -101,7 +126,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Client Feedback */}
-                <p className='text-gray-600 italic mb-6 flex-1'>
+                <p className='text-gray-600 italic mb-6'>
                   "{testimonial.feedback}"
                 </p>
 

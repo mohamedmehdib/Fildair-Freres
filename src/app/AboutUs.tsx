@@ -54,7 +54,7 @@ const AboutUs: React.FC = () => {
             Nagez en toute sérénité avec Swim Serenity Solutions
           </h2>
           <p className='text-zinc-500 text-sm sm:text-base'>
-            Il est recommandé de nettoyer régulièrement la piscine au moins une fois par semaine pour maintenir la qualité de l'eau et éviter la croissance des algues. Roboto est une autre police sans empattement polyvalente, très lisible et disponible en plusieurs poids, ce qui la rend adaptée.
+            Il est recommandé de nettoyer régulièrement la piscine au moins une fois par semaine pour maintenir la qualité de l&apos;eau et éviter la croissance des algues. Roboto est une autre police sans empattement polyvalente, très lisible et disponible en plusieurs poids, ce qui la rend adaptée.
           </p>
         </div>
 

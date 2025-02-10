@@ -1,11 +1,11 @@
 'use client'; // Add this line for Next.js 13+ with the app directory
-
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules'; // Remove Navigation module
 import 'swiper/css';
 import 'swiper/css/pagination'; // Only import pagination CSS
 import Image from 'next/image';
+import { Swiper as SwiperType } from 'swiper'; // Import the Swiper type
 
 // Sample project images
 const projectImages = [
@@ -17,8 +17,8 @@ const projectImages = [
 ];
 
 export default function Projects() {
-  // Ref for Swiper instance
-  const swiperRef = React.useRef<any>(null);
+  // Ref for Swiper instance with explicit type
+  const swiperRef = React.useRef<SwiperType | null>(null);
 
   return (
     <div id='projects' className='py-10'>
@@ -34,7 +34,6 @@ export default function Projects() {
         </span>
         <hr className='bg-[#305eb8] h-1 w-14' />
       </div>
-
       {/* Image Slider */}
       <div className='relative px-10'>
         <Swiper
@@ -77,7 +76,6 @@ export default function Projects() {
             </SwiperSlide>
           ))}
         </Swiper>
-
         {/* Custom Navigation Buttons */}
         <div
           className='swiper-button-prev absolute flex items-center justify-center top-1/2 left-2 transform -translate-y-1/2 z-10 bg-white h-12 w-12 rounded-full shadow-lg cursor-pointer hover:bg-[#305eb8] text-[#305eb8] hover:text-white transition-all duration-300'

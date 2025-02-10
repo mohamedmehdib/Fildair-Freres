@@ -32,11 +32,11 @@ export default function Contact() {
     <div id='contact' className='pt-20'>
       {/* Title Section */}
       <div className='flex items-center justify-center py-5 space-x-4 px-3'>
-        <hr className='bg-[#305eb8] h-1 w-14' />
+        <hr className='bg-[#305eb8] h-1 md:w-14 w-10' />
         <span className='text-[#305eb8] text-2xl sm:text-4xl font-semibold'>
           Contactez-nous
         </span>
-        <hr className='bg-[#305eb8] h-1 w-14' />
+        <hr className='bg-[#305eb8] h-1 md:w-14 w-10' />
       </div>
 
       {/* Contact Form */}

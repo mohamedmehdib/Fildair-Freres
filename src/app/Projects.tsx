@@ -27,15 +27,15 @@ export default function Projects() {
         href='https://unicons.iconscout.com/release/v4.0.8/css/solid.css'
       />
       {/* Title Section */}
-      <div className='flex items-center justify-center space-x-4 py-14'>
-        <hr className='bg-[#305eb8] h-1 w-14' />
-        <span className='text-[#305eb8] text-4xl font-semibold'>
+      <div className='flex items-center justify-center space-x-4 py-10 sm:py-14'>
+        <hr className='bg-[#305eb8] h-1 w-10 md:w-14' />
+        <span className='text-[#305eb8] text-2xl sm:text-4xl font-semibold'>
           Nos derniers projets
         </span>
-        <hr className='bg-[#305eb8] h-1 w-14' />
+        <hr className='bg-[#305eb8] h-1 w-10 md:w-14' />
       </div>
       {/* Image Slider */}
-      <div className='relative px-10'>
+      <div className='relative px-4 sm:px-10'>
         <Swiper
           modules={[Autoplay, Pagination]} // Remove Navigation module
           pagination={{
@@ -46,17 +46,20 @@ export default function Projects() {
             delay: 3000,
             disableOnInteraction: false,
           }}
-          spaceBetween={30}
+          spaceBetween={20} // Reduced space between slides for smaller screens
           slidesPerView={1}
           breakpoints={{
             640: {
               slidesPerView: 1,
+              spaceBetween: 20,
             },
             768: {
               slidesPerView: 2,
+              spaceBetween: 30,
             },
             1024: {
               slidesPerView: 3,
+              spaceBetween: 40,
             },
           }}
           loop={true}
@@ -64,7 +67,7 @@ export default function Projects() {
         >
           {projectImages.map((image, index) => (
             <SwiperSlide key={index}>
-              <div className='relative h-96 rounded-lg overflow-hidden'>
+              <div className='relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden'>
                 <Image
                   src={image}
                   alt={`Project ${index + 1}`}
@@ -78,18 +81,18 @@ export default function Projects() {
         </Swiper>
         {/* Custom Navigation Buttons */}
         <div
-          className='swiper-button-prev absolute flex items-center justify-center top-1/2 left-2 transform -translate-y-1/2 z-10 bg-white h-12 w-12 rounded-full shadow-lg cursor-pointer hover:bg-[#305eb8] text-[#305eb8] hover:text-white transition-all duration-300'
+          className='swiper-button-prev absolute flex items-center justify-center top-1/2 left-2 transform -translate-y-1/2 z-10 bg-white h-10 w-10 sm:h-12 sm:w-12 rounded-full shadow-lg cursor-pointer hover:bg-[#305eb8] text-[#305eb8] hover:text-white transition-all duration-300'
           aria-label='Previous Slide'
           onClick={() => swiperRef.current?.slidePrev()} // Go to previous slide
         >
-          <i className='uil uil-arrow-left text-2xl'></i>
+          <i className='uil uil-arrow-left text-xl sm:text-2xl'></i>
         </div>
         <div
-          className='swiper-button-next absolute flex items-center justify-center top-1/2 right-2 transform -translate-y-1/2 z-10 bg-white h-12 w-12 rounded-full shadow-lg cursor-pointer hover:bg-[#305eb8] text-[#305eb8] hover:text-white transition-all duration-300'
+          className='swiper-button-next absolute flex items-center justify-center top-1/2 right-2 transform -translate-y-1/2 z-10 bg-white h-10 w-10 sm:h-12 sm:w-12 rounded-full shadow-lg cursor-pointer hover:bg-[#305eb8] text-[#305eb8] hover:text-white transition-all duration-300'
           aria-label='Next Slide'
           onClick={() => swiperRef.current?.slideNext()} // Go to next slide
         >
-          <i className='uil uil-arrow-right text-2xl'></i>
+          <i className='uil uil-arrow-right text-xl sm:text-2xl'></i>
         </div>
       </div>
     </div>

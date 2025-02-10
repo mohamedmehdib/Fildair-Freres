@@ -78,7 +78,7 @@ export default function Testimonials(): React.ReactElement {
   }, []);
 
   return (
-    <div className='pt-20 pb-20'>
+    <div className='pt-10 sm:pt-20'>
       {/* External Icon Library */}
       <link
         rel='stylesheet'
@@ -87,13 +87,15 @@ export default function Testimonials(): React.ReactElement {
 
       {/* Title Section */}
       <div className='flex items-center justify-center py-5 space-x-4'>
-        <hr className='bg-[#305eb8] h-1 w-14' />
-        <span className='text-[#305eb8] text-4xl font-semibold'>Avis Clients</span>
-        <hr className='bg-[#305eb8] h-1 w-14' />
+        <hr className='bg-[#305eb8] h-1 w-10 sm:w-14' />
+        <span className='text-[#305eb8] text-2xl sm:text-4xl font-semibold'>
+          Avis Clients
+        </span>
+        <hr className='bg-[#305eb8] h-1 w-10 sm:w-14' />
       </div>
 
       {/* Testimonials Slider */}
-      <div className='px-10 pb-10 mx-10'>
+      <div className='px-4 sm:px-10 pb-10 mx-4 sm:mx-10'>
         <Swiper
           modules={[Autoplay, Pagination]}
           pagination={{
@@ -104,17 +106,20 @@ export default function Testimonials(): React.ReactElement {
             delay: 5000,
             disableOnInteraction: false,
           }}
-          spaceBetween={30}
+          spaceBetween={20} // Reduced space between slides for smaller screens
           slidesPerView={1}
           breakpoints={{
             640: {
               slidesPerView: 1,
+              spaceBetween: 20,
             },
             768: {
               slidesPerView: 2,
+              spaceBetween: 30,
             },
             1024: {
               slidesPerView: 3,
+              spaceBetween: 40,
             },
           }}
           loop={true}
@@ -127,9 +132,9 @@ export default function Testimonials(): React.ReactElement {
               key={testimonial.id}
               style={{ height: maxHeight > 0 ? maxHeight : 'auto' }}
             >
-              <div className='bg-white p-8 rounded-lg shadow-lg text-center flex flex-col justify-between h-full pb-10 mx-4'>
+              <div className='bg-white p-6 sm:p-8 rounded-lg shadow-lg text-center flex flex-col justify-between h-full pb-8 mx-2 sm:mx-4'>
                 {/* Client Image */}
-                <div className='relative w-24 h-24 mx-auto mb-6'>
+                <div className='relative w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6'>
                   <Image
                     src={testimonial.image}
                     alt={testimonial.name}
@@ -139,20 +144,22 @@ export default function Testimonials(): React.ReactElement {
                 </div>
 
                 {/* Client Feedback */}
-                <p className='text-gray-600 italic mb-6'>
+                <p className='text-gray-600 italic text-sm sm:text-base mb-4 sm:mb-6'>
                   &quot;{testimonial.feedback}&quot;
                 </p>
 
                 {/* Client Name and Role */}
                 <div>
-                  <h3 className='text-xl font-semibold text-[#305eb8]'>
+                  <h3 className='text-lg sm:text-xl font-semibold text-[#305eb8]'>
                     {testimonial.name}
                   </h3>
-                  <p className='text-gray-500'>{testimonial.role}</p>
+                  <p className='text-gray-500 text-sm sm:text-base'>
+                    {testimonial.role}
+                  </p>
                 </div>
 
                 {/* Star Rating */}
-                <div className='flex justify-center mt-4'>
+                <div className='flex justify-center mt-3 sm:mt-4'>
                   {Array.from({ length: testimonial.stars }).map((_, index) => (
                     <i
                       key={index}

@@ -21,9 +21,11 @@ const Map = () => {
 
   return (
     <div className={`${ul.className} flex flex-col items-center py-10`}>
-      <h1 className="py-10 text-3xl sm:text-4xl lg:text-5xl font-semibold text-center">
-       Visitez-nous !
-      </h1>
+      <div className='flex items-center justify-center py-5 space-x-4'>
+          <hr className='bg-[#305eb8] h-1 w-14' />
+          <span className='text-[#305eb8] text-4xl font-semibold'>Visitez-nous !</span>
+          <hr className='bg-[#305eb8] h-1 w-14' />
+      </div>
       <div className="relative w-3/4 lg:w-1/2 rounded-lg overflow-hidden px-2 md:px-4">
         <MapContainer
           center={position}

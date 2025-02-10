@@ -10,12 +10,12 @@ export default function Footer() {
             <h3 className="text-xl font-semibold text-blue-700 mb-4">Suivez-nous</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="https://www.facebook.com/CyberstationSousse?mibextid=ZbWKwL" className="text-gray-600 hover:text-blue-500 transition">
+                <Link href="https://www.facebook.com/profile.php?id=100007108443086&ref=ig_profile_ac" className="text-gray-600 hover:text-blue-500 transition">
                   Facebook
                 </Link>
               </li>
               <li>
-                <Link href="https://www.instagram.com/click.store0?igsh=MWs2aHo3cmM2dWc2dQ==" className="text-gray-600 hover:text-blue-500 transition">
+                <Link href="https://www.instagram.com/fildair_bilel_abassi/" className="text-gray-600 hover:text-blue-500 transition">
                   Instagram
                 </Link>
               </li>

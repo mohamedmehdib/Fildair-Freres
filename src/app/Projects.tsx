@@ -27,9 +27,9 @@ export default function Projects() {
         href='https://unicons.iconscout.com/release/v4.0.8/css/solid.css'
       />
       {/* Title Section */}
-      <div className='flex items-center justify-center space-x-4 py-10 sm:py-14'>
+      <div className='flex items-center justify-center space-x-4 py-10 sm:py-14 px-3'>
         <hr className='bg-[#305eb8] h-1 w-10 md:w-14' />
-        <span className='text-[#305eb8] text-2xl sm:text-4xl font-semibold'>
+        <span className='text-[#305eb8] text-2xl sm:text-4xl font-semibold text-center'>
           Nos derniers projets
         </span>
         <hr className='bg-[#305eb8] h-1 w-10 md:w-14' />

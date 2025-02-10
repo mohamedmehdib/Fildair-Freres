@@ -5,7 +5,9 @@ import Services from "./Services";
 import Navbar from "./Navbar";
 import dynamic from "next/dynamic";
 import AboutUs from "./AboutUs";
-import AboutAndGallery from "./Projects";
+import Projects from "./Projects";
+import Contact from "./Contact";
+import Testimonials from "./Testimonials";
 
 const Map = dynamic(() => import("./Map"), {
   ssr: false,
@@ -18,7 +20,9 @@ export default function Home() {
       <Hero />
       <Services />
       <AboutUs />
-      <AboutAndGallery />
+      <Projects />
+      <Testimonials />
+      <Contact />
       <Map />
       <Footer />
     </div>

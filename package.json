@@ -11,6 +11,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.47.10",
     "axios": "^1.7.9",
+    "framer-motion": "^12.4.2",
     "leaflet": "^1.9.4",
     "next": "15.1.4",
     "react": "^19.0.0",
@@ -21,7 +22,8 @@
     "react-leaflet": "^5.0.0",
     "react-slick": "^0.30.3",
     "react-visibility-sensor": "^5.1.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.2.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

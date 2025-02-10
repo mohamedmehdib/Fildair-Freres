@@ -2,10 +2,8 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { LatLngExpression } from "leaflet";
-import { Roboto } from "next/font/google";
 import Link from "next/link";
 
-const ul = Roboto({ subsets: ["latin"], weight: "700" });
 
 const Map = () => {
   const position: LatLngExpression = [36.877076, 10.267437];
@@ -20,7 +18,7 @@ const Map = () => {
   });
 
   return (
-    <div className={`${ul.className} flex flex-col items-center py-10`}>
+    <div className={`flex flex-col items-center py-10`}>
       <div className='flex items-center justify-center py-5 space-x-4'>
           <hr className='bg-[#305eb8] h-1 w-14' />
           <span className='text-[#305eb8] text-4xl font-semibold'>Visitez-nous !</span>

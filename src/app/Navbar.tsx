@@ -130,6 +130,14 @@ export default function Navbar() {
         </li>
         <li>
           <button
+            onClick={() => scrollToSection("projects")}
+            className="hover:text-indigo-300 transition-colors"
+          >
+            Projets
+          </button>
+        </li>
+        <li>
+          <button
             onClick={() => scrollToSection("contact")}
             className="hover:text-indigo-300 transition-colors"
           >
@@ -167,6 +175,14 @@ export default function Navbar() {
               Services
             </button>
           </li>
+          <li>
+            <button
+              onClick={() => scrollToSection("projects")}
+              className="hover:text-indigo-300 transition-colors"
+            >
+              Projets
+            </button>
+          </li>          
           <li>
             <button
               onClick={() => scrollToSection("contact")}

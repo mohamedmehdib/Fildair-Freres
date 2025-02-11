@@ -107,7 +107,7 @@ export default function Navbar() {
                 href="/Service2"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
-                Nettoyage de piscine
+                Entretion Piscine & SAV
               </Link>
             </li>
             <li>
@@ -115,7 +115,7 @@ export default function Navbar() {
                 href="/Service3"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
-                Entretien de la piscine
+                Vente en gros materiel Piscines & Mosaic
               </Link>
             </li>
             <li>
@@ -123,7 +123,7 @@ export default function Navbar() {
                 href="/Service4"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
-                Mise à niveau de l&apos;équipement
+                Chauffage & climatisation
               </Link>
             </li>
           </ul>

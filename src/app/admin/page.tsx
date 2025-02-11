@@ -3,6 +3,7 @@ import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 import ProjectsManagement from "./ProjectsManagement";
 import UploadTestimonial from "./UploadTestimonial";
+import UploadClient from "./UploadClients";
 
 const AdminDashboard = () => {
   const [email, setEmail] = useState("");
@@ -105,11 +106,20 @@ const AdminDashboard = () => {
         >
           Avis Clients
         </button>
+        <button
+          onClick={() => setActiveComponent("ClientsManagement")}
+          className={`px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-xl shadow-md transition-colors duration-300 ${
+            activeComponent === "ClientsManagement" ? "bg-blue-600 text-white" : "bg-gray-300 text-gray-800 hover:bg-gray-400"
+          }`}
+        >
+          Clients & Partenaire
+        </button>
       </div>
 
       <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
         {activeComponent === "ProjectsManagement" && <ProjectsManagement />}
         {activeComponent === "TestimonialsManagement" && <UploadTestimonial />}
+        {activeComponent === "ClientsManagement" && <UploadClient />}
       </div>
     </div>
   );

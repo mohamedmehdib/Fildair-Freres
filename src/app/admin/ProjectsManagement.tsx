@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
@@ -27,11 +26,9 @@ const ProjectsManagement = () => {
         .from("projects")
         .select("*")
         .order("id", { ascending: false });
-
       if (error) {
         throw error;
       }
-
       setProjects(data || []);
     } catch (error) {
       console.error("Error fetching projects:", error);
@@ -51,13 +48,11 @@ const ProjectsManagement = () => {
     setLoading(true);
     setSuccessMessage("");
     setErrorMessage("");
-
     if (!imageFile) {
       setErrorMessage("Please select an image file.");
       setLoading(false);
       return;
     }
-
     try {
       // Step 1: Upload image to Supabase Storage
       const { data: uploadData, error: uploadError } = await supabase.storage
@@ -66,26 +61,21 @@ const ProjectsManagement = () => {
           cacheControl: "3600",
           upsert: true,
         });
-
       if (uploadError) {
         console.error("Upload Error:", uploadError);
         setErrorMessage("Error uploading image: " + uploadError.message);
         setLoading(false);
         return;
       }
-
       console.log("Upload Success:", uploadData);
 
       // Step 2: Get the public URL of the uploaded image
       const { data: publicURLData } = supabase.storage
         .from("project-images")
         .getPublicUrl(uploadData.path);
-
       const publicURL = publicURLData.publicUrl;
-
       console.log("Public URL Data:", publicURLData);
       console.log("Public URL:", publicURL);
-
       if (!publicURL) {
         setErrorMessage("Public URL is empty.");
         setLoading(false);
@@ -96,7 +86,6 @@ const ProjectsManagement = () => {
       const { error: insertError } = await supabase
         .from("projects")
         .insert([{ image_url: publicURL }]);
-
       if (insertError) {
         setErrorMessage("Error adding project: " + insertError.message);
       } else {
@@ -123,11 +112,9 @@ const ProjectsManagement = () => {
         .from("projects")
         .delete()
         .eq("id", projectId);
-
       if (error) {
         throw error;
       }
-
       setSuccessMessage("Project deleted successfully!");
       fetchProjects(); // Refresh the project list
     } catch (error) {
@@ -137,9 +124,10 @@ const ProjectsManagement = () => {
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Gérer les projets</h2>
-
+    <div className="p-4 sm:p-6 bg-white rounded-lg shadow-md">
+      <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
+        Gérer les projets
+      </h2>
       {/* Success and Error Messages */}
       {successMessage && (
         <div className="bg-green-100 text-green-700 p-3 rounded mb-4">
@@ -151,7 +139,6 @@ const ProjectsManagement = () => {
           {errorMessage}
         </div>
       )}
-
       {/* Form for Uploading Project Image */}
       <form onSubmit={handleProjectSubmit} className="space-y-4">
         <div>
@@ -164,16 +151,15 @@ const ProjectsManagement = () => {
           <input
             type="file"
             id="imageFile"
-            className="w-full p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
             onChange={handleImageChange}
             accept="image/*"
             required
           />
         </div>
-
         <button
           type="submit"
-          className={`w-full py-3 bg-blue-600 text-white rounded-lg font-semibold shadow-lg transition-opacity duration-300 ${
+          className={`w-full py-2 sm:py-3 bg-blue-600 text-white rounded-lg font-semibold shadow-lg transition-opacity duration-300 ${
             loading ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
           }`}
           disabled={loading}
@@ -181,10 +167,11 @@ const ProjectsManagement = () => {
           {loading ? "Sauvegarde du projet..." : "Sauvegarder le projet"}
         </button>
       </form>
-
       {/* List of Projects */}
-      <div className="mt-8">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">Liste des projets</h3>
+      <div className="mt-6 sm:mt-8">
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4">
+          Liste des projets
+        </h3>
         {projects.length === 0 ? (
           <p className="text-gray-600">Aucun projet trouvé.</p>
         ) : (
@@ -192,18 +179,20 @@ const ProjectsManagement = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="flex items-center justify-between p-4 border rounded-lg shadow-sm"
+                className="flex flex-col sm:flex-row items-center justify-between p-4 border rounded-lg shadow-sm"
               >
-                <Image
-                  width={500}
-                  height={500}
-                  src={project.image_url}
-                  alt={`Project ${project.id}`}
-                  className="w-20 h-20 object-cover rounded-lg"
-                />
+                <div className="w-full sm:w-auto">
+                  <Image
+                    width={500}
+                    height={500}
+                    src={project.image_url}
+                    alt={`Project ${project.id}`}
+                    className="w-full sm:w-24 sm:h-24 object-cover rounded-lg"
+                  />
+                </div>
                 <button
                   onClick={() => handleDeleteProject(project.id)}
-                  className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                  className="mt-4 sm:mt-0 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
                 >
                   Supprimer
                 </button>

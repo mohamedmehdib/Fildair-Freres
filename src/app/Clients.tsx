@@ -8,7 +8,7 @@ const Clients: React.FC = () => {
   const logos = [
     {
       id: 1,
-      src: "/pool.svg",
+      src: "/one.svg",
       alt: "Logo 1",
     },
   ];
@@ -22,7 +22,7 @@ const Clients: React.FC = () => {
         </span>
         <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
       </div>
-      <div className="">
+      <div className="bg-[#305eb8]">
         <Marquee speed={50} gradient={false} direction="left" loop={0}>
           {[...logos, ...logos, ...logos, ...logos, ...logos].map((logo, index) => (
             <div key={index} className="flex-shrink-0 px-5">

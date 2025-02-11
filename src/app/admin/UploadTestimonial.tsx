@@ -40,7 +40,7 @@ export default function ManageTestimonials() {
       try {
         const { data, error } = await supabase.from('testimonials').select('*');
         if (error) throw error;
-        setTestimonials(data as Testimonial[]);
+        setTestimonials(data || []); // Fallback to an empty array if data is null
       } catch (error) {
         console.error('Error fetching testimonials:', error);
       }
@@ -108,10 +108,9 @@ export default function ManageTestimonials() {
   };
 
   // Handle form submission (create or update)
-// Handle form submission (create or update)
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     // Validate required fields
     if (!formData.name.trim()) {
       alert('Name is required.');
@@ -129,29 +128,29 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       alert('Feedback is required.');
       return;
     }
-  
+
     try {
       let imageUrl: string | null = null; // Initialize as null
-  
+
       if (formData.image) {
         console.log('Selected file:', formData.image);
         const { data, error } = await supabase.storage
           .from('testimonials')
           .upload(`images/${formData.image.name}`, formData.image);
-  
+
         if (error) {
           console.error('Storage upload error:', error);
           throw new Error(error.message || 'Failed to upload file.');
         }
-  
+
         console.log('Uploaded file data:', data);
         imageUrl = supabase.storage
           .from('testimonials')
           .getPublicUrl(data.path).data.publicUrl;
-  
+
         console.log('Public URL:', imageUrl);
       }
-  
+
       if (selectedId) {
         // Update existing testimonial
         const { error } = await supabase
@@ -164,12 +163,12 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             feedback: formData.feedback,
           })
           .eq('id', selectedId);
-  
+
         if (error) {
           console.error('Database update error:', error);
           throw new Error(error.message || 'Failed to update testimonial.');
         }
-  
+
         alert('Testimonial updated successfully!');
       } else {
         // Insert new testimonial
@@ -182,15 +181,15 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             feedback: formData.feedback,
           },
         ]);
-  
+
         if (error) {
           console.error('Database insertion error:', error);
           throw new Error(error.message || 'Failed to insert testimonial.');
         }
-  
+
         alert('Testimonial uploaded successfully!');
       }
-  
+
       // Reset form and refresh testimonials list
       setFormData({
         name: '',
@@ -202,7 +201,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       setImagePreview(null);
       setSelectedId(null);
       const { data } = await supabase.from('testimonials').select('*');
-      setTestimonials(data);
+      setTestimonials(data || []); // Fallback to an empty array if data is null
     } catch (error) {
       console.error('Raw error:', error); // Log the raw error object
       if (error instanceof Error) {

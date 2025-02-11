@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper as SwiperType } from 'swiper';
 import { createClient } from '@supabase/supabase-js';
+import Image from 'next/image';
 
 // Initialize Supabase client
 const supabase = createClient(
@@ -82,7 +83,9 @@ export default function Projects() {
             <SwiperSlide key={index}>
               <div className='relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden'>
                 {/* Replace next/image with a standard img tag */}
-                <img
+                <Image
+                  width={500}
+                  height={500}
                   src={image}
                   alt={`Project ${index + 1}`}
                   className='w-full h-full object-cover'

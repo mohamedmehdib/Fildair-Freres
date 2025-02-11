@@ -1,13 +1,22 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import Image from 'next/image'; // Ensure this is used
+import Image from 'next/image';
 
 interface FormData {
   id?: number;
   name: string;
   role: string;
   image: File | null;
+  stars: number;
+  feedback: string;
+}
+
+interface Testimonial {
+  id: number;
+  name: string;
+  role: string;
+  image: string | null;
   stars: number;
   feedback: string;
 }
@@ -20,7 +29,7 @@ export default function UploadTestimonial() {
     stars: 5,
     feedback: '',
   });
-  const [testimonials, setTestimonials] = useState<any[]>([]);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
@@ -29,7 +38,7 @@ export default function UploadTestimonial() {
       try {
         const { data, error } = await supabase.from('testimonials').select('*');
         if (error) throw error;
-        setTestimonials(data);
+        setTestimonials(data as Testimonial[]);
       } catch (error) {
         console.error('Error fetching testimonials:', error);
       }
@@ -37,7 +46,9 @@ export default function UploadTestimonial() {
     fetchTestimonials();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -55,7 +66,7 @@ export default function UploadTestimonial() {
     }
   };
 
-  const handleEdit = (testimonial: any) => {
+  const handleEdit = (testimonial: Testimonial) => {
     setSelectedId(testimonial.id);
     setFormData({
       id: testimonial.id,
@@ -166,7 +177,7 @@ export default function UploadTestimonial() {
       setImagePreview(null);
       setSelectedId(null);
       const { data } = await supabase.from('testimonials').select('*');
-      setTestimonials(data);
+      setTestimonials(data as Testimonial[]);
     } catch (error) {
       console.error('Raw error:', error);
       if (error instanceof Error) {

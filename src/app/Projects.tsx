@@ -1,22 +1,38 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import Image from 'next/image';
 import { Swiper as SwiperType } from 'swiper';
+import { createClient } from '@supabase/supabase-js';
 
-const projectImages = [
-  '/project1.jpg',
-  '/project2.jpg',
-  '/project3.jpg',
-  '/project4.jpg',
-  '/project5.jpg',
-];
+// Initialize Supabase client
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL as string,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
+);
 
 export default function Projects() {
+  const [projectImages, setProjectImages] = useState<string[]>([]);
   const swiperRef = React.useRef<SwiperType | null>(null);
+
+  // Fetch images from Supabase
+  useEffect(() => {
+    async function fetchImages() {
+      const { data, error } = await supabase
+        .from('projects') // Replace 'projects' with your table name
+        .select('image_url'); // Replace 'image_url' with your column name
+
+      if (error) {
+        console.error('Error fetching project images:', error);
+      } else if (data) {
+        setProjectImages(data.map((item) => item.image_url));
+      }
+    }
+
+    fetchImages();
+  }, []);
 
   return (
     <div id='projects' className='py-10'>
@@ -65,18 +81,18 @@ export default function Projects() {
           {projectImages.map((image, index) => (
             <SwiperSlide key={index}>
               <div className='relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden'>
-                <Image
+                {/* Replace next/image with a standard img tag */}
+                <img
                   src={image}
                   alt={`Project ${index + 1}`}
-                  fill
-                  className='object-cover'
-                  priority={index === 0}
+                  className='w-full h-full object-cover'
                 />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
 
+        {/* Custom Navigation Buttons */}
         <div
           className='swiper-button-prev absolute flex items-center justify-center top-1/2 left-2 transform -translate-y-1/2 z-10 bg-white h-10 w-10 sm:h-12 sm:w-12 rounded-full shadow-lg cursor-pointer hover:bg-[#305eb8] text-[#305eb8] hover:text-white transition-all duration-300'
           aria-label='Previous Slide'

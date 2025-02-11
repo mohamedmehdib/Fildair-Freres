@@ -52,11 +52,11 @@ const AboutUs: React.FC = () => {
           </p>
         </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-5'>
-          <StatCard number={2000} label="Projets terminés" />
-          <StatCard number={164} label="Membres de l'équipe d'experts" />
+        {/* Replaced grid with flex */}
+        <div className='flex flex-wrap justify-center gap-5'>
+          <StatCard number={2500} label="Projets terminés" />
+          <StatCard number={50} label="Membres de l'équipe d'experts" />
           <StatCard number={3000} label="Clients satisfaits" />
-          <StatCard number={60} label="Meilleurs prix gagnants" />
         </div>
       </div>
     </div>

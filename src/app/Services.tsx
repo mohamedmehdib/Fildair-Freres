@@ -45,10 +45,10 @@ export default function Services() {
 
       <div className='w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6'>
         {[
-          { icon: "/one.svg", title: "Conception de piscine sur mesure", description: "Il est recommandé de faire nettoyer votre piscine par un professionnel au moins" },
-          { icon: "/cleaning.svg", title: "Nettoyage de piscine", description: "Le nettoyage de la piscine consiste à écumer les débris, à passer l'aspirateur, à frotter les parois et à nettoyer" },
-          { icon: "/wrench.svg", title: "Entretien de la piscine", description: "Une chimie de l'eau appropriée est essentielle pour prévenir la croissance des algues, maintenir" },
-          { icon: "/cpu.svg", title: "Mise à niveau de l'équipement", description: "Une chimie de l'eau appropriée est essentielle pour prévenir la croissance des algues, maintenir" },
+          { icon: "/one.svg", title: "Conception de piscine sur mesure", description: "Il est recommandé de faire nettoyer votre piscine par un professionnel au moins." },
+          { icon: "/cleaning.svg", title: "Entretion Piscine & SAV", description: "Confiez l’entretien annuel de votre piscine à un professionnel pour garantir son bon fonctionnement." },
+          { icon: "/cart.svg", title: "Vente en gros materiel Piscines & Mosaic", description: "Confiez vos projets à un fournisseur spécialisé pour du matériel de piscine et mosaïque de qualité." },
+          { icon: "/heating.svg", title: "Chauffage & climatisation", description: "Confiez l’installation et l’entretien à un professionnel pour un confort optimal." },
         ].map((service, index) => (
           <div
             key={index}

@@ -8,6 +8,7 @@ import AboutUs from "./AboutUs";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import Testimonials from "./Testimonials";
+import Clients from "./Clients";
 
 const Map = dynamic(() => import("./Map"), {
   ssr: false,
@@ -22,6 +23,7 @@ export default function Home() {
       <AboutUs />
       <Projects />
       <Testimonials />
+      <Clients />
       <Contact />
       <Map />
       <Footer />

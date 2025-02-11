@@ -8,7 +8,6 @@ interface StatCardProps {
   label: string;
 }
 
-// StatCard Component
 const StatCard: React.FC<StatCardProps> = ({ number, label }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -25,11 +24,9 @@ const StatCard: React.FC<StatCardProps> = ({ number, label }) => {
   );
 };
 
-// Main AboutUs Component
 const AboutUs: React.FC = () => {
   return (
     <div className='flex flex-col lg:flex-row'>
-      {/* Image Section */}
       <div className='w-full lg:w-1/2 flex items-center justify-center px-10'>
         <Image
           src="/about.jpg"
@@ -40,15 +37,12 @@ const AboutUs: React.FC = () => {
         />
       </div>
 
-      {/* Content Section */}
       <div className='w-full lg:w-1/2 space-y-6 p-10'>
-        {/* Title Section */}
         <div className='flex items-center space-x-3'>
           <span className='text-[#305eb8] text-xl font-semibold'>À propos de nous</span>
           <hr className='bg-[#305eb8] h-1 w-14' />
         </div>
 
-        {/* Heading and Description */}
         <div>
           <h2 className='py-5 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight'>
             Nagez en toute sérénité avec Swim Serenity Solutions
@@ -58,7 +52,6 @@ const AboutUs: React.FC = () => {
           </p>
         </div>
 
-        {/* Stats Section */}
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-5'>
           <StatCard number={2000} label="Projets terminés" />
           <StatCard number={164} label="Membres de l'équipe d'experts" />

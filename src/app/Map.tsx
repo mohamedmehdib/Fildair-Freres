@@ -18,7 +18,6 @@ const Map = () => {
 
   return (
     <div className={`flex flex-col items-center py-10`}>
-      {/* Title Section */}
       <div className='flex items-center justify-center py-5 space-x-4'>
         <hr className='bg-[#305eb8] h-1 w-10 sm:w-14' />
         <span className='text-[#305eb8] text-2xl sm:text-4xl font-semibold'>
@@ -27,7 +26,6 @@ const Map = () => {
         <hr className='bg-[#305eb8] h-1 w-10 sm:w-14' />
       </div>
 
-      {/* Map Container */}
       <div className="relative w-full sm:w-3/4 lg:w-1/2 rounded-lg overflow-hidden px-4 sm:px-6 md:px-8">
         <MapContainer
           center={position}

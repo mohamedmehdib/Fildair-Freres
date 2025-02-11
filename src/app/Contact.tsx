@@ -2,7 +2,6 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 
 export default function Contact() {
-  // State to manage form fields
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,7 +9,6 @@ export default function Contact() {
     message: '',
   });
 
-  // Handle input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -21,16 +19,14 @@ export default function Contact() {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevent page refresh
-    console.log('Form Data Submitted:', formData); // Log the form data (you can replace this with an API call)
-    setFormData({ name: '', email: '', subject: '', message: '' }); // Clear the form fields
+    e.preventDefault();
+    console.log('Form Data Submitted:', formData);
+    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   return (
     <div id='contact' className='pt-20'>
-      {/* Title Section */}
       <div className='flex items-center justify-center py-5 space-x-4 px-3'>
         <hr className='bg-[#305eb8] h-1 md:w-14 w-10' />
         <span className='text-[#305eb8] text-2xl sm:text-4xl font-semibold'>
@@ -39,9 +35,7 @@ export default function Contact() {
         <hr className='bg-[#305eb8] h-1 md:w-14 w-10' />
       </div>
 
-      {/* Contact Form */}
       <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row gap-8'>
-        {/* Left Section: Image */}
         <div className='w-full lg:w-1/2 h-64 lg:h-auto relative'>
           <Image
             src="/contact.jpg"
@@ -52,12 +46,10 @@ export default function Contact() {
           />
         </div>
 
-        {/* Right Section: Form */}
         <form
           onSubmit={handleSubmit}
           className='bg-white shadow-lg rounded-lg p-6 sm:p-8 space-y-4 w-full lg:w-1/2'
         >
-          {/* Name Field */}
           <div>
             <label htmlFor='name' className='block text-sm font-medium text-gray-700'>
               Nom complet
@@ -74,7 +66,6 @@ export default function Contact() {
             />
           </div>
 
-          {/* Email Field */}
           <div>
             <label htmlFor='email' className='block text-sm font-medium text-gray-700'>
               Adresse e-mail
@@ -91,7 +82,6 @@ export default function Contact() {
             />
           </div>
 
-          {/* Subject Field */}
           <div>
             <label htmlFor='subject' className='block text-sm font-medium text-gray-700'>
               Objet
@@ -108,7 +98,6 @@ export default function Contact() {
             />
           </div>
 
-          {/* Message Field */}
           <div>
             <label htmlFor='message' className='block text-sm font-medium text-gray-700'>
               Message
@@ -125,7 +114,6 @@ export default function Contact() {
             ></textarea>
           </div>
 
-          {/* Submit Button */}
           <div>
             <button
               type='submit'

@@ -5,7 +5,6 @@ import React from 'react';
 export default function Services() {
   return (
     <div id='services' className='flex flex-col lg:flex-row p-6 sm:p-10 lg:p-20 gap-8 lg:gap-12'>
-      {/* Left Section */}
       <div className='w-full lg:w-1/2 space-y-6'>
         <div className='flex items-center space-x-3'>
           <span className='text-[#305eb8] text-xl font-semibold'>Nos meilleurs services</span>
@@ -44,7 +43,6 @@ export default function Services() {
         </div>
       </div>
 
-      {/* Right Section */}
       <div className='w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6'>
         {[
           { icon: "/one.svg", title: "Conception de piscine sur mesure", description: "Il est recommandé de faire nettoyer votre piscine par un professionnel au moins" },

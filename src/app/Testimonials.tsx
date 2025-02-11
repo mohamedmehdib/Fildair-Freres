@@ -1,4 +1,4 @@
-'use client'; // Add this line for Next.js 13+ with the app directory
+'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -6,7 +6,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import Image from 'next/image';
 
-// Define the type for a testimonial
 interface Testimonial {
   id: number;
   name: string;
@@ -16,7 +15,6 @@ interface Testimonial {
   feedback: string;
 }
 
-// Sample testimonials data
 const testimonials: Testimonial[] = [
   {
     id: 1,
@@ -57,7 +55,7 @@ const testimonials: Testimonial[] = [
 ];
 
 export default function Testimonials(): React.ReactElement {
-  const swiperRef = useRef<HTMLElement | null>(null); // Ref for Swiper DOM element
+  const swiperRef = useRef<HTMLElement | null>(null);
   const [maxHeight, setMaxHeight] = useState<number>(0); // State for tallest slide height
 
   // Calculate the height of the tallest slide

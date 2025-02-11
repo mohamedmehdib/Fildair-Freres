@@ -5,6 +5,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import { supabase } from '@/lib/supabase';
 
 interface Testimonial {
   id: number;
@@ -15,64 +16,39 @@ interface Testimonial {
   feedback: string;
 }
 
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: 'John Doe',
-    role: 'CEO, Company A',
-    image: '/client1.jpeg',
-    stars: 5,
-    feedback:
-      'Swim Serenity Solutions transformed our pool maintenance process. Highly professional and reliable!',
-  },
-  {
-    id: 2,
-    name: 'Jane Smith',
-    role: 'Homeowner',
-    image: '/client2.jpg',
-    stars: 4,
-    feedback:
-      'The team is amazing! They made our pool crystal clear and provided excellent customer service.',
-  },
-  {
-    id: 3,
-    name: 'Michael Johnson',
-    role: 'Hotel Manager',
-    image: '/client3.jpeg',
-    stars: 5,
-    feedback:
-      'We rely on Swim Serenity Solutions for all our pool needs. They are efficient and trustworthy.',
-  },
-  {
-    id: 4,
-    name: 'Emily Davis',
-    role: 'Event Planner',
-    image: '/client4.jpg',
-    stars: 3,
-    feedback:
-      'Fantastic service! They ensured our event pool was spotless and safe for all guests.',
-  },
-];
-
 export default function Testimonials(): React.ReactElement {
   const swiperRef = useRef<HTMLElement | null>(null);
   const [maxHeight, setMaxHeight] = useState<number>(0);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
+  // Fetch testimonials from Supabase
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      const { data, error } = await supabase.from('testimonials').select('*');
+      if (error) {
+        console.error('Error fetching testimonials:', error);
+      } else {
+        setTestimonials(data as Testimonial[]);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
+
+  // Calculate max height for slides
   useEffect(() => {
     if (swiperRef.current) {
       const slides = swiperRef.current.querySelectorAll('.swiper-slide');
       let tallestHeight = 0;
-
       slides.forEach((slide: Element) => {
         const slideElement = slide as HTMLElement;
         if (slideElement.offsetHeight > tallestHeight) {
           tallestHeight = slideElement.offsetHeight;
         }
       });
-
       setMaxHeight(tallestHeight);
     }
-  }, []);
+  }, [testimonials]);
 
   return (
     <div className='pt-10 sm:pt-20'>
@@ -80,7 +56,6 @@ export default function Testimonials(): React.ReactElement {
         rel='stylesheet'
         href='https://unicons.iconscout.com/release/v4.0.8/css/line.css'
       />
-
       <div className='flex items-center justify-center py-5 space-x-4'>
         <hr className='bg-[#305eb8] h-1 w-10 sm:w-14' />
         <span className='text-[#305eb8] text-2xl sm:text-4xl font-semibold'>
@@ -88,7 +63,6 @@ export default function Testimonials(): React.ReactElement {
         </span>
         <hr className='bg-[#305eb8] h-1 w-10 sm:w-14' />
       </div>
-
       <div className='px-4 sm:px-10 pb-10 mx-4 sm:mx-10'>
         <Swiper
           modules={[Autoplay, Pagination]}
@@ -135,11 +109,9 @@ export default function Testimonials(): React.ReactElement {
                     className='rounded-full object-cover'
                   />
                 </div>
-
                 <p className='text-gray-600 italic text-sm sm:text-base mb-4 sm:mb-6'>
                   &quot;{testimonial.feedback}&quot;
                 </p>
-
                 <div>
                   <h3 className='text-lg sm:text-xl font-semibold text-[#305eb8]'>
                     {testimonial.name}
@@ -148,7 +120,6 @@ export default function Testimonials(): React.ReactElement {
                     {testimonial.role}
                   </p>
                 </div>
-
                 <div className='flex justify-center mt-3 sm:mt-4'>
                   {Array.from({ length: testimonial.stars }).map((_, index) => (
                     <i

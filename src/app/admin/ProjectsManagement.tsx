@@ -137,7 +137,7 @@ const ProjectsManagement = () => {
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Manage Projects</h2>
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Gérer les projets</h2>
 
       {/* Success and Error Messages */}
       {successMessage && (
@@ -158,7 +158,7 @@ const ProjectsManagement = () => {
             className="block text-gray-700 font-semibold mb-2"
             htmlFor="imageFile"
           >
-            Project Image
+            Image du projet
           </label>
           <input
             type="file"
@@ -177,15 +177,15 @@ const ProjectsManagement = () => {
           }`}
           disabled={loading}
         >
-          {loading ? "Saving Project..." : "Save Project"}
+          {loading ? "Sauvegarde du projet..." : "Sauvegarder le projet"}
         </button>
       </form>
 
       {/* List of Projects */}
       <div className="mt-8">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">Projects List</h3>
+        <h3 className="text-xl font-semibold text-gray-800 mb-4">Liste des projets</h3>
         {projects.length === 0 ? (
-          <p className="text-gray-600">No projects found.</p>
+          <p className="text-gray-600">Aucun projet trouvé.</p>
         ) : (
           <div className="space-y-4">
             {projects.map((project) => (
@@ -202,7 +202,7 @@ const ProjectsManagement = () => {
                   onClick={() => handleDeleteProject(project.id)}
                   className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
                 >
-                  Delete
+                  Supprimer
                 </button>
               </div>
             ))}

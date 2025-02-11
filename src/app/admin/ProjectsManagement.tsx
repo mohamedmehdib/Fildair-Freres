@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
+import Image from "next/image";
 
 interface Project {
   id: number;
@@ -193,7 +194,9 @@ const ProjectsManagement = () => {
                 key={project.id}
                 className="flex items-center justify-between p-4 border rounded-lg shadow-sm"
               >
-                <img
+                <Image
+                  width={500}
+                  height={500}
                   src={project.image_url}
                   alt={`Project ${project.id}`}
                   className="w-20 h-20 object-cover rounded-lg"

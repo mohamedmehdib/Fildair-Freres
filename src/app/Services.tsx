@@ -15,7 +15,7 @@ export default function Services() {
             Nos meilleurs services de piscine pour vous !
           </h2>
           <p className='text-zinc-500 text-sm sm:text-base'>
-            Nos services de sauveteurs en plongée en toute sécurité proposent des professionnels formés pour garantir un environnement de baignade sûr, et nous proposons également des recommandations pour des fonctionnalités de sécurité supplémentaires.
+          Leader en tunis des piscines en béton 33  ANS D’EXPERTISES À VOTRE SERVICE Découvrez toutes les possibilités qui s’offrent à vous pour que votre projet de construction, de rénovation ou d’aménagements (équipements, décoration, piscine connectée) correspondent parfaitement à vos exigences
           </p>
           <p className='text-zinc-600 font-medium py-4 text-sm sm:text-base'>
             Résultats de la consolidation d&apos;équipe de marque après une valeur de préparation Web premium, un e-business activé par le Web, un engagement stratégique activé par le Web...

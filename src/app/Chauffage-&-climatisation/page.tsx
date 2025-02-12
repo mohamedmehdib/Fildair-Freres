@@ -12,9 +12,10 @@ const Page: React.FC = () => {
         href='https://unicons.iconscout.com/release/v4.0.8/css/line.css'
       />
 
-      <div className="h-[60vh] flex justify-center items-center bg-[#274e9d]">
-        <div className="text-center">
-          <h1 className="text-6xl text-white font-medium w-2/3 mx-auto">
+      {/* Hero Section */}
+      <div className="h-[40vh] md:h-[60vh] flex pt-20 md:pt-0 justify-center items-center bg-[#274e9d]">
+        <div className="text-center px-4">
+          <h1 className="text-4xl md:text-6xl text-white font-medium w-full md:w-2/3 mx-auto">
             Chauffage & Climatisation
           </h1>
           <hr className="w-1/4 mx-auto border-2 border-white mt-4" />
@@ -22,20 +23,31 @@ const Page: React.FC = () => {
       </div>
 
       {/* Content Section */}
-      <div className="py-20 px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="py-12 md:py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {/* Left Column */}
-          <div className="space-y-8">
-            <h2 className="text-4xl font-bold text-[#274e9d]">Fildair FR</h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
+          <div className="space-y-6 md:space-y-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#274e9d]">
+              Fildair FR
+            </h2>
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed">
               En s’appuyant sur son bureau d’Etudes interne, Fildair Fr vous accompagne de l’étude d’avant-projet à la livraison clefs en main de vos installations chauffage & climatisation. Nous mettons en œuvre les solutions techniques adaptées pour la climatisation des grands ensembles tertiaires : villas de maître, hôtels, bureaux, etc.
             </p>
+
+            {/* Responsive Image Section */}
+            <div className="mt-8 md:mt-12">
+              <img
+                src="/chauffage.jpeg" // Replace with your image URL
+                alt="Chauffage & Climatisation"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
           </div>
 
           {/* Right Column */}
-          <div className="space-y-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-2xl font-semibold text-[#274e9d] mb-4">
+          <div className="space-y-6 md:space-y-8">
+            <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <h3 className="text-xl md:text-2xl font-semibold text-[#274e9d] mb-4">
                 Direction Technique, Chiffrage et Gestion de Projet
               </h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
@@ -45,8 +57,8 @@ const Page: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-2xl font-semibold text-[#274e9d] mb-4">
+            <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <h3 className="text-xl md:text-2xl font-semibold text-[#274e9d] mb-4">
                 Direction des Travaux et Suivi de Chantier
               </h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
@@ -56,8 +68,8 @@ const Page: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-2xl font-semibold text-[#274e9d] mb-4">
+            <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <h3 className="text-xl md:text-2xl font-semibold text-[#274e9d] mb-4">
                 Marché Public & Privé
               </h3>
               <p className="text-gray-700">

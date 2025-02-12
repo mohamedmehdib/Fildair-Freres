@@ -170,7 +170,6 @@ const UploadClient: React.FC = () => {
     });
   };
 
-  // Filter logos by type (client or partenaire)
   const clientLogos = logos.filter((logo) => logo.type === "client");
   const partenaireLogos = logos.filter((logo) => logo.type === "partenaire");
 

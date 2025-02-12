@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import React, { useState } from 'react';
+import { supabase } from '@/lib/supabase'; // Adjust the import path as needed
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -8,6 +11,8 @@ export default function Contact() {
     subject: '',
     message: '',
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false); // Track form submission state
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -19,10 +24,34 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form Data Submitted:', formData);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      // Insert form data into the "contacts" table in Supabase
+      const { data, error } = await supabase.from('contacts').insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+      ]);
+
+      if (error) {
+        throw error;
+      }
+
+      console.log('Form Data Submitted:', data);
+      alert('Message sent successfully!');
+      setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -117,9 +146,10 @@ export default function Contact() {
           <div>
             <button
               type='submit'
+              disabled={isSubmitting}
               className='w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#305eb8] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#305eb8]'
             >
-              Envoyer
+              {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
             </button>
           </div>
         </form>

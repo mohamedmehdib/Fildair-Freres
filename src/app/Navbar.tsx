@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,9 +11,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -27,6 +24,9 @@ export default function Navbar() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
+    } else {
+      // If the element doesn't exist, navigate to the home page and scroll to the section
+      window.location.href = `/#${id}`;
     }
   };
 
@@ -39,7 +39,6 @@ export default function Navbar() {
       <Link href="/" className="w-16">
         <Image src="/logo.png" alt="Logo" width={500} height={500} />
       </Link>
-
       <button
         onClick={toggleMenu}
         className="md:hidden text-white focus:outline-none"
@@ -76,7 +75,6 @@ export default function Navbar() {
           </svg>
         )}
       </button>
-
       <ul className="hidden md:flex space-x-8 text-lg text-white">
         <li>
           <button
@@ -145,14 +143,12 @@ export default function Navbar() {
           </button>
         </li>
       </ul>
-
       <Link
         href="/Account"
         className="hidden md:block bg-white text-[#274e9d] rounded-lg text-lg font-medium px-4 py-2 border-2 border-white hover:bg-[#274e9d] hover:text-white transition-colors"
       >
         Account
       </Link>
-
       <div
         className={`md:hidden absolute top-full left-0 w-full bg-[#274e9d] shadow-lg overflow-hidden transition-all duration-500 ${
           isMenuOpen ? "max-h-96" : "max-h-0"

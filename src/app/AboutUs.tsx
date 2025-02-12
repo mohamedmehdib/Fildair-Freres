@@ -54,9 +54,9 @@ const AboutUs: React.FC = () => {
 
         {/* Replaced grid with flex */}
         <div className='flex flex-wrap justify-center gap-5'>
-          <StatCard number={2500} label="Projets terminés" />
-          <StatCard number={50} label="Membres de l'équipe d'experts" />
-          <StatCard number={3000} label="Clients satisfaits" />
+          <StatCard number={1500} label="Projets terminés" />
+          <StatCard number={30} label="Membres de l'équipe d'experts" />
+          <StatCard number={2000} label="Clients satisfaits" />
         </div>
       </div>
     </div>

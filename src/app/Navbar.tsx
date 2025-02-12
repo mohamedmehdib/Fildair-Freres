@@ -102,7 +102,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                href="/Service2"
+                href="/Entretion-Piscine-&-SAV"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
                 Entretion Piscine & SAV
@@ -110,7 +110,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                href="/Service3"
+                href="/Vente-en-gros-materiel-Piscines-&-Mosaic"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
                 Vente en gros materiel Piscines & Mosaic
@@ -118,7 +118,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                href="/Service4"
+                href="/Chauffage-&-climatisation"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
                 Chauffage & climatisation

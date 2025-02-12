@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="text-left">
             <h3 className="text-xl font-semibold text-blue-700 mb-4">Contactez-nous</h3>
             <ul className="space-y-2 text-gray-600">
-              <li>Phone: <span className="font-medium">23 456 789</span></li>
+              <li>Service client: <span className="font-medium">71 865 319</span></li>
               <li>Email: filderefreres@gmail.com</li>
               <li>Adresse : Imm Rahma Rue Mongi Bali korniche Sousse 4056</li>
             </ul>

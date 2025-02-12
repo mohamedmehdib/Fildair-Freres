@@ -17,9 +17,6 @@ export default function Services() {
           <p className='text-zinc-500 text-sm sm:text-base'>
           Leader en tunis des piscines en béton 33  ANS D’EXPERTISES À VOTRE SERVICE Découvrez toutes les possibilités qui s’offrent à vous pour que votre projet de construction, de rénovation ou d’aménagements (équipements, décoration, piscine connectée) correspondent parfaitement à vos exigences
           </p>
-          <p className='text-zinc-600 font-medium py-4 text-sm sm:text-base'>
-            Résultats de la consolidation d&apos;équipe de marque après une valeur de préparation Web premium, un e-business activé par le Web, un engagement stratégique activé par le Web...
-          </p>
         </div>
         <div className='flex items-center space-x-5'>
           <Image
@@ -40,6 +37,10 @@ export default function Services() {
             height={100}
             className='pl-4 w-16 sm:w-24 transition-transform duration-300'
           />
+        </div>
+        <div className='text-zinc-600 font-medium py-4 text-sm sm:text-base'>
+          <p>Pisciniste De Pere en Fils Expert de la Construction et de l'équipement des Piscines Public & Privé.</p>
+          <p className='mt-2'>Depuis plus de 20 ans, Bilel Abassi accompagne l'entreprise familiale pour la réalisation, rénovation, équipement et autres des Piscines.</p>
         </div>
       </div>
 

@@ -177,7 +177,7 @@ const UploadClient: React.FC = () => {
   return (
     <div className="p-4 sm:p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center">
-        {editingLogo ? "Edit Logo" : "Upload New Logo"}
+        {editingLogo ? "Editer un logo" : "Télécharger nouveau logo"}
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -219,10 +219,10 @@ const UploadClient: React.FC = () => {
           className="bg-[#305eb8] text-white px-4 py-2 rounded hover:bg-blue-700 transition w-full"
         >
           {isUploading
-            ? "Processing..."
+            ? "Traitement..."
             : editingLogo
-            ? "Update"
-            : "Upload"}
+            ? "Mise à jour"
+            : "Télécharger"}
         </button>
       </form>
 
@@ -249,13 +249,13 @@ const UploadClient: React.FC = () => {
                     onClick={() => handleEdit(logo)}
                     className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 transition"
                   >
-                    Edit
+                    Editer
                   </button>
                   <button
                     onClick={() => handleDelete(logo.id)}
                     className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 transition"
                   >
-                    Delete
+                    Supprimer
                   </button>
                 </div>
               </li>

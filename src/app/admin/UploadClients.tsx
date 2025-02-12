@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase"; // Adjust the import path as needed
+import Image from "next/image";
 
 interface Logo {
   id: number;
@@ -237,7 +238,9 @@ const UploadClient: React.FC = () => {
                 key={logo.id}
                 className="bg-gray-50 p-4 rounded-lg shadow-md flex flex-col items-center"
               >
-                <img
+                <Image
+                  height={500}
+                  width={500}
                   src={logo.src}
                   alt={logo.alt}
                   className="h-16 w-auto mb-4"
@@ -275,7 +278,9 @@ const UploadClient: React.FC = () => {
                 key={logo.id}
                 className="bg-gray-50 p-4 rounded-lg shadow-md flex flex-col items-center"
               >
-                <img
+                <Image
+                  height={500}
+                  width={500}
                   src={logo.src}
                   alt={logo.alt}
                   className="h-16 w-auto mb-4"

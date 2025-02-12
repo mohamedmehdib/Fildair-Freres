@@ -121,7 +121,7 @@ export default function Navbar() {
                 href="/Chauffage-&-climatisation"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
-                Chauffage & climatisation
+                Chauffage & Climatisation
               </Link>
             </li>
           </ul>

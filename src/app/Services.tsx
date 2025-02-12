@@ -39,8 +39,8 @@ export default function Services() {
           />
         </div>
         <div className='text-zinc-600 font-medium py-4 text-sm sm:text-base'>
-          <p>Pisciniste De Pere en Fils Expert de la Construction et de l'équipement des Piscines Public & Privé.</p>
-          <p className='mt-2'>Depuis plus de 20 ans, Bilel Abassi accompagne l'entreprise familiale pour la réalisation, rénovation, équipement et autres des Piscines.</p>
+          <p>Pisciniste De Pere en Fils Expert de la Construction et de l&apos;équipement des Piscines Public & Privé.</p>
+          <p className='mt-2'>Depuis plus de 20 ans, Bilel Abassi accompagne l&apos;entreprise familiale pour la réalisation, rénovation, équipement et autres des Piscines.</p>
         </div>
       </div>
 
@@ -49,7 +49,7 @@ export default function Services() {
           { icon: "/one.svg", title: "Conception de piscine sur mesure", description: "Il est recommandé de faire nettoyer votre piscine par un professionnel au moins." ,url:"Conception-de-piscine-sur-mesure"},
           { icon: "/cleaning.svg", title: "Entretion Piscine & SAV", description: "Confiez l’entretien annuel de votre piscine à un professionnel pour garantir son bon fonctionnement." ,url:"Entretion-Piscine-&-SAV" },
           { icon: "/cart.svg", title: "Vente en gros materiel Piscines & Mosaic", description: "Confiez vos projets à un fournisseur spécialisé pour du matériel de piscine et mosaïque de qualité." ,url:"Vente-en-gros-materiel-Piscines-&-Mosaic"},
-          { icon: "/heating.svg", title: "Chauffage & climatisation", description: "Confiez l’installation et l’entretien à un professionnel pour un confort optimal." ,url:"Chauffage-&-climatisation"},
+          { icon: "/heating.svg", title: "Chauffage & Climatisation", description: "Confiez l’installation et l’entretien à un professionnel pour un confort optimal." ,url:"Chauffage-&-climatisation"},
         ].map((service, index) => (
           <div
             key={index}

@@ -94,7 +94,7 @@ export default function Navbar() {
           <ul className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-[#274e9d] shadow-lg rounded-lg mt-2 py-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
             <li>
               <Link
-                href="/Service1"
+                href="/Conception-de-piscine-sur-mesure"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
                 Conception de piscine sur mesure

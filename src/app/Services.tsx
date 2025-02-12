@@ -45,10 +45,10 @@ export default function Services() {
 
       <div className='w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6'>
         {[
-          { icon: "/one.svg", title: "Conception de piscine sur mesure", description: "Il est recommandé de faire nettoyer votre piscine par un professionnel au moins." },
-          { icon: "/cleaning.svg", title: "Entretion Piscine & SAV", description: "Confiez l’entretien annuel de votre piscine à un professionnel pour garantir son bon fonctionnement." },
-          { icon: "/cart.svg", title: "Vente en gros materiel Piscines & Mosaic", description: "Confiez vos projets à un fournisseur spécialisé pour du matériel de piscine et mosaïque de qualité." },
-          { icon: "/heating.svg", title: "Chauffage & climatisation", description: "Confiez l’installation et l’entretien à un professionnel pour un confort optimal." },
+          { icon: "/one.svg", title: "Conception de piscine sur mesure", description: "Il est recommandé de faire nettoyer votre piscine par un professionnel au moins." ,url:"Conception-de-piscine-sur-mesure"},
+          { icon: "/cleaning.svg", title: "Entretion Piscine & SAV", description: "Confiez l’entretien annuel de votre piscine à un professionnel pour garantir son bon fonctionnement." ,url:"Entretion-Piscine-&-SAV" },
+          { icon: "/cart.svg", title: "Vente en gros materiel Piscines & Mosaic", description: "Confiez vos projets à un fournisseur spécialisé pour du matériel de piscine et mosaïque de qualité." ,url:"Vente-en-gros-materiel-Piscines-&-Mosaic"},
+          { icon: "/heating.svg", title: "Chauffage & climatisation", description: "Confiez l’installation et l’entretien à un professionnel pour un confort optimal." ,url:"Chauffage-&-climatisation"},
         ].map((service, index) => (
           <div
             key={index}
@@ -66,7 +66,7 @@ export default function Services() {
             <h3 className='text-xl sm:text-2xl font-semibold'>{service.title}</h3>
             <p className='text-zinc-500 text-sm sm:text-base'>{service.description}</p>
             <Link
-              href="/"
+              href={`/${service.url}`}
               className='inline-block px-4 py-2 sm:px-5 sm:py-3 rounded-md bg-[#274e9d] text-white text-sm sm:text-base border-2 border-[#274e9d] hover:bg-white hover:text-[#274e9d] transition-colors duration-300'
             >
               En savoir plus

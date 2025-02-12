@@ -45,7 +45,7 @@ const Clients: React.FC = () => {
         <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
       </div>
       <div className="">
-        <Marquee speed={50} gradient={false} direction="left" loop={0}>
+        <Marquee speed={50} gradient={false} direction="left" pauseOnHover loop={0}>
           {clientLogos.map((logo) => (
             <div key={logo.id} className="flex-shrink-0 px-5">
               <Image
@@ -69,7 +69,7 @@ const Clients: React.FC = () => {
         <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
       </div>
       <div className="">
-        <Marquee speed={50} gradient={false} direction="left" loop={0}>
+        <Marquee speed={50} gradient={false} direction="right" pauseOnHover loop={0}>
           {[...partenaireLogos,...partenaireLogos,...partenaireLogos].map((logo, index) => (
             <div key={index} className="flex-shrink-0 px-5">
               <Image

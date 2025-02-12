@@ -57,7 +57,7 @@ const Page: React.FC = () => {
           {[
             { icon: <i className="uil uil-truck"></i>, title: 'Frais de livraison réduit' },
             { icon: <i className="uil uil-sync"></i>, title: '14 jours pour le retour' },
-            { icon: <i className="uil uil-comments"></i>, title: 'Du lundi au vendredi - 71 865 319' },
+            { icon: <i className="uil uil-comments"></i>, title: 'Du lundi au vendredi - 71865319' },
             { icon: <i className="uil uil-lock"></i>, title: 'Paiement sécurisé' },
           ].map((service, index) => (
             <div

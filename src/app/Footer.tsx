@@ -26,7 +26,7 @@ export default function Footer() {
             <h3 className="text-xl font-semibold text-blue-700 mb-4">Contactez-nous</h3>
             <ul className="space-y-2 text-gray-600">
               <li>Service client: <span className="font-medium">71 865 319</span></li>
-              <li>Email: filderefreres@gmail.com</li>
+              <li>Email: fildairfreres@gmail.com</li>
               <li>Adresse : km 13 av fatouma bourguiba la soukra 2036 en face UTC</li>
             </ul>
           </div>

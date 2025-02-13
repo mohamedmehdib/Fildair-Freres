@@ -46,7 +46,7 @@ export default function Services() {
 
       <div className='w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6'>
         {[
-          { icon: "/one.svg", title: "Conception de piscine sur mesure", description: "Il est recommandé de faire nettoyer votre piscine par un professionnel au moins." ,url:"Conception-de-piscine-sur-mesure"},
+          { icon: "/one.svg", title: "Conception de piscine sur mesure", description: "Contacter nous pour un devis gratuit de construction ou de renovation piscine." ,url:"Conception-de-piscine-sur-mesure"},
           { icon: "/cleaning.svg", title: "Entretion Piscine & SAV", description: "Confiez l’entretien annuel de votre piscine à un professionnel pour garantir son bon fonctionnement." ,url:"Entretion-Piscine-&-SAV" },
           { icon: "/cart.svg", title: "Vente en gros materiel Piscines & Mosaic", description: "Confiez vos projets à un fournisseur spécialisé pour du matériel de piscine et mosaïque de qualité." ,url:"Vente-en-gros-materiel-Piscines-&-Mosaic"},
           { icon: "/heating.svg", title: "Chauffage & Climatisation", description: "Confiez l’installation et l’entretien à un professionnel pour un confort optimal." ,url:"Chauffage-&-climatisation"},

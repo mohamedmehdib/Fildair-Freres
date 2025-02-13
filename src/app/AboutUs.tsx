@@ -45,7 +45,7 @@ const AboutUs: React.FC = () => {
 
         <div>
           <h2 className='py-5 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight'>
-            Nagez en toute sérénité avec Swim Serenity Solutions
+            Nager en toute serenite avec piscines fildair freres tunisie
           </h2>
           <p className='text-zinc-500 text-sm sm:text-base'>
           Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel et mosaïque, ainsi que l&lsquo;installation de chauffage et climatisation. Avec plus de 20 ans d&lsquo;expérience, nous garantissons des solutions personnalisées et de qualité pour répondre à tous vos besoins. Confiez-nous votre projet et bénéficiez d&lsquo;un devis gratuit !          </p>

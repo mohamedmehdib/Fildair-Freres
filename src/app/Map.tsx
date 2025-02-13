@@ -5,7 +5,7 @@ import { LatLngExpression } from "leaflet";
 import Link from "next/link";
 
 const Map = () => {
-  const position: LatLngExpression = [36.877076, 10.267437];
+  const position: LatLngExpression = [36.87884987742904, 10.26525650200852];
 
   const customIcon = new L.Icon({
     iconUrl: "https://unpkg.com/leaflet/dist/images/marker-icon.png",
@@ -36,7 +36,7 @@ const Map = () => {
           <Marker position={position} icon={customIcon}>
             <Popup>
               <Link
-                href="https://maps.app.goo.gl/k4gyco8djFqH3KwYA"
+                href="https://www.google.com/maps/place/Fildair+La+Soukra/@36.8786954,10.2651814,17z/data=!3m1!4b1!4m6!3m5!1s0x12e2b5b16a9ce5af:0x2309fb1d7f736219!8m2!3d36.8786954!4d10.2651814!16s%2Fg%2F11kptsd4hs?entry=ttu&g_ep=EgoyMDI1MDIxMS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 className="text-blue-600 hover:underline"
               >

@@ -27,7 +27,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-600">
               <li>Service client: <span className="font-medium">71 865 319</span></li>
               <li>Email: filderefreres@gmail.com</li>
-              <li>Adresse : Imm Rahma Rue Mongi Bali korniche Sousse 4056</li>
+              <li>Adresse : km 13 av fatouma bourguiba la soukra 2036 en face UTC</li>
             </ul>
           </div>
         </div>

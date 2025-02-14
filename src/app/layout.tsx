@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 
 export const metadata: Metadata = {
   title: "Fildair Freres",
-  description: "The ultimate destination for all your shopping needs.",
+  description: "Piscines Fildair Freres Tunisie",
 };
 
 export default function RootLayout({

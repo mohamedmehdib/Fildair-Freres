@@ -6,6 +6,7 @@ import UploadTestimonial from "./UploadTestimonial";
 import UploadClient from "./UploadClients";
 import MessagesList from "./ContactMessage";
 import UploadPiscine from "./UploadPiscine";
+import UploadMosaique from "./UploadMosaique";
 
 const AdminDashboard = () => {
   const [email, setEmail] = useState("");
@@ -149,7 +150,8 @@ const AdminDashboard = () => {
         {activeComponent === "ClientsManagement" && <UploadClient />}
         {activeComponent === "MessageList" && <MessagesList />}
         {activeComponent === "Piscine" && <UploadPiscine />}
-        
+        {activeComponent === "Mosaique" && <UploadMosaique />}
+   
       </div>
     </div>
   );

@@ -54,7 +54,12 @@ const UploadForm: React.FC = () => {
       setFile(null);
       setCategory('');
     } catch (err) {
-      setError(err.message || 'An error occurred while uploading the image.');
+      // Safely handle the error
+      if (err instanceof Error) {
+        setError(err.message || 'An error occurred while uploading the image.');
+      } else {
+        setError('An unknown error occurred.');
+      }
     } finally {
       setLoading(false);
     }

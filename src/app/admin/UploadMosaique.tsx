@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 
-const UploadForm: React.FC = () => {
+const UploadMosaique: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [category, setCategory] = useState('');
   const [loading, setLoading] = useState(false);
@@ -110,4 +110,4 @@ const UploadForm: React.FC = () => {
   );
 };
 
-export default UploadForm;
+export default UploadMosaique;

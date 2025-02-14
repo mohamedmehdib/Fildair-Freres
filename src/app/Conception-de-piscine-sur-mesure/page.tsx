@@ -1,9 +1,20 @@
-import React from 'react';
-import Navbar from '../Navbar';
-import Footer from '../Footer';
-import Image from 'next/image';
+// app/Conception-de-piscine-sur-mesure/page.tsx
+import React from "react";
+import Navbar from "../Navbar";
+import Footer from "../Footer";
+import Slider from "./Slider"; // Import the Slider component
 
 export default function Page() {
+  const images = [
+    { src: "/w1.jpeg" },
+    { src: "/w2.jpeg" },
+    { src: "/w3.jpeg" },
+    { src: "/w4.jpeg" },
+    { src: "/w5.jpeg" },
+    { src: "/w6.jpeg" },
+    { src: "/w7.jpeg" },
+  ];
+
   return (
     <div>
       {/* Navbar */}
@@ -36,14 +47,8 @@ export default function Page() {
           </div>
 
           {/* Image Aside */}
-          <div className="flex-1">
-            <Image
-              src="/conception.jpg"
-              height={500}
-              width={500}
-              alt="Piscine sur mesure"
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
+          <div className="flex-1 max-w-full overflow-hidden">
+            <Slider images={images} /> {/* Use the Slider component here */}
           </div>
         </div>
       </div>

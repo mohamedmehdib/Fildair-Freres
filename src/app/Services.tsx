@@ -15,7 +15,7 @@ export default function Services() {
             Nos meilleurs services de piscine pour vous !
           </h2>
           <p className='text-zinc-500 text-sm sm:text-base'>
-            N°1 en Tunisie pour les piscines en béton 20 ans d'expérience à votre service Découvrez toutes les possibilités qui s'offrent à vous pour que votre projet de construction, de rénovation ou d'aménagement (équipement, décoration, piscine connectée) réponde parfaitement à vos exigences.
+            N°1 en Tunisie pour les piscines en béton 20 ans d&apos;expérience à votre service Découvrez toutes les possibilités qui s&apos;offrent à vous pour que votre projet de construction, de rénovation ou d&apos;aménagement (équipement, décoration, piscine connectée) réponde parfaitement à vos exigences.
           </p>
         </div>
         <div className='flex items-center space-x-5'>

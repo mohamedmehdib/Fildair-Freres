@@ -6,6 +6,21 @@ import Slider from "./Slider"; // Import the Slider component
 
 export default function Page() {
   const images = [
+    { src: "/bilel.jpeg" },
+    { src: "/x1.jpeg" },
+    { src: "/x2.jpeg" },
+    { src: "/x3.jpeg" },
+    { src: "/x4.jpeg" },
+    { src: "/x5.jpeg" },
+    { src: "/x6.jpeg" },
+    { src: "/x7.jpeg" },
+    { src: "/x8.jpeg" },
+    { src: "/x9.jpeg" },
+    { src: "/x10.jpeg" },
+    { src: "/x11.jpeg" },
+    { src: "/x12.jpeg" },
+    { src: "/x13.jpeg" },
+    { src: "/x14.jpeg" },
     { src: "/w1.jpeg" },
     { src: "/w2.jpeg" },
     { src: "/w3.jpeg" },

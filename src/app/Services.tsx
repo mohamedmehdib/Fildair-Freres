@@ -20,7 +20,7 @@ export default function Services() {
         </div>
         <div className='flex items-center space-x-5'>
           <Image
-            src="/ceo.jpg"
+            src="/ceo.jpeg"
             alt='ceo'
             width={100}
             height={100}

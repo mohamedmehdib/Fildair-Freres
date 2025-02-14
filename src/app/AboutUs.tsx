@@ -48,7 +48,8 @@ const AboutUs: React.FC = () => {
             Nager en toute serenite avec piscines fildair freres tunisie
           </h2>
           <p className='text-zinc-500 text-sm sm:text-base'>
-          Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel et mosaïque, ainsi que l&lsquo;installation de chauffage et climatisation. Avec plus de 20 ans d&lsquo;expérience, nous garantissons des solutions personnalisées et de qualité pour répondre à tous vos besoins. Confiez-nous votre projet et bénéficiez d&lsquo;un devis gratuit !          </p>
+            Fildair Frères vous offre des services complets pour vos projets de piscine : conception sur mesure, rénovation, entretien annuel, vente en gros d'équipements et de mosaïques, ainsi que l'installation de chauffage et de climatisation. Avec plus de 20 ans d'expérience, nous vous garantissons des solutions personnalisées et de qualité pour répondre à tous vos besoins. Confiez-nous votre projet et obtenez un devis gratuit !      
+          </p>
         </div>
 
         {/* Replaced grid with flex */}

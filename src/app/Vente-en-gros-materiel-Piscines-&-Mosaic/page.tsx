@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Page: React.FC = () => {
   return (
@@ -49,6 +50,44 @@ const Page: React.FC = () => {
               alt="Piscine sur mesure"
               className="w-full h-auto rounded-lg shadow-lg"
             />
+          </div>
+        </div>
+
+        {/* Image Grid Section */}
+        <div className="mt-8">
+          <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-8">
+            <div className="text-center">
+              <h2 className="text-xl md:text-2xl font-semibold text-[#274e9d] mb-4">
+                Découvrir nos équipements piscines
+              </h2>
+              <div className="w-[300px] h-[300px] overflow-hidden rounded-lg mx-auto shadow-md">
+                <Link href="/Vente-en-gros-materiel-Piscines-&-Mosaic/Equipements-Piscines">
+                  <Image
+                    src="/emau.jpg"
+                    alt="Emaux"
+                    width={300}
+                    height={300}
+                    className="w-full h-full p-5 object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="text-center">
+              <h2 className="text-xl md:text-2xl font-semibold text-[#274e9d] mb-4">
+                Découvrir nos mosaïques piscines
+              </h2>
+              <div className="w-[300px] h-[300px] overflow-hidden rounded-lg mx-auto shadow-md">
+                <Link href="">
+                  <Image
+                    src="/prestigio.jpg"
+                    alt="Prestigio"
+                    width={300}
+                    height={300}
+                    className="w-full h-full p-5 object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 

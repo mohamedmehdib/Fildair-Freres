@@ -1,13 +1,20 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase'; // Ensure this path is correct
 import Navbar from '../../Navbar';
 import Footer from '../../Footer';
+
+// Define the type for gallery items
+interface GalleryItem {
+  id: number;
+  src: string;
+  category: string;
+}
 
 const Page: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [galleryData, setGalleryData] = useState([]); // State to store fetched data
+  const [galleryData, setGalleryData] = useState<GalleryItem[]>([]); // Explicitly define the type
   const [loading, setLoading] = useState(true); // Loading state
 
   // Fetch data from Supabase
@@ -15,14 +22,15 @@ const Page: React.FC = () => {
     const fetchData = async () => {
       try {
         const { data, error } = await supabase
-          .from('equipements')
+          .from('equipements') // Ensure the table name is correct
           .select('*'); // Fetch all rows from the equipements table
 
         if (error) {
           throw error;
         }
 
-        setGalleryData(data || []); // Set fetched data
+        // Cast the data to the GalleryItem type
+        setGalleryData((data as GalleryItem[]) || []); // Set fetched data
       } catch (err) {
         console.error('Error fetching data:', err);
       } finally {

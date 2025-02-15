@@ -5,10 +5,10 @@ import "leaflet/dist/leaflet.css";
 export const metadata: Metadata = {
   title: {
     default: "Fildair Frères - Piscines et Équipements en Tunisie",
-    template: "%s | Fildair Frères", // Dynamic title for child pages
+    template: "%s | Fildair Frères", // Dynamic title
   },
   description:
-    "Découvrez Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie. Nous offrons des solutions de qualité pour vos projets de piscines.",
+    "Découvrez Fildair Fr&egrave;res, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
   keywords: [
     "piscines Tunisie",
     "équipements piscines",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fildair Frères - Piscines et Équipements en Tunisie",
     description:
-      "Découvrez Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
+      "Découvrez Fildair Fr&egrave;res, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
     url: "https://piscinesfildairfrerestunisie.com",
     siteName: "Fildair Frères",
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Fildair Frères - Piscines et Équipements en Tunisie",
     description:
-      "Découvrez Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
+      "Découvrez Fildair Fr&egrave;res, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
     images: ["https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75"],
   },
   robots: {
@@ -77,7 +77,7 @@ export default function RootLayout({
     name: "Fildair Frères",
     image: "https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75",
     description:
-      "Découvrez Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
+      "Découvrez Fildair Fr&egrave;res, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
     address: {
       "@type": "PostalAddress",
       streetAddress: "km 13 av Fatouma Bourguiba",
@@ -98,7 +98,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -108,9 +108,7 @@ export default function RootLayout({
           {JSON.stringify(structuredData)}
         </script>
       </head>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -18,7 +18,7 @@ const Page: React.FC = () => {
       <div className="h-[40vh] md:h-[60vh] flex pt-20 md:pt-0 justify-center items-center bg-[#274e9d]">
         <div className="text-center px-4">
           <h1 className="text-4xl md:text-6xl text-white font-medium w-full md:w-2/3 mx-auto leading-tight">
-            Vente en gros materiel Piscines & Mosaic
+            Vente en gros materiel Piscines & Mosaique
           </h1>
           <hr className="w-1/4 mx-auto border-2 border-white mt-4" />
         </div>
@@ -61,7 +61,7 @@ const Page: React.FC = () => {
                 Découvrir nos équipements piscines
               </h2>
               <div className="w-[300px] h-[300px] overflow-hidden rounded-lg mx-auto shadow-md">
-                <Link href="/Vente-en-gros-materiel-Piscines-&-Mosaic/Equipements-Piscines">
+                <Link href="/Vente-en-gros-materiel-Piscines-&-Mosaique/Equipements-Piscines">
                   <Image
                     src="/emau.jpg"
                     alt="Emaux"
@@ -77,7 +77,7 @@ const Page: React.FC = () => {
                 Découvrir nos mosaïques piscines
               </h2>
               <div className="w-[300px] h-[300px] overflow-hidden rounded-lg mx-auto shadow-md">
-                <Link href="/Vente-en-gros-materiel-Piscines-&-Mosaic/Mosaique-Piscines">
+                <Link href="/Vente-en-gros-materiel-Piscines-&-Mosaique/Mosaique-Piscines">
                   <Image
                     src="/prestigio.jpg"
                     alt="Prestigio"

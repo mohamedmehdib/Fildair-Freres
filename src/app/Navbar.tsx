@@ -110,10 +110,10 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                href="/Vente-en-gros-materiel-Piscines-&-Mosaic"
+                href="/Vente-en-gros-materiel-Piscines-&-Mosaique"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
-                Vente en gros materiel Piscines & Mosaic
+                Vente en gros materiel Piscines & Mosaique
               </Link>
             </li>
             <li>

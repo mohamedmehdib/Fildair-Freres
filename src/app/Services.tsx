@@ -39,7 +39,7 @@ export default function Services() {
           />
         </div>
         <div className='text-zinc-600 font-medium py-4 text-sm sm:text-base'>
-          <p>Pisciniste De Pere en Fils Expert de la Construction et de l&apos;équipement des Piscines Public & Privé.</p>
+          <p>Pisciniste De Père en Fils Expert de la Construction et de l&apos;équipement des Piscines Public & Privé.</p>
           <p className='mt-2'>Depuis plus de 20 ans, Bilel Abassi accompagne l&apos;entreprise familiale pour la réalisation, rénovation, équipement et autres des Piscines.</p>
         </div>
       </div>

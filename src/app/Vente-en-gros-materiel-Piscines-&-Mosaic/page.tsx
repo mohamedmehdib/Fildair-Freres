@@ -33,7 +33,7 @@ const Page: React.FC = () => {
               Nous sommes ravis de vous accueillir dans notre showroom situé à la Soukra, réservé aux professionnels et particuliers. Vous y trouverez tous les équipements nécessaires à l’élaboration de votre chantier. N’hésitez pas à nous contacter pour toute assistance technique dans vos devis ou pour trouver des équipements auxquels nous n’aurions pas pensé.
             </p>
             <p className="text-base md:text-lg text-gray-700 mb-4">
-              Forts d’une expérience de plus de quinze ans, nous attachons une importance toute particulière à vous accompagner dans vos projets et les mener à terme.
+              Forts d’une expérience de plus de 20 ans, nous attachons une importance toute particulière à vous accompagner dans vos projets et les mener à terme.
             </p>
             <p className="text-base md:text-lg text-gray-700 font-semibold">
               Merci de votre intérêt pour notre passion, <br />

@@ -45,7 +45,7 @@ const AboutUs: React.FC = () => {
 
         <div>
           <h2 className='py-5 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight'>
-            Nager en toute sérénité avec Piscines Fildair Freres tunisie
+            Nager en toute sérénité avec Piscines Fildair Frères tunisie
           </h2>
           <p className='text-zinc-500 text-sm sm:text-base'>
             Fildair Frères vous offre des services complets pour vos projets de piscine : conception sur mesure, rénovation, entretien annuel, vente en gros d&apos;équipements et de mosaïques, ainsi que l&apos;installation de chauffage et de climatisation. Avec plus de 20 ans d&apos;expérience, nous vous garantissons des solutions personnalisées et de qualité pour répondre à tous vos besoins. Confiez-nous votre projet et obtenez un devis gratuit !      
@@ -54,9 +54,9 @@ const AboutUs: React.FC = () => {
 
         {/* Replaced grid with flex */}
         <div className='flex flex-wrap justify-center gap-5'>
-          <StatCard number={1500} label="Projets terminés" />
+          <StatCard number={500} label="Projets terminés" />
           <StatCard number={30} label="Membres de l'équipe d'experts" />
-          <StatCard number={2000} label="Clients satisfaits" />
+          <StatCard number={1000} label="Clients satisfaits" />
         </div>
       </div>
     </div>

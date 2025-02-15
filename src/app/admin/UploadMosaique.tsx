@@ -24,7 +24,6 @@ const UploadMosaique: React.FC = () => {
 
   const [categories, setCategories] = useState<PiscineCategoryItem[]>([]); // State to store fetched categories
   const [newCategory, setNewCategory] = useState(''); // State for adding new categories
-  const [editingCategory, setEditingCategory] = useState<PiscineCategoryItem | null>(null); // State for editing categories
 
   // Fetch items from Supabase
   useEffect(() => {

@@ -12,7 +12,6 @@ interface GalleryItem {
 }
 
 const Page: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [galleryData, setGalleryData] = useState<GalleryItem[]>([]); // State for gallery items
   const [categories, setCategories] = useState<string[]>([]); // State for categories
@@ -62,12 +61,9 @@ const Page: React.FC = () => {
   // Filter data based on search term and selected category
   const filteredGallery = galleryData.filter((item) => {
     const category = item.category || ''; // Fallback to empty string if category is null
-    const matchesSearch = category
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
     const matchesCategory =
       selectedCategory === 'all' || category === selectedCategory;
-    return matchesSearch && matchesCategory;
+    return matchesCategory;
   });
 
   return (
@@ -90,17 +86,6 @@ const Page: React.FC = () => {
         {/* Aside (Filters) */}
         <aside className="w-full md:w-64 bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4">Filtres</h2>
-
-          {/* Search Bar */}
-          <div className="mb-6">
-            <input
-              type="text"
-              placeholder="Rechercher..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-md"
-            />
-          </div>
 
           {/* Category Filters */}
           <div className="space-y-2">

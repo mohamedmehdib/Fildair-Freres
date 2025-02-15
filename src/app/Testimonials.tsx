@@ -5,6 +5,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { supabase } from '@/lib/supabase';
+import { Swiper as SwiperType } from 'swiper/types';
 
 interface Testimonial {
   id: number;
@@ -17,7 +18,7 @@ interface Testimonial {
 export default function Testimonials(): React.ReactElement {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [maxHeight, setMaxHeight] = useState<number>(0);
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   // Fetch testimonials from Supabase
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function Testimonials(): React.ReactElement {
   useEffect(() => {
     if (swiperRef.current) {
       const updateMaxHeight = () => {
-        const slides = swiperRef.current.el?.querySelectorAll('.swiper-slide');
+        const slides = swiperRef.current?.el?.querySelectorAll('.swiper-slide');
         let tallestHeight = 0;
         slides?.forEach((slide: Element) => {
           tallestHeight = Math.max(tallestHeight, (slide as HTMLElement).offsetHeight);

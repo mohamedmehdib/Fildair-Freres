@@ -26,7 +26,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link target='_blank' href="https://wa.me/28700199" className="text-gray-600 hover:text-blue-500 transition">
-                  What's up
+                  What&apos;s up
                 </Link>
               </li>
             </ul>

@@ -16,29 +16,68 @@ const Map = () => {
     shadowSize: [41, 41],
   });
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": "Fildair Frères",
+    "description": "Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "km 13 av Fatouma Bourguiba",
+      "addressLocality": "La Soukra",
+      "postalCode": "2036",
+      "addressCountry": "Tunisia",
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 36.87884987742904,
+      "longitude": 10.26525650200852,
+    },
+    "url": "https://piscinesfildairfrerestunisie.com",
+    "telephone": "+216 71 865 319",
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=100007108443086&ref=ig_profile_ac",
+      "https://www.instagram.com/fildair_bilel_abassi/",
+      "https://www.tiktok.com/@fildairbilelabass",
+    ],
+  };
+
   return (
-    <div className={`flex flex-col items-center py-10`}>
-      <div className='flex items-center justify-center py-5 space-x-4'>
-        <hr className='bg-[#305eb8] h-1 w-10 sm:w-14' />
-        <span className='text-[#305eb8] text-2xl sm:text-4xl font-semibold'>
+    <section className="flex flex-col items-center py-10">
+      {/* Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
+
+      {/* Section Heading */}
+      <div className="flex items-center justify-center py-5 space-x-4">
+        <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
+        <h2 className="text-[#305eb8] text-2xl sm:text-4xl font-semibold">
           Visitez-nous !
-        </span>
-        <hr className='bg-[#305eb8] h-1 w-10 sm:w-14' />
+        </h2>
+        <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
       </div>
 
+      {/* Map Container */}
       <div className="relative w-full sm:w-3/4 lg:w-1/2 rounded-lg overflow-hidden px-4 sm:px-6 md:px-8">
         <MapContainer
           center={position}
           zoom={15}
           className="relative z-10 h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] w-full"
+          aria-label="Carte de localisation de Fildair Frères"
         >
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
           <Marker position={position} icon={customIcon}>
             <Popup>
               <Link
                 href="https://www.google.com/maps/place/Fildair+La+Soukra/@36.8786954,10.2651814,17z/data=!3m1!4b1!4m6!3m5!1s0x12e2b5b16a9ce5af:0x2309fb1d7f736219!8m2!3d36.8786954!4d10.2651814!16s%2Fg%2F11kptsd4hs?entry=ttu&g_ep=EgoyMDI1MDIxMS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-blue-600 hover:underline"
+                aria-label="Ouvrir l'emplacement de Fildair Frères sur Google Maps"
               >
                 FILDAIR FRERES
               </Link>
@@ -46,7 +85,7 @@ const Map = () => {
           </Marker>
         </MapContainer>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -5,10 +5,10 @@ import "leaflet/dist/leaflet.css";
 export const metadata: Metadata = {
   title: {
     default: "Fildair Frères - Piscines et Équipements en Tunisie",
-    template: "%s | Fildair Frères", // Dynamic title
+    template: "%s | Fildair Frères", // Dynamic title for subpages
   },
   description:
-    "Découvrez Fildair Fr&egrave;res, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
+    "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
   keywords: [
     "piscines Tunisie",
     "équipements piscines",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fildair Frères - Piscines et Équipements en Tunisie",
     description:
-      "Découvrez Fildair Fr&egrave;res, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
+      "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     url: "https://piscinesfildairfrerestunisie.com",
     siteName: "Fildair Frères",
     images: [
@@ -38,13 +38,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Fildair Frères - Piscines et Équipements en Tunisie",
     description:
-      "Découvrez Fildair Fr&egrave;res, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
+      "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     images: ["https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75"],
   },
   robots: {
     index: true,
     follow: true,
-    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -77,7 +76,7 @@ export default function RootLayout({
     name: "Fildair Frères",
     image: "https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75",
     description:
-      "Découvrez Fildair Fr&egrave;res, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
+      "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     address: {
       "@type": "PostalAddress",
       streetAddress: "km 13 av Fatouma Bourguiba",
@@ -99,16 +98,20 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <meta charSet="UTF-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="theme-color" content="#274e9d" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#274e9d" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
       </head>
-      <body>{children}</body>
+      <body>
+        <h1>Fildair Frères - Piscines et Équipements en Tunisie</h1>
+        {children}
+      </body>
     </html>
   );
 }

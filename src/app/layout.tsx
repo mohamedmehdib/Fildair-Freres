@@ -109,7 +109,6 @@ export default function RootLayout({
         </script>
       </head>
       <body>
-        <h1>Fildair Frères - Piscines et Équipements en Tunisie</h1>
         {children}
       </body>
     </html>

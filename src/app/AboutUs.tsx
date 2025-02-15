@@ -29,7 +29,7 @@ const AboutUs: React.FC = () => {
     <div className='flex flex-col lg:flex-row'>
       <div className='w-full lg:w-1/2 flex items-center justify-center px-10'>
         <Image
-          src="/about.jpg"
+          src="/about.jpeg"
           alt='About'
           width={5000}
           height={5000}

@@ -19,6 +19,16 @@ export default function Footer() {
                   Instagram
                 </Link>
               </li>
+              <li>
+                <Link target='_blank' href="https://www.tiktok.com/@fildairbilelabass" className="text-gray-600 hover:text-blue-500 transition">
+                  TikTok
+                </Link>
+              </li>
+              <li>
+                <Link target='_blank' href="https://wa.me/28700199" className="text-gray-600 hover:text-blue-500 transition">
+                  What's up
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -4,22 +4,20 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
 
 interface Testimonial {
   id: number;
   name: string;
   role: string;
-  image: string;
   stars: number;
   feedback: string;
 }
 
 export default function Testimonials(): React.ReactElement {
-  const swiperRef = useRef<HTMLElement | null>(null);
-  const [maxHeight, setMaxHeight] = useState<number>(0);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [maxHeight, setMaxHeight] = useState<number>(0);
+  const swiperRef = useRef<any>(null);
 
   // Fetch testimonials from Supabase
   useEffect(() => {
@@ -31,22 +29,24 @@ export default function Testimonials(): React.ReactElement {
         setTestimonials(data as Testimonial[]);
       }
     };
-
     fetchTestimonials();
   }, []);
 
-  // Calculate max height for slides
+  // Adjust slide heights dynamically
   useEffect(() => {
     if (swiperRef.current) {
-      const slides = swiperRef.current.querySelectorAll('.swiper-slide');
-      let tallestHeight = 0;
-      slides.forEach((slide: Element) => {
-        const slideElement = slide as HTMLElement;
-        if (slideElement.offsetHeight > tallestHeight) {
-          tallestHeight = slideElement.offsetHeight;
-        }
-      });
-      setMaxHeight(tallestHeight);
+      const updateMaxHeight = () => {
+        const slides = swiperRef.current.el?.querySelectorAll('.swiper-slide');
+        let tallestHeight = 0;
+        slides?.forEach((slide: Element) => {
+          tallestHeight = Math.max(tallestHeight, (slide as HTMLElement).offsetHeight);
+        });
+        setMaxHeight(tallestHeight);
+      };
+
+      updateMaxHeight();
+      window.addEventListener('resize', updateMaxHeight);
+      return () => window.removeEventListener('resize', updateMaxHeight);
     }
   }, [testimonials]);
 
@@ -66,49 +66,24 @@ export default function Testimonials(): React.ReactElement {
       <div className='px-4 sm:px-10 pb-10 mx-4 sm:mx-10'>
         <Swiper
           modules={[Autoplay, Pagination]}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
-          }}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
+          pagination={{ clickable: true, dynamicBullets: true }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
           spaceBetween={20}
           slidesPerView={1}
           breakpoints={{
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 30,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 40,
-            },
+            640: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 2, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 40 },
           }}
           loop={true}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper.el;
-          }}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
         >
-          {testimonials.map((testimonial: Testimonial) => (
+          {testimonials.map((testimonial) => (
             <SwiperSlide
               key={testimonial.id}
-              style={{ height: maxHeight > 0 ? maxHeight : 'auto' }}
+              style={{ height: maxHeight > 0 ? `${maxHeight}px` : 'auto' }}
             >
-              <div className='bg-white p-6 sm:p-8 rounded-lg shadow-lg text-center flex flex-col justify-between h-full pb-8 mx-2 sm:mx-4'>
-                <div className='relative w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6'>
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    fill
-                    className='rounded-full object-cover'
-                  />
-                </div>
+              <div className='bg-white p-6 sm:p-8 rounded-lg shadow-lg text-center flex flex-col justify-between h-full mx-2 sm:mx-4'>
                 <p className='text-gray-600 italic text-sm sm:text-base mb-4 sm:mb-6'>
                   &quot;{testimonial.feedback}&quot;
                 </p>
@@ -122,10 +97,7 @@ export default function Testimonials(): React.ReactElement {
                 </div>
                 <div className='flex justify-center mt-3 sm:mt-4'>
                   {Array.from({ length: testimonial.stars }).map((_, index) => (
-                    <i
-                      key={index}
-                      className='uis uis-favorite text-yellow-500 mx-1'
-                    ></i>
+                    <i key={index} className='uis uis-favorite text-yellow-500 mx-1'></i>
                   ))}
                 </div>
               </div>

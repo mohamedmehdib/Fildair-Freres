@@ -9,7 +9,6 @@ import Projects from "./Projects";
 import Contact from "./Contact";
 import Testimonials from "./Testimonials";
 import Clients from "./Clients";
-import Button from "./Button";
 
 const Map = dynamic(() => import("./Map"), {
   ssr: false,
@@ -19,7 +18,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-">
       <Navbar />
-      <Button />
       <Hero />
       <Services />
       <AboutUs />

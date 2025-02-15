@@ -8,7 +8,7 @@ import Footer from '../../Footer';
 interface GalleryItem {
   id: number;
   src: string;
-  category: string | null; // Allow category to be null
+  category: string;
 }
 
 const Page: React.FC = () => {
@@ -24,18 +24,18 @@ const Page: React.FC = () => {
       try {
         // Fetch gallery items
         const { data: galleryData, error: galleryError } = await supabase
-          .from('equipements') // Ensure the table name is correct
-          .select('*'); // Fetch all rows from the equipements table
+          .from('mosaique') // Ensure the table name is correct
+          .select('*'); // Fetch all rows from the mosaique table
 
         if (galleryError) {
           throw galleryError;
         }
 
-        // Fetch categories
+        // Fetch categories for piscine = mosaique
         const { data: categoryData, error: categoryError } = await supabase
           .from('piscines_categories') // Ensure the table name is correct
           .select('categories')
-          .eq('piscine', 'equipements'); // Filter by piscine = 'equipements'
+          .eq('piscine', 'mosaique'); // Filter by piscine = 'mosaique'
 
         if (categoryError) {
           throw categoryError;
@@ -61,12 +61,11 @@ const Page: React.FC = () => {
 
   // Filter data based on search term and selected category
   const filteredGallery = galleryData.filter((item) => {
-    const category = item.category || ''; // Fallback to empty string if category is null
-    const matchesSearch = category
+    const matchesSearch = item.category
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
     const matchesCategory =
-      selectedCategory === 'all' || category === selectedCategory;
+      selectedCategory === 'all' || item.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -79,7 +78,7 @@ const Page: React.FC = () => {
       <div className="h-[40vh] md:h-[60vh] flex pt-20 md:pt-0 justify-center items-center bg-[#274e9d]">
         <div className="text-center px-4">
           <h1 className="text-4xl md:text-6xl text-white font-medium w-full md:w-2/3 mx-auto">
-            Equipements Piscines
+            Mosaique Piscines
           </h1>
           <hr className="w-1/4 mx-auto border-2 border-white mt-4" />
         </div>

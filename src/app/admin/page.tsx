@@ -5,7 +5,7 @@ import ProjectsManagement from "./ProjectsManagement";
 import UploadTestimonial from "./UploadTestimonial";
 import UploadClient from "./UploadClients";
 import MessagesList from "./ContactMessage";
-import UploadPiscine from "./UploadPiscine";
+import UploadEquipement from "./UploadEquipement";
 import UploadMosaique from "./UploadMosaique";
 
 const AdminDashboard = () => {
@@ -134,7 +134,7 @@ const AdminDashboard = () => {
           Equipement Piscines
         </button>
         <button
-          onClick={() => setActiveComponent("Piscine")}
+          onClick={() => setActiveComponent("Mosaique")}
           className={`px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-xl shadow-md transition-colors duration-300 ${
             activeComponent === "Mosaique" ? "bg-blue-600 text-white" : "bg-gray-300 text-gray-800 hover:bg-gray-400"
           }`}
@@ -149,7 +149,7 @@ const AdminDashboard = () => {
         {activeComponent === "TestimonialsManagement" && <UploadTestimonial />}
         {activeComponent === "ClientsManagement" && <UploadClient />}
         {activeComponent === "MessageList" && <MessagesList />}
-        {activeComponent === "Piscine" && <UploadPiscine />}
+        {activeComponent === "Piscine" && <UploadEquipement />}
         {activeComponent === "Mosaique" && <UploadMosaique />}
    
       </div>

@@ -9,11 +9,11 @@ interface GalleryItem {
 
 interface PiscineCategoryItem {
   id: number;
-  piscine: string; // Fixed value: "mosaique"
+  piscine: string; // Fixed value: "equipements"
   categories: string[]; // Array of categories
 }
 
-const UploadMosaique: React.FC = () => {
+const UploadEquipement: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [category, setCategory] = useState('');
   const [loading, setLoading] = useState(false);
@@ -31,7 +31,7 @@ const UploadMosaique: React.FC = () => {
     const fetchItems = async () => {
       try {
         const { data, error } = await supabase
-          .from('mosaique') // Fetch from mosaique table
+          .from('equipements')
           .select('*');
 
         if (error) {
@@ -54,7 +54,7 @@ const UploadMosaique: React.FC = () => {
         const { data, error } = await supabase
           .from('piscines_categories')
           .select('*')
-          .eq('piscine', 'mosaique'); // Fetch categories for piscine = mosaique
+          .eq('piscine', 'equipements');
 
         if (error) {
           throw error;
@@ -89,7 +89,7 @@ const UploadMosaique: React.FC = () => {
       const filePath = `${fileName}`;
 
       const { error: uploadError } = await supabase.storage
-        .from('mosaique') // Upload to mosaique bucket
+        .from('equipements')
         .upload(filePath, file);
 
       if (uploadError) {
@@ -98,7 +98,7 @@ const UploadMosaique: React.FC = () => {
 
       // Step 2: Get the public URL of the uploaded file
       const { data: publicUrlData } = supabase.storage
-        .from('mosaique')
+        .from('equipements')
         .getPublicUrl(filePath);
 
       const imageUrl = publicUrlData.publicUrl;
@@ -107,7 +107,7 @@ const UploadMosaique: React.FC = () => {
       if (editingItem) {
         // Update existing item
         const { error: dbError } = await supabase
-          .from('mosaique')
+          .from('equipements')
           .update({ src: imageUrl, category: category || null })
           .eq('id', editingItem.id);
 
@@ -119,7 +119,7 @@ const UploadMosaique: React.FC = () => {
       } else {
         // Insert new item
         const { error: dbError } = await supabase
-          .from('mosaique')
+          .from('equipements')
           .insert([{ src: imageUrl, category: category || null }]);
 
         if (dbError) {
@@ -131,7 +131,7 @@ const UploadMosaique: React.FC = () => {
 
       // Refresh the list of items
       const { data: updatedData, error: fetchError } = await supabase
-        .from('mosaique')
+        .from('equipements')
         .select('*');
 
       if (fetchError) {
@@ -157,7 +157,7 @@ const UploadMosaique: React.FC = () => {
   const handleDeleteItem = async (id: number) => {
     try {
       const { error: dbError } = await supabase
-        .from('mosaique')
+        .from('equipements')
         .delete()
         .eq('id', id);
 
@@ -167,7 +167,7 @@ const UploadMosaique: React.FC = () => {
 
       // Refresh the list of items
       const { data: updatedData, error: fetchError } = await supabase
-        .from('mosaique')
+        .from('equipements')
         .select('*');
 
       if (fetchError) {
@@ -212,7 +212,7 @@ const UploadMosaique: React.FC = () => {
       // Insert new category
       const { error: dbError } = await supabase
         .from('piscines_categories')
-        .insert([{ piscine: 'mosaique', categories: [newCategory] }]); // Insert for piscine = mosaique
+        .insert([{ piscine: 'equipements', categories: [newCategory] }]);
 
       if (dbError) {
         throw dbError;
@@ -222,7 +222,7 @@ const UploadMosaique: React.FC = () => {
       const { data: updatedData, error: fetchError } = await supabase
         .from('piscines_categories')
         .select('*')
-        .eq('piscine', 'mosaique');
+        .eq('piscine', 'equipements');
 
       if (fetchError) {
         throw fetchError;
@@ -256,7 +256,7 @@ const UploadMosaique: React.FC = () => {
       const { data: updatedData, error: fetchError } = await supabase
         .from('piscines_categories')
         .select('*')
-        .eq('piscine', 'mosaique');
+        .eq('piscine', 'equipements');
 
       if (fetchError) {
         throw fetchError;
@@ -275,7 +275,7 @@ const UploadMosaique: React.FC = () => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto">
-      <h2 className="text-xl font-semibold mb-4">Upload Image to mosaique</h2>
+      <h2 className="text-xl font-semibold mb-4">Upload Image to equipements</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* File Input */}
         <div>
@@ -408,4 +408,4 @@ const UploadMosaique: React.FC = () => {
   );
 };
 
-export default UploadMosaique;
+export default UploadEquipement;

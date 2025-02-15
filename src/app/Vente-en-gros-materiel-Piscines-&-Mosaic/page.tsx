@@ -77,7 +77,7 @@ const Page: React.FC = () => {
                 Découvrir nos mosaïques piscines
               </h2>
               <div className="w-[300px] h-[300px] overflow-hidden rounded-lg mx-auto shadow-md">
-                <Link href="">
+                <Link href="/Vente-en-gros-materiel-Piscines-&-Mosaic/Mosaique-Piscines">
                   <Image
                     src="/prestigio.jpg"
                     alt="Prestigio"

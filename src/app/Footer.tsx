@@ -9,19 +9,48 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 export default function Footer() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Fildair Frères",
+    image: "https://piscinesfildairfrerestunisie.com/logo.jpg",
+    description:
+      "Découvrez Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "km 13 av Fatouma Bourguiba",
+      addressLocality: "La Soukra",
+      postalCode: "2036",
+      addressCountry: "Tunisia",
+    },
+    telephone: "+216 71 865 319",
+    email: "fildairfreres@gmail.com",
+    url: "https://piscinesfildairfrerestunisie.com",
+    sameAs: [
+      "https://www.facebook.com/profile.php?id=100007108443086&ref=ig_profile_ac",
+      "https://www.instagram.com/fildair_bilel_abassi/",
+      "https://www.tiktok.com/@fildairbilelabass",
+    ],
+  };
+
   return (
     <footer className="font-sans pt-16 pb-10 space-y-10 bg-gray-50">
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-8 md:space-y-0">
           {/* Follow Us Section */}
           <div className="text-left">
-            <h3 className="text-xl font-semibold text-blue-700 mb-4">Suivez-nous</h3>
+            <h2 className="text-xl font-semibold text-blue-700 mb-4">Suivez-nous</h2>
             <ul className="space-y-3">
               <li>
                 <Link
                   target="_blank"
+                  rel="noopener noreferrer"
                   href="https://www.facebook.com/profile.php?id=100007108443086&ref=ig_profile_ac"
                   className="text-gray-600 hover:text-blue-500 transition flex items-center space-x-2"
+                  aria-label="Suivez-nous sur Facebook"
                 >
                   <FontAwesomeIcon icon={faFacebook} className="w-5 h-5" />
                   <span>Facebook</span>
@@ -30,8 +59,10 @@ export default function Footer() {
               <li>
                 <Link
                   target="_blank"
+                  rel="noopener noreferrer"
                   href="https://www.instagram.com/fildair_bilel_abassi/"
                   className="text-gray-600 hover:text-blue-500 transition flex items-center space-x-2"
+                  aria-label="Suivez-nous sur Instagram"
                 >
                   <FontAwesomeIcon icon={faInstagram} className="w-5 h-5" />
                   <span>Instagram</span>
@@ -40,8 +71,10 @@ export default function Footer() {
               <li>
                 <Link
                   target="_blank"
+                  rel="noopener noreferrer"
                   href="https://www.tiktok.com/@fildairbilelabass"
                   className="text-gray-600 hover:text-blue-500 transition flex items-center space-x-2"
+                  aria-label="Suivez-nous sur TikTok"
                 >
                   <FontAwesomeIcon icon={faTiktok} className="w-5 h-5" />
                   <span>TikTok</span>
@@ -50,8 +83,10 @@ export default function Footer() {
               <li>
                 <Link
                   target="_blank"
+                  rel="noopener noreferrer"
                   href="https://wa.me/28700199"
                   className="text-gray-600 hover:text-blue-500 transition flex items-center space-x-2"
+                  aria-label="Contactez-nous sur WhatsApp"
                 >
                   <FontAwesomeIcon icon={faWhatsapp} className="w-5 h-5" />
                   <span>WhatsApp</span>
@@ -62,13 +97,22 @@ export default function Footer() {
 
           {/* Contact Us Section */}
           <div className="text-left">
-            <h3 className="text-xl font-semibold text-blue-700 mb-4">Contactez-nous</h3>
+            <h2 className="text-xl font-semibold text-blue-700 mb-4">Contactez-nous</h2>
             <ul className="space-y-3 text-gray-600">
               <li>
-                <span className="font-medium">Service client:</span> 71 865 319
+                <span className="font-medium">Service client:</span>{" "}
+                <a href="tel:+21671865319" className="hover:text-blue-500 transition">
+                  71 865 319
+                </a>
               </li>
               <li>
-                <span className="font-medium">Email:</span> fildairfreres@gmail.com
+                <span className="font-medium">Email:</span>{" "}
+                <a
+                  href="mailto:fildairfreres@gmail.com"
+                  className="hover:text-blue-500 transition"
+                >
+                  fildairfreres@gmail.com
+                </a>
               </li>
               <li>
                 <span className="font-medium">Adresse:</span> km 13 av Fatouma Bourguiba, La Soukra 2036, en face UTC

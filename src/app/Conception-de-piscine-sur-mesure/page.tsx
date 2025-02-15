@@ -28,6 +28,15 @@ export default function Page() {
     { src: "/w5.jpeg" },
     { src: "/w6.jpeg" },
     { src: "/w7.jpeg" },
+    { src: "/wh1.jpeg" },
+    { src: "/wh2.jpeg" },
+    { src: "/wh3.jpeg" },
+    { src: "/wh4.jpeg" },
+    { src: "/wh5.jpeg" },
+    { src: "/wh6.jpeg" },
+    { src: "/wh7.jpeg" },
+    { src: "/wh_.jpeg" },
+    { src: "/wh9.jpeg" },
   ];
 
   return (

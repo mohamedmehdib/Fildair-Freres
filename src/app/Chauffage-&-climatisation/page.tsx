@@ -1,9 +1,33 @@
 import React from 'react';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
-import Image from 'next/image';
+import Slider from '../Conception-de-piscine-sur-mesure/Slider';
 
 const Page: React.FC = () => {
+  const images = [
+    { src: "/a1.jpeg" },
+    { src: "/a2.jpeg" },
+    { src: "/a3.jpeg" },
+    { src: "/a4.jpeg" },
+    { src: "/a5.jpeg" },
+    { src: "/a6.jpeg" },
+    { src: "/a7.jpeg" },
+    { src: "/a8.jpeg" },
+    { src: "/a9.jpeg" },
+    { src: "/a10.jpeg" },
+    { src: "/a11.jpeg" },
+    { src: "/a12.jpeg" },
+    { src: "/a13.jpeg" },
+    { src: "/a14.jpeg" },
+    { src: "/a15.jpeg" },
+    { src: "/a16.jpeg" },
+    { src: "/a17.jpeg" },
+    { src: "/a18.jpeg" },
+    { src: "/a19.jpeg" },
+    { src: "/a20.jpeg" },
+    { src: "/a21.jpeg" },
+    { src: "/a22.jpeg" },
+  ];
   return (
     <div className="bg-gray-50">
       {/* Navbar */}
@@ -37,13 +61,7 @@ const Page: React.FC = () => {
 
             {/* Responsive Image Section */}
             <div className="mt-8 md:mt-12">
-              <Image
-                height={500}
-                width={500}
-                src="/chauffage.jpeg" // Replace with your image URL
-                alt="Chauffage & Climatisation"
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
+              <Slider images={images}/>
             </div>
           </div>
 

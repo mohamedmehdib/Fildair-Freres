@@ -62,7 +62,7 @@ const AboutUs: React.FC = () => {
       </script>
       <div className='w-full lg:w-1/2 flex items-center justify-center px-10'>
         <Image
-          src="/about.jpeg"
+          src="/bdl.jpeg"
           alt='À propos de Fildair Frères'
           width={5000}
           height={5000}

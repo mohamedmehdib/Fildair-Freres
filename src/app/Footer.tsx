@@ -27,7 +27,7 @@ export default function Footer() {
     email: "fildairfreres@gmail.com",
     url: "https://piscinesfildairfrerestunisie.com",
     sameAs: [
-      "https://www.facebook.com/profile.php?id=100007108443086&ref=ig_profile_ac",
+      "https://www.facebook.com/share/18cy9Avd15/?mibextid=wwXIfr",
       "https://www.instagram.com/fildair_bilel_abassi/",
       "https://www.tiktok.com/@fildairbilelabass",
     ],
@@ -48,7 +48,7 @@ export default function Footer() {
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://www.facebook.com/profile.php?id=100007108443086&ref=ig_profile_ac"
+                  href="https://www.facebook.com/share/18cy9Avd15/?mibextid=wwXIfr"
                   className="text-gray-600 hover:text-blue-500 transition flex items-center space-x-2"
                   aria-label="Suivez-nous sur Facebook"
                 >

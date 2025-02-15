@@ -115,14 +115,19 @@ const Page: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredGallery.length > 0 ? (
                 filteredGallery.map((item) => (
-                  <div key={item.id} className="bg-white p-4 rounded-lg shadow-md">
-                    <Image
-                      height={500}
-                      width={500}
-                      src={item.src}
-                      alt={`Pool equipment ${item.id}`}
-                      className="w-full h-48 object-cover rounded-md"
-                    />
+                  <div
+                    key={item.id}
+                    className="bg-white p-4 rounded-lg shadow-md"
+                  >
+                    {/* Square Image Container */}
+                    <div className="relative aspect-square w-full">
+                      <Image
+                        src={item.src}
+                        alt={`Pool equipment ${item.id}`}
+                        fill // Use fill to make the image cover the container
+                        className="object-cover rounded-md"
+                      />
+                    </div>
                   </div>
                 ))
               ) : (

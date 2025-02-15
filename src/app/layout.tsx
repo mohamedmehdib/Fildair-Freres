@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 export const metadata: Metadata = {
   title: {
     default: "Fildair Frères - Piscines et Équipements en Tunisie",
-    template: "%s | Fildair Frères",
+    template: "%s | Fildair Frères", // Dynamic title for child pages
   },
   description:
     "Découvrez Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie. Nous offrons des solutions de qualité pour vos projets de piscines.",
@@ -88,6 +88,11 @@ export default function RootLayout({
     telephone: "+216 71 865 319",
     email: "fildairfreres@gmail.com",
     url: "https://piscinesfildairfrerestunisie.com",
+    sameAs: [
+      "https://www.facebook.com/profile.php?id=100007108443086&ref=ig_profile_ac",
+      "https://www.instagram.com/fildair_bilel_abassi/",
+      "https://www.tiktok.com/@fildairbilelabass",
+    ],
   };
 
   return (
@@ -95,6 +100,9 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#274e9d" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>

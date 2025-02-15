@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
+import Image from 'next/image';
 
 interface GalleryItem {
   id: number;
@@ -333,7 +334,9 @@ const UploadMosaique: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((item) => (
             <div key={item.id} className="bg-white p-4 rounded-lg shadow-md">
-              <img
+              <Image
+                height={500}
+                width={500}
                 src={item.src}
                 alt={`Pool equipment ${item.id}`}
                 className="w-full h-48 object-cover rounded-md"

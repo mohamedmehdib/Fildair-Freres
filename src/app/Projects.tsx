@@ -82,7 +82,6 @@ export default function Projects() {
           {projectImages.map((image, index) => (
             <SwiperSlide key={index}>
               <div className='relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden'>
-                {/* Replace next/image with a standard img tag */}
                 <Image
                   width={500}
                   height={500}

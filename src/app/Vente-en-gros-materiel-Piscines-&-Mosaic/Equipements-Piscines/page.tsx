@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase'; // Ensure this path is correct
 import Navbar from '../../Navbar';
 import Footer from '../../Footer';
+import Image from 'next/image';
 
 // Define the type for gallery items
 interface GalleryItem {
@@ -115,7 +116,9 @@ const Page: React.FC = () => {
               {filteredGallery.length > 0 ? (
                 filteredGallery.map((item) => (
                   <div key={item.id} className="bg-white p-4 rounded-lg shadow-md">
-                    <img
+                    <Image
+                      height={500}
+                      width={500}
                       src={item.src}
                       alt={`Pool equipment ${item.id}`}
                       className="w-full h-48 object-cover rounded-md"

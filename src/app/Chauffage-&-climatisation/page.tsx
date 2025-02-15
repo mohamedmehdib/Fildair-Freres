@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
+import Image from 'next/image';
 
 const Page: React.FC = () => {
   return (
@@ -36,7 +37,9 @@ const Page: React.FC = () => {
 
             {/* Responsive Image Section */}
             <div className="mt-8 md:mt-12">
-              <img
+              <Image
+                height={500}
+                width={500}
                 src="/chauffage.jpeg" // Replace with your image URL
                 alt="Chauffage & Climatisation"
                 className="w-full h-auto rounded-lg shadow-lg"

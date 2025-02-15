@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 export const metadata: Metadata = {
   title: {
     default: "Fildair Frères - Piscines et Équipements en Tunisie",
-    template: "%s | Fildair Frères", // Dynamic title for child pages
+    template: "%s | Fildair Frères",
   },
   description:
     "Découvrez Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie. Nous offrons des solutions de qualité pour vos projets de piscines.",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Fildair Frères",
     images: [
       {
-        url: "https://piscinesfildairfrerestunisie.com/og-image.jpg",
+        url: "https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75",
         width: 1200,
         height: 630,
         alt: "Fildair Frères - Piscines et Équipements",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Fildair Frères - Piscines et Équipements en Tunisie",
     description:
       "Découvrez Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
-    images: ["https://piscinesfildairfrerestunisie.com/og-image.jpg"],
+    images: ["https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75"],
   },
   robots: {
     index: true,

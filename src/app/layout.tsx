@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 export const metadata: Metadata = {
   title: {
     default: "Fildair Frères - Piscines et Équipements en Tunisie",
-    template: "%s | Fildair Frères", // Dynamic title for subpages
+    template: "%s | Fildair Frères",
   },
   description:
     "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
@@ -100,21 +100,29 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
+        {/* Primary Favicon */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
 
-  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
-  <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        {/* Fallback PNG Favicon */}
+        <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2" sizes="96x96" />
 
-  <link rel="manifest" href="/site.webmanifest" />
+        {/* SVG Favicon */}
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <meta charSet="UTF-8" />
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="theme-color" content="#274e9d" />
+        {/* Apple Touch Icon */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-  <meta name="apple-mobile-web-app-title" content="Fildair Frères" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        {/* Web App Manifest */}
+        <link rel="manifest" href="/site.webmanifest" />
 
+        {/* Metadata */}
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#274e9d" />
+
+        {/* iOS Configuration */}
+        <meta name="apple-mobile-web-app-title" content="Fildair Frères" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
         {/* Structured Data */}
         <script type="application/ld+json">

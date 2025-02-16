@@ -43,7 +43,7 @@ export default function Contact() {
       },
       to: [
         {
-          email: 'medmehdibenhajsaleh1@gmail.com', // The email where you want to receive notifications
+          email: 'fildairfreres@gmail.com', // The email where you want to receive notifications
           name: 'Fildair Frères',
         },
       ],

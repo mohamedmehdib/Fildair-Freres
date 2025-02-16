@@ -4,8 +4,8 @@ import "leaflet/dist/leaflet.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Fildair Frères - Piscines et Équipements en Tunisie",
-    template: "%s | Fildair Frères",
+    default: "Mohamed Mehdi", // Updated title
+    template: "%s | Mohamed Mehdi", // Updated template
   },
   description:
     "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Fildair Frères", url: "https://piscinesfildairfrerestunisie.com" }],
   openGraph: {
-    title: "Fildair Frères - Piscines et Équipements en Tunisie",
+    title: "Mohamed Mehdi", // Updated title
     description:
       "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     url: "https://piscinesfildairfrerestunisie.com",
-    siteName: "Fildair Frères",
+    siteName: "Mohamed Mehdi", // Updated site name
     images: [
       {
         url: "https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fildair Frères - Piscines et Équipements en Tunisie",
+    title: "Mohamed Mehdi", // Updated title
     description:
       "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     images: ["https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75"],
@@ -121,7 +121,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#274e9d" />
 
         {/* iOS Configuration */}
-        <meta name="apple-mobile-web-app-title" content="Fildair Frères" />
+        <meta name="apple-mobile-web-app-title" content="Mohamed Mehdi" /> {/* Updated title */}
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
         {/* Structured Data */}

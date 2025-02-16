@@ -1,37 +1,44 @@
 import { useEffect, useState } from "react";
 
 export default function PopUp({ onDevisClick }: { onDevisClick: () => void }) {
-  // State to control the visibility of the pop-up
-  const [showPopup, setShowPopup] = useState(false);
+  // State to control whether the popup is open
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  // Use useEffect to show the pop-up after 2 seconds
+  // Automatically open the popup after 10 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 2000); // 2000ms = 2 seconds
+      setIsPopupOpen(true); // Open the popup after 10 seconds
+    }, 10000); // 10 seconds
 
-    // Cleanup the timer when the component unmounts
     return () => clearTimeout(timer);
   }, []);
 
-  // Handler for the "Obtain a Devis" button
+  // Handler for the "Obtenir un devis" button
   const handleDevisClick = () => {
     onDevisClick(); // Trigger the scroll-to-contact logic
-    setShowPopup(false); // Close the pop-up
+    setIsPopupOpen(false); // Close the popup
   };
 
   return (
     <>
-      {showPopup && (
+      {/* Fixed Button */}
+      <button
+        onClick={() => setIsPopupOpen(true)} // Open the popup when clicked
+        className="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none shadow-lg z-50"
+      >
+        Obtenir un devis
+      </button>
+
+      {/* Full Popup */}
+      {isPopupOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          {/* Responsive container */}
           <div
             className="bg-white p-4 sm:p-6 rounded-lg shadow-lg max-w-[90%] sm:max-w-sm relative"
             style={{ width: "100%" }}
           >
             {/* Close Icon */}
             <button
-              onClick={() => setShowPopup(false)}
+              onClick={() => setIsPopupOpen(false)}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 focus:outline-none"
             >
               <svg
@@ -52,13 +59,13 @@ export default function PopUp({ onDevisClick }: { onDevisClick: () => void }) {
 
             {/* Title */}
             <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
-              Welcome!
+              Bienvenue!
             </h2>
 
             {/* Description */}
             <p className="text-sm sm:text-base mb-4">
-              Thanks for visiting our website. Here&apos;s a special offer for
-              you!
+              Merci de visiter notre site Web. Voici une offre spéciale pour
+              vous !
             </p>
 
             {/* Buttons */}
@@ -68,7 +75,7 @@ export default function PopUp({ onDevisClick }: { onDevisClick: () => void }) {
                 onClick={handleDevisClick} // Combined handler
                 className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none"
               >
-                Obtain a Devis
+                Obtenir un devis
               </button>
             </div>
           </div>

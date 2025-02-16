@@ -32,6 +32,10 @@ export default function Contact() {
     const BREVO_API_KEY = process.env.NEXT_PUBLIC_BREVO_API_KEY; // Replace with your actual Brevo API key
     const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 
+    if (!BREVO_API_KEY) {
+      throw new Error('NEXT_PUBLIC_BREVO_API_KEY is not defined');
+    }
+
     const emailData = {
       sender: {
         name: 'Fildair Frères', // Your name or company name
@@ -63,14 +67,14 @@ export default function Contact() {
         headers: {
           'Content-Type': 'application/json',
           'api-key': BREVO_API_KEY,
-        },
+        } as { [key: string]: string }, // Explicit type assertion to satisfy TypeScript
         body: JSON.stringify(emailData),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
         console.error('Error sending email:', errorData);
-        throw new Error('Failed to send email');
+        throw new Error(`Failed to send email: ${errorData.message}`);
       }
 
       console.log('Email sent successfully');

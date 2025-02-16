@@ -97,6 +97,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#274e9d" />
         {/* iOS Configuration */}
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Fildair Frères" />
+        <meta name="application-name" content="Fildair Frères" />
         {/* Favicon Links */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />

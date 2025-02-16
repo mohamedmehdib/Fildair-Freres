@@ -97,6 +97,7 @@ export default function RootLayout({
         {/* iOS Configuration */}
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         {/* Structured Data */}
+        <link rel="manifest" href="/manifest.json" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>

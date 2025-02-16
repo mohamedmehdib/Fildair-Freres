@@ -102,8 +102,13 @@ export default function Footer() {
               <li>
                 <span className="font-medium">Service client:</span>{" "}
                 <a href="tel:+21671865319" className="hover:text-blue-500 transition">
-                  71 865 319
+                  71 865 319 
                 </a>
+                {` / `}
+                <a href="tel:+21627870016" className="hover:text-blue-500 transition">
+                  27 870 016
+                </a>
+                
               </li>
               <li>
                 <span className="font-medium">Email:</span>{" "}

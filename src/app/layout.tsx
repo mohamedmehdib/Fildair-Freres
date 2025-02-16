@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Fildair Frères", url: "https://piscinesfildairfrerestunisie.com" }],
   openGraph: {
-    title: "Fildair Frères - Pisciniste De Père en Fils", // Updated title
+    title: "Fildair Frères - Pisciniste De Père en Fils",
     description:
       "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     url: "https://piscinesfildairfrerestunisie.com",

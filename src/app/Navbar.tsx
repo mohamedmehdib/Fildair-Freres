@@ -102,7 +102,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                href="/Entretion-Piscine-&-SAV"
+                href="/Entretien-Piscine-&-SAV"
                 className="block w-full text-left px-4 py-2 hover:bg-[#305eb8]"
               >
                 Entretion Piscine & SAV

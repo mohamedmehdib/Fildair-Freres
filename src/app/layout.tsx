@@ -4,8 +4,8 @@ import "leaflet/dist/leaflet.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Fildair Frères", // Updated title
-    template: "%s | Fildair Frères", // Updated template
+    default: "Fildair Frères", // Default title
+    template: "%s | Fildair Frères", // Dynamic title template
   },
   description:
     "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Fildair Frères", url: "https://piscinesfildairfrerestunisie.com" }],
   openGraph: {
-    title: "Mohamed Mehdi", // Updated title
+    title: "Fildair Frères - Pisciniste De Père en Fils", // Updated title
     description:
       "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     url: "https://piscinesfildairfrerestunisie.com",
-    siteName: "Mohamed Mehdi", // Updated site name
+    siteName: "Fildair Frères - Pisciniste De Père en Fils", // Updated site name
     images: [
       {
         url: "https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75",
@@ -87,6 +87,7 @@ export default function RootLayout({
       "https://www.tiktok.com/@fildairbilelabass",
     ],
   };
+
   return (
     <html lang="fr">
       <head>
@@ -96,8 +97,12 @@ export default function RootLayout({
         <meta name="theme-color" content="#274e9d" />
         {/* iOS Configuration */}
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        {/* Favicon Links */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         {/* Structured Data */}
-        <link rel="manifest" href="/manifest.json" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>

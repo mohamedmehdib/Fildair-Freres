@@ -121,7 +121,6 @@ export default function RootLayout({
         <meta name="theme-color" content="#274e9d" />
 
         {/* iOS Configuration */}
-        <meta name="apple-mobile-web-app-title" content="Mohamed Mehdi" /> {/* Updated title */}
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
         {/* Structured Data */}

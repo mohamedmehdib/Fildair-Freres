@@ -47,7 +47,7 @@ export default function PopUp({ onDevisClick }: { onDevisClick: () => void }) {
             </button>
             <h2 className="text-xl font-bold mb-4">Welcome!</h2>
             <p className="mb-4">
-              Thanks for visiting our website. Here's a special offer for you!
+              Thanks for visiting our website. Here&apos;s a special offer for you!
             </p>
             {/* Button to scroll to contact form and close the popup */}
             <button

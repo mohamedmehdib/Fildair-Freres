@@ -1,5 +1,4 @@
 "use client";
-import { useEffect } from "react";
 import Footer from "./Footer";
 import Hero from "./Hero";
 import Services from "./Services";

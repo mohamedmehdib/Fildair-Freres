@@ -4,8 +4,8 @@ import "leaflet/dist/leaflet.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Mohamed Mehdi", // Updated title
-    template: "%s | Mohamed Mehdi", // Updated template
+    default: "Fildair Frères", // Updated title
+    template: "%s | Fildair Frères", // Updated template
   },
   description:
     "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: "https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75",
         width: 1200,
         height: 630,
-        alt: "Fildair Frères - Piscines et Équipements",
+        alt: "Fildair Frères - Pisciniste De Père en Fils",
       },
     ],
     locale: "fr_TN",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mohamed Mehdi", // Updated title
+    title: "Fildair Frères - Pisciniste De Père en Fils", // Updated title
     description:
       "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     images: ["https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75"],

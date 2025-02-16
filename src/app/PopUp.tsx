@@ -24,7 +24,7 @@ export default function PopUp({ onDevisClick }: { onDevisClick: () => void }) {
       {/* Fixed Button */}
       <button
         onClick={() => setIsPopupOpen(true)} // Open the popup when clicked
-        className="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none shadow-lg z-50"
+        className="fixed bottom-4 right-4 bg-[#274e9d] text-white px-4 py-2 rounded hover:bg-[#305eb8] duration-200 focus:outline-none shadow-lg z-50"
       >
         Obtenir un devis
       </button>
@@ -73,7 +73,7 @@ export default function PopUp({ onDevisClick }: { onDevisClick: () => void }) {
               {/* Obtain a Devis Button */}
               <button
                 onClick={handleDevisClick} // Combined handler
-                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none"
+                className="bg-[#274e9d] text-white px-4 py-2 rounded hover:bg-[#305eb8] duration-200 focus:outline-none"
               >
                 Obtenir un devis
               </button>

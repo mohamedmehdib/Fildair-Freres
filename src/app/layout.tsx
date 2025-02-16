@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | Fildair Frères", // Dynamic title template
   },
   description:
-    "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
+    "Fildair Frères vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
   keywords: [
     "piscines Tunisie",
     "équipements piscines",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fildair Frères - Pisciniste De Père en Fils",
     description:
-      "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
+      "Fildair Frères vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     url: "https://piscinesfildairfrerestunisie.com",
     siteName: "Fildair Frères - Pisciniste De Père en Fils", // Updated site name
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Fildair Frères - Pisciniste De Père en Fils", // Updated title
     description:
-      "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
+      "Fildair Frères vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     images: ["https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75"],
   },
   robots: {
@@ -70,7 +70,7 @@ export default function RootLayout({
     name: "Fildair Frères",
     image: "https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75",
     description:
-      "Fildair Frères vous propose des services complets pour vos projets de piscines : conception sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
+      "Fildair Frères vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     address: {
       "@type": "PostalAddress",
       streetAddress: "km 13 av Fatouma Bourguiba",

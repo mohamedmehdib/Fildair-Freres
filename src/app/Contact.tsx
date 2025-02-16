@@ -1,5 +1,4 @@
 'use client';
-
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { supabase } from '@/lib/supabase'; // Adjust the import path as needed
@@ -11,7 +10,6 @@ export default function Contact() {
     subject: '',
     message: '',
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false); // Track form submission state
 
   const handleChange = (
@@ -22,6 +20,64 @@ export default function Contact() {
       ...prevData,
       [name]: value,
     }));
+  };
+
+  // Function to send email using Brevo API
+  const sendEmailNotification = async (formData: {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+  }) => {
+    const BREVO_API_KEY = process.env.NEXT_PUBLIC_BREVO_API_KEY; // Replace with your actual Brevo API key
+    const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
+
+    const emailData = {
+      sender: {
+        name: 'Fildair Frères', // Your name or company name
+        email: 'piscinesfildairfrerestunisie.com', // Your email address
+      },
+      to: [
+        {
+          email: 'medmehdibenhajsaleh1@gmail.com', // The email where you want to receive notifications
+          name: 'Fildair Frères',
+        },
+      ],
+      subject: `New Message from ${formData.name} (${formData.email})`,
+      htmlContent: `
+        <html>
+          <body>
+            <h1>New Contact Form Submission</h1>
+            <p><strong>Name:</strong> ${formData.name}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Subject:</strong> ${formData.subject}</p>
+            <p><strong>Message:</strong> ${formData.message}</p>
+          </body>
+        </html>
+      `,
+    };
+
+    try {
+      const response = await fetch(BREVO_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'api-key': BREVO_API_KEY,
+        },
+        body: JSON.stringify(emailData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Error sending email:', errorData);
+        throw new Error('Failed to send email');
+      }
+
+      console.log('Email sent successfully');
+    } catch (error) {
+      console.error('Error sending email:', error);
+      throw error;
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -44,6 +100,10 @@ export default function Contact() {
       }
 
       console.log('Form Data Submitted:', data);
+
+      // Send email notification using Brevo API
+      await sendEmailNotification(formData);
+
       alert('Message sent successfully!');
       setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
     } catch (error) {
@@ -63,7 +123,6 @@ export default function Contact() {
         </span>
         <hr className='bg-[#305eb8] h-1 md:w-14 w-10' />
       </div>
-
       <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row gap-8'>
         <div className='w-full lg:w-1/2 h-64 lg:h-auto relative'>
           <Image
@@ -74,7 +133,6 @@ export default function Contact() {
             priority
           />
         </div>
-
         <form
           onSubmit={handleSubmit}
           className='bg-white shadow-lg rounded-lg p-6 sm:p-8 space-y-4 w-full lg:w-1/2'
@@ -94,7 +152,6 @@ export default function Contact() {
               required
             />
           </div>
-
           <div>
             <label htmlFor='email' className='block text-sm font-medium text-gray-700'>
               Adresse e-mail
@@ -110,7 +167,6 @@ export default function Contact() {
               required
             />
           </div>
-
           <div>
             <label htmlFor='subject' className='block text-sm font-medium text-gray-700'>
               Objet
@@ -126,7 +182,6 @@ export default function Contact() {
               required
             />
           </div>
-
           <div>
             <label htmlFor='message' className='block text-sm font-medium text-gray-700'>
               Message
@@ -142,7 +197,6 @@ export default function Contact() {
               required
             ></textarea>
           </div>
-
           <div>
             <button
               type='submit'

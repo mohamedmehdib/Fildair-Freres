@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  webpack: (config) => {
+    // Add preferRelative to resolve imports correctly
+    config.resolve.preferRelative = true;
+    return config;
+  },
 };
 
 export default nextConfig;

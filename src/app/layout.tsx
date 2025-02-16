@@ -57,15 +57,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  icons: {
-    icon: [
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -96,33 +87,15 @@ export default function RootLayout({
       "https://www.tiktok.com/@fildairbilelabass",
     ],
   };
-
   return (
     <html lang="fr">
       <head>
-        {/* Primary Favicon */}
-        <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
-
-        {/* Fallback PNG Favicon */}
-        <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2" sizes="96x96" />
-
-        {/* SVG Favicon */}
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-        {/* Apple Touch Icon */}
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
-        {/* Web App Manifest */}
-        <link rel="manifest" href="/site.webmanifest" />
-
         {/* Metadata */}
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#274e9d" />
-
         {/* iOS Configuration */}
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}

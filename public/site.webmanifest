@@ -1,0 +1,16 @@
+{
+    "name": "Fildair Frères",
+    "short_name": "Fildair",
+    "description": "Fildair Frères vous propose des services complets pour vos projets de piscines.",
+    "icons": [
+      {
+        "src": "/favicon-96x96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#274e9d",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "start_url": "/"
+  }

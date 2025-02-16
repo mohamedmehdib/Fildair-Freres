@@ -100,10 +100,21 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        {/* Metadata */}
-        <meta charSet="UTF-8" />
-        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="theme-color" content="#274e9d" />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta charSet="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="theme-color" content="#274e9d" />
+
+  <meta name="apple-mobile-web-app-title" content="Fildair Frères" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
 
         {/* Structured Data */}
         <script type="application/ld+json">

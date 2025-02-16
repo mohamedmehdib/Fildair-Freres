@@ -35,7 +35,7 @@ export default function Contact() {
     const emailData = {
       sender: {
         name: 'Fildair Frères', // Your name or company name
-        email: 'piscinesfildairfrerestunisie.com', // Your email address
+        email: 'contact@piscinesfildairfrerestunisie.com', // Your email address
       },
       to: [
         {

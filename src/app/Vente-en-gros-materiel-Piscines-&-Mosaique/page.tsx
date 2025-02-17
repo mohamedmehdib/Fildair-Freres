@@ -7,14 +7,12 @@ import Link from 'next/link';
 const Page: React.FC = () => {
   return (
     <div>
-      {/* Navbar */}
       <Navbar />
       <link
         rel='stylesheet'
         href='https://unicons.iconscout.com/release/v4.0.8/css/line.css'
       />
 
-      {/* Hero Section */}
       <div className="h-[40vh] md:h-[60vh] flex pt-20 md:pt-0 justify-center items-center bg-[#274e9d]">
         <div className="text-center px-4">
           <h1 className="text-4xl md:text-6xl text-white font-medium w-full md:w-2/3 mx-auto leading-tight">
@@ -24,10 +22,8 @@ const Page: React.FC = () => {
         </div>
       </div>
 
-      {/* Content Section */}
       <div className="py-8 md:py-12 px-4 md:px-8 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-          {/* Text Content */}
           <div className="flex-1">
             <p className="text-base md:text-lg text-gray-700 mb-4">
               Nous sommes ravis de vous accueillir dans notre showroom situé à la Soukra, réservé aux professionnels et particuliers. Vous y trouverez tous les équipements nécessaires à l’élaboration de votre chantier. N’hésitez pas à nous contacter pour toute assistance technique dans vos devis ou pour trouver des équipements auxquels nous n’aurions pas pensé.
@@ -41,7 +37,6 @@ const Page: React.FC = () => {
             </p>
           </div>
 
-          {/* Image Aside */}
           <div className="flex-1">
             <Image
               src="/sell.jpg"
@@ -53,7 +48,6 @@ const Page: React.FC = () => {
           </div>
         </div>
 
-        {/* Image Grid Section */}
         <div className="mt-8">
           <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-8">
             <div className="text-center">
@@ -91,7 +85,6 @@ const Page: React.FC = () => {
           </div>
         </div>
 
-        {/* Service Highlights */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {[
             { icon: <i className="uil uil-truck"></i>, title: 'Frais de livraison réduit' },
@@ -112,7 +105,6 @@ const Page: React.FC = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

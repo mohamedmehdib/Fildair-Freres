@@ -5,13 +5,13 @@ import Image from 'next/image';
 interface GalleryItem {
   id: number;
   src: string;
-  category?: string; // Optional category
+  category?: string;
 }
 
 interface PiscineCategoryItem {
   id: number;
-  piscine: string; // Fixed value: "equipements"
-  categories: string[]; // Array of categories
+  piscine: string;
+  categories: string[];
 }
 
 const UploadEquipement: React.FC = () => {
@@ -20,13 +20,12 @@ const UploadEquipement: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const [items, setItems] = useState<GalleryItem[]>([]); // State to store fetched items
-  const [editingItem, setEditingItem] = useState<GalleryItem | null>(null); // State for editing items
+  const [items, setItems] = useState<GalleryItem[]>([]);
+  const [editingItem, setEditingItem] = useState<GalleryItem | null>(null);
 
-  const [categories, setCategories] = useState<PiscineCategoryItem[]>([]); // State to store fetched categories
-  const [newCategory, setNewCategory] = useState(''); // State for adding new categories
+  const [categories, setCategories] = useState<PiscineCategoryItem[]>([]);
+  const [newCategory, setNewCategory] = useState('');
   
-  // Fetch items from Supabase
   useEffect(() => {
     const fetchItems = async () => {
       try {
@@ -47,7 +46,6 @@ const UploadEquipement: React.FC = () => {
     fetchItems();
   }, []);
 
-  // Fetch categories from Supabase
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -69,7 +67,6 @@ const UploadEquipement: React.FC = () => {
     fetchCategories();
   }, []);
 
-  // Handle item upload/edit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -83,9 +80,8 @@ const UploadEquipement: React.FC = () => {
     }
 
     try {
-      // Step 1: Upload the image to Supabase Storage
       const fileExt = file.name.split('.').pop();
-      const fileName = `${Math.random()}.${fileExt}`; // Generate a unique file name
+      const fileName = `${Math.random()}.${fileExt}`;
       const filePath = `${fileName}`;
 
       const { error: uploadError } = await supabase.storage
@@ -96,16 +92,13 @@ const UploadEquipement: React.FC = () => {
         throw uploadError;
       }
 
-      // Step 2: Get the public URL of the uploaded file
       const { data: publicUrlData } = supabase.storage
         .from('equipements')
         .getPublicUrl(filePath);
 
       const imageUrl = publicUrlData.publicUrl;
 
-      // Step 3: Insert or update the image URL and other data into the database
       if (editingItem) {
-        // Update existing item
         const { error: dbError } = await supabase
           .from('equipements')
           .update({ src: imageUrl, category: category || null })
@@ -117,7 +110,6 @@ const UploadEquipement: React.FC = () => {
 
         setSuccess('Item updated successfully!');
       } else {
-        // Insert new item
         const { error: dbError } = await supabase
           .from('equipements')
           .insert([{ src: imageUrl, category: category || null }]);
@@ -129,7 +121,6 @@ const UploadEquipement: React.FC = () => {
         setSuccess('Item uploaded successfully!');
       }
 
-      // Refresh the list of items
       const { data: updatedData, error: fetchError } = await supabase
         .from('equipements')
         .select('*');
@@ -141,7 +132,7 @@ const UploadEquipement: React.FC = () => {
       setItems(updatedData || []);
       setFile(null);
       setCategory('');
-      setEditingItem(null); // Reset editing state
+      setEditingItem(null);
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message || 'An error occurred while uploading the image.');
@@ -153,7 +144,6 @@ const UploadEquipement: React.FC = () => {
     }
   };
 
-  // Handle item deletion
   const handleDeleteItem = async (id: number) => {
     try {
       const { error: dbError } = await supabase
@@ -165,7 +155,6 @@ const UploadEquipement: React.FC = () => {
         throw dbError;
       }
 
-      // Refresh the list of items
       const { data: updatedData, error: fetchError } = await supabase
         .from('equipements')
         .select('*');
@@ -185,13 +174,11 @@ const UploadEquipement: React.FC = () => {
     }
   };
 
-  // Handle item edit
   const handleEditItem = (item: GalleryItem) => {
     setEditingItem(item);
     setCategory(item.category || '');
   };
 
-  // Handle category addition
   const handleAddCategory = async () => {
     if (!newCategory) {
       setError('Please enter a category.');
@@ -199,7 +186,6 @@ const UploadEquipement: React.FC = () => {
     }
 
     try {
-      // Check if the category already exists
       const existingCategory = categories.find((cat) =>
         cat.categories.includes(newCategory)
       );
@@ -209,7 +195,6 @@ const UploadEquipement: React.FC = () => {
         return;
       }
 
-      // Insert new category
       const { error: dbError } = await supabase
         .from('piscines_categories')
         .insert([{ piscine: 'equipements', categories: [newCategory] }]);
@@ -218,7 +203,6 @@ const UploadEquipement: React.FC = () => {
         throw dbError;
       }
 
-      // Refresh the list of categories
       const { data: updatedData, error: fetchError } = await supabase
         .from('piscines_categories')
         .select('*')
@@ -240,7 +224,6 @@ const UploadEquipement: React.FC = () => {
     }
   };
 
-  // Handle category deletion
   const handleDeleteCategory = async (id: number) => {
     try {
       const { error: dbError } = await supabase
@@ -252,7 +235,6 @@ const UploadEquipement: React.FC = () => {
         throw dbError;
       }
 
-      // Refresh the list of categories
       const { data: updatedData, error: fetchError } = await supabase
         .from('piscines_categories')
         .select('*')
@@ -277,7 +259,6 @@ const UploadEquipement: React.FC = () => {
     <div className="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto">
       <h2 className="text-xl font-semibold mb-4">Upload Image to equipements</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* File Input */}
         <div>
           <label className="block text-sm font-medium text-gray-700">Image File</label>
           <input
@@ -289,7 +270,6 @@ const UploadEquipement: React.FC = () => {
           />
         </div>
 
-        {/* Category Input (Optional) */}
         <div>
           <label className="block text-sm font-medium text-gray-700">Category (Optional)</label>
           <select
@@ -308,7 +288,6 @@ const UploadEquipement: React.FC = () => {
           </select>
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}
@@ -323,12 +302,10 @@ const UploadEquipement: React.FC = () => {
             : 'Upload'}
         </button>
 
-        {/* Error and Success Messages */}
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
         {success && <p className="text-green-500 text-sm mt-2">{success}</p>}
       </form>
 
-      {/* Display Items */}
       <div className="mt-8">
         <h3 className="text-lg font-semibold mb-4">Uploaded Items</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -363,11 +340,9 @@ const UploadEquipement: React.FC = () => {
         </div>
       </div>
 
-      {/* Manage Categories */}
       <div className="mt-8">
         <h3 className="text-lg font-semibold mb-4">Manage Categories</h3>
         <div className="space-y-4">
-          {/* Add Category */}
           <div>
             <label className="block text-sm font-medium text-gray-700">Add New Category</label>
             <div className="flex space-x-2">
@@ -387,7 +362,6 @@ const UploadEquipement: React.FC = () => {
             </div>
           </div>
 
-          {/* Display Categories */}
           <div>
             <h4 className="text-md font-medium mb-2">Existing Categories</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

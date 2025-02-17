@@ -1,8 +1,7 @@
-// app/Conception-de-piscine-sur-mesure/page.tsx
 import React from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import Slider from "./Slider"; // Import the Slider component
+import Slider from "./Slider";
 
 export default function Page() {
   const images = [
@@ -41,10 +40,8 @@ export default function Page() {
 
   return (
     <div>
-      {/* Navbar */}
       <Navbar />
 
-      {/* Hero Section */}
       <div className="h-[40vh] md:h-[60vh] pt-20 md:pt-0 flex justify-center items-center bg-[#274e9d]">
         <div className="text-center px-4">
           <h1 className="text-4xl md:text-6xl text-white font-medium w-full md:w-2/3 mx-auto">
@@ -54,10 +51,8 @@ export default function Page() {
         </div>
       </div>
 
-      {/* Content Section */}
       <div className="py-8 md:py-12 px-4 md:px-8 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-          {/* Text Content */}
           <div className="flex-1 text-base md:text-lg text-gray-700 leading-relaxed">
             <p className="mb-4 md:mb-6">
               Nous allons explorer en profondeur les différentes options et étapes pour concrétiser le projet de piscine dont vous avez toujours rêvé. Que vous envisagiez une piscine de luxe, une mini piscine ou même une piscine naturelle, une piscine semi-enterrée, enterrée ou hors sol, nous sommes là pour vous accompagner à chaque étape de ce projet passionnant.
@@ -70,14 +65,12 @@ export default function Page() {
             </p>
           </div>
 
-          {/* Image Aside */}
           <div className="flex-1 max-w-full overflow-hidden">
-            <Slider images={images} /> {/* Use the Slider component here */}
+            <Slider images={images} />
           </div>
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

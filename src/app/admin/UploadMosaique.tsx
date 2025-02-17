@@ -340,11 +340,9 @@ const UploadMosaique: React.FC = () => {
         </div>
       </div>
 
-      {/* Manage Categories */}
       <div className="mt-8">
         <h3 className="text-lg font-semibold mb-4">Manage Categories</h3>
         <div className="space-y-4">
-          {/* Add Category */}
           <div>
             <label className="block text-sm font-medium text-gray-700">Add New Category</label>
             <div className="flex space-x-2">
@@ -364,7 +362,6 @@ const UploadMosaique: React.FC = () => {
             </div>
           </div>
 
-          {/* Display Categories */}
           <div>
             <h4 className="text-md font-medium mb-2">Existing Categories</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

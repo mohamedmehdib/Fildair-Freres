@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 
-// Définition de la structure d'un témoignage
 interface Testimonial {
   id: number;
   name: string;
@@ -12,7 +11,7 @@ interface Testimonial {
 }
 
 interface FormData {
-  id?: number; // Ajout de l'ID pour l'édition
+  id?: number;
   name: string;
   role: string;
   stars: number;
@@ -26,16 +25,15 @@ export default function ManageTestimonials() {
     stars: 5,
     feedback: '',
   });
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]); // Liste des témoignages
-  const [selectedId, setSelectedId] = useState<number | null>(null); // Suivi du témoignage sélectionné pour l'édition
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [selectedId, setSelectedId] = useState<number | null>(null);
 
-  // Récupération des témoignages depuis Supabase
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
         const { data, error } = await supabase.from('testimonials').select('*');
         if (error) throw error;
-        setTestimonials(data || []); // Valeur par défaut : tableau vide
+        setTestimonials(data || []);
       } catch (error) {
         console.error('Erreur lors de la récupération des témoignages:', error);
       }
@@ -43,7 +41,6 @@ export default function ManageTestimonials() {
     fetchTestimonials();
   }, []);
 
-  // Gestion des changements dans le formulaire
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -51,7 +48,6 @@ export default function ManageTestimonials() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Préremplir le formulaire lors de l'édition
   const handleEdit = (testimonial: Testimonial) => {
     setSelectedId(testimonial.id);
     setFormData({
@@ -62,10 +58,9 @@ export default function ManageTestimonials() {
       feedback: testimonial.feedback,
     });
 
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll vers le haut
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Suppression d'un témoignage
   const handleDelete = async (id: number) => {
     try {
       const { error } = await supabase.from('testimonials').delete().eq('id', id);
@@ -78,7 +73,6 @@ export default function ManageTestimonials() {
     }
   };
 
-  // Soumission du formulaire (ajout ou mise à jour)
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.role.trim() || !formData.feedback.trim()) {

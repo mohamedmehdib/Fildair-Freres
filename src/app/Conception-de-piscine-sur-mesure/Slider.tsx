@@ -1,5 +1,4 @@
-// components/Slider.tsx
-"use client"; // Mark this as a Client Component
+"use client";
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,7 +12,7 @@ const Slider = ({ images }: { images: { src: string }[] }) => {
   const swiperRef = React.useRef<SwiperType | null>(null);
 
   return (
-    <div className="max-w-6xl mx-auto w-full"> {/* Constrain the width */}
+    <div className="max-w-6xl mx-auto w-full">
       <Swiper
         modules={[Autoplay, Pagination]}
         pagination={{
@@ -25,7 +24,7 @@ const Slider = ({ images }: { images: { src: string }[] }) => {
           disableOnInteraction: false,
         }}
         spaceBetween={20}
-        slidesPerView={1} // Always show 1 slide per view
+        slidesPerView={1}
         loop={true}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >

@@ -6,10 +6,8 @@ import Image from 'next/image';
 const Page: React.FC = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Navbar */}
       <Navbar />
 
-      {/* Hero Section */}
       <div className="h-[40vh] md:h-[60vh] flex pt-20 md:pt-0 justify-center items-center bg-[#274e9d]">
         <div className="text-center px-4">
           <h1 className="text-4xl md:text-6xl text-white font-medium w-full md:w-2/3 mx-auto">
@@ -19,9 +17,7 @@ const Page: React.FC = () => {
         </div>
       </div>
 
-      {/* Content Section */}
       <div className="py-12 px-4 md:px-8 max-w-6xl mx-auto">
-        {/* Text Section */}
         <div className="text-center mb-12">
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
             Profitez d’une eau cristalline sans effort avec notre service d’entretien de piscines !{' '}
@@ -31,7 +27,6 @@ const Page: React.FC = () => {
           </p>
         </div>
 
-        {/* Contact Section */}
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-[#274e9d] mb-4">
             Contactez-nous
@@ -41,7 +36,6 @@ const Page: React.FC = () => {
           </p>
         </div>
 
-        {/* Image Grid Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
             <Image
@@ -73,7 +67,6 @@ const Page: React.FC = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

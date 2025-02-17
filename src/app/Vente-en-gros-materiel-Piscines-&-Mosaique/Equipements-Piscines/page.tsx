@@ -1,67 +1,60 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase'; // Ensure this path is correct
+import { supabase } from '@/lib/supabase';
 import Navbar from '../../Navbar';
 import Footer from '../../Footer';
 import Image from 'next/image';
 
-// Define the type for gallery items
 interface GalleryItem {
   id: number;
   src: string;
-  category: string | null; // Allow category to be null
+  category: string | null;
 }
 
 const Page: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [galleryData, setGalleryData] = useState<GalleryItem[]>([]); // State for gallery items
-  const [categories, setCategories] = useState<string[]>([]); // State for categories
-  const [loading, setLoading] = useState(true); // Loading state
+  const [galleryData, setGalleryData] = useState<GalleryItem[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Fetch data from Supabase
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch gallery items
         const { data: galleryData, error: galleryError } = await supabase
-          .from('equipements') // Ensure the table name is correct
-          .select('*'); // Fetch all rows from the equipements table
+          .from('equipements')
+          .select('*');
 
         if (galleryError) {
           throw galleryError;
         }
 
-        // Fetch categories
         const { data: categoryData, error: categoryError } = await supabase
-          .from('piscines_categories') // Ensure the table name is correct
+          .from('piscines_categories')
           .select('categories')
-          .eq('piscine', 'equipements'); // Filter by piscine = 'equipements'
+          .eq('piscine', 'equipements');
 
         if (categoryError) {
           throw categoryError;
         }
 
-        // Extract unique categories
         const uniqueCategories = Array.from(
           new Set(categoryData.flatMap((cat) => cat.categories))
         );
 
-        // Set states
         setGalleryData((galleryData as GalleryItem[]) || []);
-        setCategories(['all', ...uniqueCategories]); // Add 'all' as the first option
+        setCategories(['all', ...uniqueCategories]);
       } catch (err) {
         console.error('Error fetching data:', err);
       } finally {
-        setLoading(false); // Set loading to false
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  // Filter data based on search term and selected category
   const filteredGallery = galleryData.filter((item) => {
-    const category = item.category || ''; // Fallback to empty string if category is null
+    const category = item.category || '';
     const matchesCategory =
       selectedCategory === 'all' || category === selectedCategory;
     return matchesCategory;
@@ -69,10 +62,8 @@ const Page: React.FC = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Navbar */}
       <Navbar />
 
-      {/* Hero Section */}
       <div className="h-[40vh] md:h-[60vh] flex pt-20 md:pt-0 justify-center items-center bg-[#274e9d]">
         <div className="text-center px-4">
           <h1 className="text-4xl md:text-6xl text-white font-medium w-full md:w-2/3 mx-auto">
@@ -82,13 +73,10 @@ const Page: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="container mx-auto px-4 py-12 flex flex-col md:flex-row gap-8">
-        {/* Aside (Filters) */}
         <aside className="w-full md:w-64 bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4">Filtres</h2>
 
-          {/* Category Filters */}
           <div className="space-y-2">
             <h3 className="text-lg font-medium mb-2">Catégories</h3>
             {categories.map((category) => (
@@ -107,7 +95,6 @@ const Page: React.FC = () => {
           </div>
         </aside>
 
-        {/* Main Gallery */}
         <main className="flex-1">
           {loading ? (
             <p className="text-center text-gray-700">Chargement en cours...</p>
@@ -119,12 +106,11 @@ const Page: React.FC = () => {
                     key={item.id}
                     className="bg-white p-4 rounded-lg shadow-md"
                   >
-                    {/* Square Image Container */}
                     <div className="relative aspect-square w-full">
                       <Image
                         src={item.src}
                         alt={`Pool equipment ${item.id}`}
-                        fill // Use fill to make the image cover the container
+                        fill
                         className="object-cover rounded-md"
                       />
                     </div>
@@ -138,7 +124,6 @@ const Page: React.FC = () => {
         </main>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

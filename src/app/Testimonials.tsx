@@ -20,7 +20,6 @@ export default function Testimonials(): React.ReactElement {
   const [maxHeight, setMaxHeight] = useState<number>(0);
   const swiperRef = useRef<SwiperType | null>(null);
 
-  // Fetch testimonials from Supabase
   useEffect(() => {
     const fetchTestimonials = async () => {
       const { data, error } = await supabase.from('testimonials').select('*');
@@ -33,7 +32,6 @@ export default function Testimonials(): React.ReactElement {
     fetchTestimonials();
   }, []);
 
-  // Adjust slide heights dynamically
   useEffect(() => {
     if (swiperRef.current) {
       const updateMaxHeight = () => {

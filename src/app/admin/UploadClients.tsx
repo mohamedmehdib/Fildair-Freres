@@ -1,31 +1,30 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { supabase } from "@/lib/supabase"; // Adjust the import path as needed
+import { supabase } from "@/lib/supabase";
 import Image from "next/image";
 
 interface Logo {
   id: number;
-  src: string; // URL of the logo
-  alt: string; // Alt text for the logo
-  type: "client" | "partenaire"; // Type of logo (client or partenaire)
+  src: string;
+  alt: string;
+  type: "client" | "partenaire";
 }
 
 const UploadClient: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [altText, setAltText] = useState<string>("");
-  const [type, setType] = useState<"client" | "partenaire">("client"); // Default to "client"
+  const [type, setType] = useState<"client" | "partenaire">("client");
   const [isUploading, setIsUploading] = useState<boolean>(false);
-  const [logos, setLogos] = useState<Logo[]>([]); // List of all logos (clients and partenaires)
-  const [editingLogo, setEditingLogo] = useState<Logo | null>(null); // Track the logo being edited
+  const [logos, setLogos] = useState<Logo[]>([]);
+  const [editingLogo, setEditingLogo] = useState<Logo | null>(null);
 
-  // Fetch existing logos from Supabase
   useEffect(() => {
     const fetchLogos = async () => {
       try {
         const { data, error } = await supabase.from("logos").select("*");
         if (error) throw error;
-        setLogos(data || []); // Fallback to an empty array if data is null
+        setLogos(data || []);
       } catch (error) {
         console.error("Error fetching logos:", error);
       }
@@ -34,14 +33,12 @@ const UploadClient: React.FC = () => {
     fetchLogos();
   }, []);
 
-  // Handle file input change
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setFile(e.target.files[0]);
     }
   };
 
-  // Handle form submission (create or update)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -55,19 +52,17 @@ const UploadClient: React.FC = () => {
     try {
       let imageUrl: string | null = null;
 
-      // If a new file is uploaded, upload it to Supabase Storage
       if (file) {
         const fileExt = file.name.split(".").pop();
         const fileName = `${Math.random()}.${fileExt}`;
         const { data: uploadData, error: uploadError } = await supabase.storage
-          .from("logos") // Replace with your bucket name
+          .from("logos")
           .upload(`logos/${fileName}`, file);
 
         if (uploadError) {
           throw uploadError;
         }
 
-        // Get the public URL of the uploaded file
         const { data: publicUrlData } = supabase.storage
           .from("logos")
           .getPublicUrl(uploadData.path);
@@ -75,11 +70,10 @@ const UploadClient: React.FC = () => {
       }
 
       if (editingLogo) {
-        // Update existing logo
         const { error: updateError } = await supabase
           .from("logos")
           .update({
-            src: imageUrl || editingLogo.src, // Use new URL if uploaded, otherwise keep the old one
+            src: imageUrl || editingLogo.src,
             alt: altText,
             type: type,
           })
@@ -91,7 +85,6 @@ const UploadClient: React.FC = () => {
 
         alert("Logo updated successfully!");
       } else {
-        // Insert new logo
         if (!file) {
           alert("Please select a file for a new logo.");
           return;
@@ -99,7 +92,7 @@ const UploadClient: React.FC = () => {
 
         const { error: insertError } = await supabase.from("logos").insert([
           {
-            src: imageUrl!, // Use the new URL
+            src: imageUrl!,
             alt: altText,
             type: type,
           },
@@ -112,14 +105,12 @@ const UploadClient: React.FC = () => {
         alert("Logo uploaded successfully!");
       }
 
-      // Refresh the list of logos
       const { data: newLogos, error: fetchError } = await supabase
         .from("logos")
         .select("*");
       if (fetchError) throw fetchError;
       setLogos(newLogos || []);
 
-      // Reset form
       setFile(null);
       setAltText("");
       setType("client");
@@ -132,7 +123,6 @@ const UploadClient: React.FC = () => {
     }
   };
 
-  // Handle logo deletion
   const handleDelete = async (id: number) => {
     try {
       const { error: deleteError } = await supabase
@@ -144,7 +134,6 @@ const UploadClient: React.FC = () => {
         throw deleteError;
       }
 
-      // Refresh the list of logos
       const { data: newLogos, error: fetchError } = await supabase
         .from("logos")
         .select("*");
@@ -158,16 +147,14 @@ const UploadClient: React.FC = () => {
     }
   };
 
-  // Handle logo edit
   const handleEdit = (logo: Logo) => {
     setEditingLogo(logo);
     setAltText(logo.alt);
     setType(logo.type);
 
-    // Smooth scroll to the top of the page
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Smooth scrolling animation
+      behavior: "smooth",
     });
   };
 
@@ -187,7 +174,7 @@ const UploadClient: React.FC = () => {
             accept="image/*"
             onChange={handleFileChange}
             className="w-full p-2 border rounded"
-            required={!editingLogo} // Only required for new logos
+            required={!editingLogo}
           />
         </div>
         <div>
@@ -226,7 +213,6 @@ const UploadClient: React.FC = () => {
         </button>
       </form>
 
-      {/* List of existing clients */}
       <div className="mt-8">
         <h3 className="text-lg sm:text-xl font-bold mb-4 text-center">Clients</h3>
         {clientLogos.length === 0 ? (
@@ -266,7 +252,6 @@ const UploadClient: React.FC = () => {
         )}
       </div>
 
-      {/* List of existing partenaires */}
       <div className="mt-8">
         <h3 className="text-lg sm:text-xl font-bold mb-4 text-center">Partenaires</h3>
         {partenaireLogos.length === 0 ? (

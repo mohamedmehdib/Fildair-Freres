@@ -8,7 +8,6 @@ import { Swiper as SwiperType } from 'swiper';
 import { createClient } from '@supabase/supabase-js';
 import Image from 'next/image';
 
-// Initialize Supabase client
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL as string,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
@@ -18,12 +17,11 @@ export default function Projects() {
   const [projectImages, setProjectImages] = useState<string[]>([]);
   const swiperRef = React.useRef<SwiperType | null>(null);
 
-  // Fetch images from Supabase
   useEffect(() => {
     async function fetchImages() {
       const { data, error } = await supabase
-        .from('projects') // Replace 'projects' with your table name
-        .select('image_url'); // Replace 'image_url' with your column name
+        .from('projects')
+        .select('image_url');
 
       if (error) {
         console.error('Error fetching project images:', error);
@@ -94,7 +92,6 @@ export default function Projects() {
           ))}
         </Swiper>
 
-        {/* Custom Navigation Buttons */}
         <div
           className='swiper-button-prev absolute flex items-center justify-center top-1/2 left-2 transform -translate-y-1/2 z-10 bg-white h-10 w-10 sm:h-12 sm:w-12 rounded-full shadow-lg cursor-pointer hover:bg-[#305eb8] text-[#305eb8] hover:text-white transition-all duration-300'
           aria-label='Previous Slide'

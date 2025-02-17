@@ -15,7 +15,6 @@ const ProjectsManagement = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [projects, setProjects] = useState<Project[]>([]);
 
-  // Fetch projects on component mount
   useEffect(() => {
     fetchProjects();
   }, []);
@@ -54,7 +53,6 @@ const ProjectsManagement = () => {
       return;
     }
     try {
-      // Step 1: Upload image to Supabase Storage
       const { data: uploadData, error: uploadError } = await supabase.storage
         .from("project-images")
         .upload(`projects/${Date.now()}_${imageFile.name}`, imageFile, {
@@ -69,7 +67,6 @@ const ProjectsManagement = () => {
       }
       console.log("Upload Success:", uploadData);
 
-      // Step 2: Get the public URL of the uploaded image
       const { data: publicURLData } = supabase.storage
         .from("project-images")
         .getPublicUrl(uploadData.path);
@@ -82,7 +79,6 @@ const ProjectsManagement = () => {
         return;
       }
 
-      // Step 3: Insert the project details into the 'projects' table
       const { error: insertError } = await supabase
         .from("projects")
         .insert([{ image_url: publicURL }]);
@@ -92,7 +88,6 @@ const ProjectsManagement = () => {
         setSuccessMessage("Project added successfully!");
       }
 
-      // Reset form and fetch updated projects
       setImageFile(null);
       fetchProjects();
     } catch (error) {
@@ -116,7 +111,7 @@ const ProjectsManagement = () => {
         throw error;
       }
       setSuccessMessage("Project deleted successfully!");
-      fetchProjects(); // Refresh the project list
+      fetchProjects();
     } catch (error) {
       console.error("Error deleting project:", error);
       setErrorMessage("Error deleting project.");
@@ -128,7 +123,6 @@ const ProjectsManagement = () => {
       <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
         Gérer les projets
       </h2>
-      {/* Success and Error Messages */}
       {successMessage && (
         <div className="bg-green-100 text-green-700 p-3 rounded mb-4">
           {successMessage}
@@ -139,7 +133,6 @@ const ProjectsManagement = () => {
           {errorMessage}
         </div>
       )}
-      {/* Form for Uploading Project Image */}
       <form onSubmit={handleProjectSubmit} className="space-y-4">
         <div>
           <label
@@ -167,7 +160,6 @@ const ProjectsManagement = () => {
           {loading ? "Sauvegarde du projet..." : "Sauvegarder le projet"}
         </button>
       </form>
-      {/* List of Projects */}
       <div className="mt-6 sm:mt-8">
         <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4">
           Liste des projets

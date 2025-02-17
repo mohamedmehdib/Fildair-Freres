@@ -3,25 +3,24 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
-import { supabase } from "@/lib/supabase"; // Adjust the import path as needed
+import { supabase } from "@/lib/supabase";
 
 interface Logo {
   id: number;
-  src: string; // URL of the logo
-  alt: string; // Alt text for the logo
-  type: "client" | "partenaire"; // Type of logo (client or partenaire)
+  src: string;
+  alt: string;
+  type: "client" | "partenaire";
 }
 
 const Clients: React.FC = () => {
   const [logos, setLogos] = useState<Logo[]>([]);
 
-  // Fetch logos from Supabase
   useEffect(() => {
     const fetchLogos = async () => {
       try {
         const { data, error } = await supabase.from("logos").select("*");
         if (error) throw error;
-        setLogos(data || []); // Fallback to an empty array if data is null
+        setLogos(data || []);
       } catch (error) {
         console.error("Error fetching logos:", error);
       }
@@ -30,13 +29,11 @@ const Clients: React.FC = () => {
     fetchLogos();
   }, []);
 
-  // Filter logos by type
   const clientLogos = logos.filter((logo) => logo.type === "client");
   const partenaireLogos = logos.filter((logo) => logo.type === "partenaire");
 
   return (
     <div>
-      {/* Clients Section */}
       <div className="flex items-center justify-center py-5 space-x-4">
         <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
         <span className="text-[#305eb8] text-2xl sm:text-4xl font-semibold">
@@ -60,7 +57,6 @@ const Clients: React.FC = () => {
         </Marquee>
       </div>
 
-      {/* Partenaires Section */}
       <div className="flex items-center justify-center py-5 space-x-4 mt-8">
         <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
         <span className="text-[#305eb8] text-2xl sm:text-4xl font-semibold">

@@ -4,8 +4,8 @@ import "leaflet/dist/leaflet.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Fildair Frères", // Default title
-    template: "%s | Fildair Frères", // Dynamic title template
+    default: "Fildair Frères",
+    template: "%s | Fildair Frères",
   },
   description:
     "Fildair Frères vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       "Fildair Frères vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     url: "https://piscinesfildairfrerestunisie.com",
-    siteName: "Fildair Frères - Pisciniste De Père en Fils", // Updated site name
+    siteName: "Fildair Frères - Pisciniste De Père en Fils",
     images: [
       {
         url: "https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fildair Frères - Pisciniste De Père en Fils", // Updated title
+    title: "Fildair Frères - Pisciniste De Père en Fils",
     description:
       "Fildair Frères vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     images: ["https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75"],
@@ -91,20 +91,19 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        {/* Metadata */}
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#274e9d" />
-        {/* iOS Configuration */}
+
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Fildair Frères" />
         <meta name="application-name" content="Fildair Frères" />
-        {/* Favicon Links */}
+
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        {/* Structured Data */}
+
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>

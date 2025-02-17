@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { supabase } from '@/lib/supabase'; // Adjust the import path as needed
+import { supabase } from '@/lib/supabase';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ export default function Contact() {
     subject: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false); // Track form submission state
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,14 +22,13 @@ export default function Contact() {
     }));
   };
 
-  // Function to send email using Brevo API
   const sendEmailNotification = async (formData: {
     name: string;
     email: string;
     subject: string;
     message: string;
   }) => {
-    const BREVO_API_KEY = process.env.NEXT_PUBLIC_BREVO_API_KEY; // Replace with your actual Brevo API key
+    const BREVO_API_KEY = process.env.NEXT_PUBLIC_BREVO_API_KEY;
     const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
 
     if (!BREVO_API_KEY) {
@@ -38,12 +37,12 @@ export default function Contact() {
 
     const emailData = {
       sender: {
-        name: 'Fildair Frères', // Your name or company name
-        email: 'contact@piscinesfildairfrerestunisie.com', // Your email address
+        name: 'Fildair Frères',
+        email: 'contact@piscinesfildairfrerestunisie.com',
       },
       to: [
         {
-          email: 'fildairfreres@gmail.com', // The email where you want to receive notifications
+          email: 'fildairfreres@gmail.com',
           name: 'Fildair Frères',
         },
       ],
@@ -67,7 +66,7 @@ export default function Contact() {
         headers: {
           'Content-Type': 'application/json',
           'api-key': BREVO_API_KEY,
-        } as { [key: string]: string }, // Explicit type assertion to satisfy TypeScript
+        } as { [key: string]: string },
         body: JSON.stringify(emailData),
       });
 
@@ -89,7 +88,6 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Insert form data into the "contacts" table in Supabase
       const { data, error } = await supabase.from('contacts').insert([
         {
           name: formData.name,
@@ -105,11 +103,10 @@ export default function Contact() {
 
       console.log('Form Data Submitted:', data);
 
-      // Send email notification using Brevo API
       await sendEmailNotification(formData);
 
       alert('Message sent successfully!');
-      setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Failed to send message. Please try again.');

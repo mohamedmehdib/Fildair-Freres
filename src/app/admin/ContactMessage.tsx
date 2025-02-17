@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase'; // Adjust the import path as needed
+import { supabase } from '@/lib/supabase';
 
 interface ContactMessage {
   id: number;
@@ -14,23 +14,22 @@ interface ContactMessage {
 
 export default function MessagesList() {
   const [messages, setMessages] = useState<ContactMessage[]>([]);
-  const [isLoading, setIsLoading] = useState(true); // Track loading state
-  const [error, setError] = useState<string | null>(null); // Track errors
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Fetch messages from Supabase
   useEffect(() => {
     const fetchMessages = async () => {
       try {
         const { data, error } = await supabase
           .from('contacts')
           .select('*')
-          .order('created_at', { ascending: false }); // Sort by most recent
+          .order('created_at', { ascending: false });
 
         if (error) {
           throw error;
         }
 
-        setMessages(data || []); // Fallback to an empty array if data is null
+        setMessages(data || []);
       } catch (error) {
         console.error('Error fetching messages:', error);
         setError('Failed to fetch messages. Please try again.');
@@ -42,7 +41,6 @@ export default function MessagesList() {
     fetchMessages();
   }, []);
 
-  // Handle message deletion
   const handleDelete = async (id: number) => {
     try {
       const { error } = await supabase.from('contacts').delete().eq('id', id);
@@ -51,7 +49,6 @@ export default function MessagesList() {
         throw error;
       }
 
-      // Remove the deleted message from the state
       setMessages((prevMessages) =>
         prevMessages.filter((message) => message.id !== id)
       );

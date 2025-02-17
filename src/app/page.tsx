@@ -10,13 +10,12 @@ import Contact from "./Contact";
 import Testimonials from "./Testimonials";
 import Clients from "./Clients";
 import WhatsAppButton from "./Button";
-import PopUp from "./PopUp"; // Import the PopUp component
+import PopUp from "./PopUp";
 const Map = dynamic(() => import("./Map"), {
   ssr: false,
 });
 
 export default function Home() {
-  // Function to scroll to the contact form
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -34,11 +33,9 @@ export default function Home() {
       <Projects />
       <Testimonials />
       <Clients />
-      {/* Contact component already has a div with id="contact" */}
       <Contact />
       <Map />
       <Footer />
-      {/* Use the PopUp component */}
       <PopUp onDevisClick={scrollToContact} />
     </div>
   );

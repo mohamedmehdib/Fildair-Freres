@@ -25,7 +25,6 @@ export default function Navbar() {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
     } else {
-      // If the element doesn't exist, navigate to the home page and scroll to the section
       window.location.href = `/#${id}`;
     }
   };

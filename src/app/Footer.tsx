@@ -40,7 +40,6 @@ export default function Footer() {
       </script>
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-8 md:space-y-0">
-          {/* Follow Us Section */}
           <div className="text-left">
             <h2 className="text-xl font-semibold text-blue-700 mb-4">Suivez-nous</h2>
             <ul className="space-y-3">
@@ -95,7 +94,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Us Section */}
           <div className="text-left">
             <h2 className="text-xl font-semibold text-blue-700 mb-4">Contactez-nous</h2>
             <ul className="space-y-3 text-gray-600">
@@ -128,7 +126,6 @@ export default function Footer() {
 
         <hr className="border-gray-300 mt-10" />
 
-        {/* Copyright Section */}
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0 mt-6">
           <span className="text-gray-500">
             © 2025 <span className="font-semibold text-blue-700">Fildair Freres</span>. Tous droits réservés.

@@ -16,14 +16,14 @@ type Translations = {
 };
 
 // Create the translations object with the correct type
-const translations: { [key: string]: Translations } = {
-  en: en as Translations,
-  fr: fr as Translations,
-  es: es as Translations,
+const translations: Record<string, Translations> = {
+  en,
+  fr,
+  es,
 };
 
 // Function to load translations based on the user's language
 export const loadTranslations = (language: string): Translations => {
   const languageCode = language.split('-')[0];
-  return translations[languageCode] || translations['fr'];
+  return translations[languageCode] ?? translations['fr'];
 };

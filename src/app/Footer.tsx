@@ -1,5 +1,6 @@
+"use client";
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
@@ -7,8 +8,38 @@ import {
   faTiktok,
   faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons';
+import { loadTranslations } from '../utils/loadTranslations';
 
 export default function Footer() {
+  const [translations, setTranslations] = useState<{
+    footer: {
+      follow_us: string;
+      contact_us: string;
+      customer_service: string;
+      email: string;
+      address: string;
+      copyright: string;
+      developed_by: string;
+    };
+  }>({
+    footer: {
+      follow_us: "Suivez-nous",
+      contact_us: "Contactez-nous",
+      customer_service: "Service client:",
+      email: "Email:",
+      address: "Adresse:",
+      copyright: "© 2025 Fildair Freres. Tous droits réservés.",
+      developed_by: "Développé par Fildair Freres",
+    },
+  });
+
+  useEffect(() => {
+    // Detect the user's browser language
+    const userLanguage = navigator.language || "fr"; // Default to French
+    const loadedTranslations = loadTranslations(userLanguage);
+    setTranslations(loadedTranslations);
+  }, []);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -41,7 +72,9 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-8 md:space-y-0">
           <div className="text-left">
-            <h2 className="text-xl font-semibold text-blue-700 mb-4">Suivez-nous</h2>
+            <h2 className="text-xl font-semibold text-blue-700 mb-4">
+              {translations.footer.follow_us}
+            </h2>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -95,10 +128,14 @@ export default function Footer() {
           </div>
 
           <div className="text-left">
-            <h2 className="text-xl font-semibold text-blue-700 mb-4">Contactez-nous</h2>
+            <h2 className="text-xl font-semibold text-blue-700 mb-4">
+              {translations.footer.contact_us}
+            </h2>
             <ul className="space-y-3 text-gray-600">
               <li>
-                <span className="font-medium">Service client:</span>{" "}
+                <span className="font-medium">
+                  {translations.footer.customer_service}
+                </span>{" "}
                 <a href="tel:+21671865319" className="hover:text-blue-500 transition">
                   71 865 319 
                 </a>
@@ -106,10 +143,9 @@ export default function Footer() {
                 <a href="tel:+21627870016" className="hover:text-blue-500 transition">
                   27 870 016
                 </a>
-                
               </li>
               <li>
-                <span className="font-medium">Email:</span>{" "}
+                <span className="font-medium">{translations.footer.email}</span>{" "}
                 <a
                   href="mailto:fildairfreres@gmail.com"
                   className="hover:text-blue-500 transition"
@@ -118,7 +154,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <span className="font-medium">Adresse:</span> km 13 av Fatouma Bourguiba, La Soukra 2036, en face UTC
+                <span className="font-medium">{translations.footer.address}</span> km 13 av Fatouma Bourguiba, La Soukra 2036, en face UTC
               </li>
             </ul>
           </div>
@@ -128,13 +164,10 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0 mt-6">
           <span className="text-gray-500">
-            © 2025 <span className="font-semibold text-blue-700">Fildair Freres</span>. Tous droits réservés.
+            {translations.footer.copyright}
           </span>
           <span className="text-gray-500">
-            Développé par{' '}
-            <span className="font-medium text-blue-700 hover:text-blue-500 transition">
-              Fildair Freres
-            </span>
+            {translations.footer.developed_by}
           </span>
         </div>
       </div>

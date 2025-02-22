@@ -1,7 +1,9 @@
-import React from 'react';
-import Image from 'next/image';
-import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer';
+"use client";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+import { loadTranslations } from "../utils/loadTranslations";
 
 interface StatCardProps {
   number: number;
@@ -25,11 +27,39 @@ const StatCard: React.FC<StatCardProps> = ({ number, label }) => {
 };
 
 const AboutUs: React.FC = () => {
+  const [translations, setTranslations] = useState<{
+    about: {
+      about_us: string;
+      heading: string;
+      description: string;
+      completed_projects: string;
+      team_members: string;
+      satisfied_clients: string;
+    };
+  }>({
+    about: {
+      about_us: "À propos de nous",
+      heading: "Nager en toute sérénité avec Piscines Fildair Frères Tunisie",
+      description:
+        "Fildair Frères vous offre des services complets pour vos projets de piscine : conception sur mesure, rénovation, entretien annuel, vente en gros d'équipements et de mosaïques, ainsi que l'installation de chauffage et de climatisation. Avec plus de 20 ans d'expérience, nous vous garantissons des solutions personnalisées et de qualité pour répondre à tous vos besoins. Confiez-nous votre projet et obtenez un devis gratuit !",
+      completed_projects: "Projets terminés",
+      team_members: "Membres de l'équipe",
+      satisfied_clients: "Clients satisfaits",
+    },
+  });
+
+  useEffect(() => {
+    // Detect the user's browser language
+    const userLanguage = navigator.language || "fr"; // Default to French
+    const loadedTranslations = loadTranslations(userLanguage);
+    setTranslations(loadedTranslations);
+  }, []);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": "À propos de Fildair Frères",
-    "description": "Fildair Frères vous offre des services complets pour vos projets de piscine : conception sur mesure, rénovation, entretien annuel, vente en gros d'équipements et de mosaïques, ainsi que l'installation de chauffage et de climatisation.",
+    "name": translations.about.about_us,
+    "description": translations.about.description,
     "url": "https://piscinesfildairfrerestunisie.com/a-propos",
     "image": "https://piscinesfildairfrerestunisie.com/about.jpeg",
     "mainEntity": {
@@ -63,7 +93,7 @@ const AboutUs: React.FC = () => {
       <div className='w-full lg:w-1/2 flex items-center justify-center px-10'>
         <Image
           src="/bdl.jpeg"
-          alt='À propos de Fildair Frères'
+          alt={translations.about.about_us}
           width={5000}
           height={5000}
           className='rounded-xl'
@@ -73,24 +103,26 @@ const AboutUs: React.FC = () => {
 
       <div className='w-full lg:w-1/2 space-y-6 p-10'>
         <div className='flex items-center space-x-3'>
-          <span className='text-[#305eb8] text-xl font-semibold'>À propos de nous</span>
+          <span className='text-[#305eb8] text-xl font-semibold'>
+            {translations.about.about_us}
+          </span>
           <hr className='bg-[#305eb8] h-1 w-14' />
         </div>
 
         <div>
           <h1 className='py-5 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight'>
-            Nager en toute sérénité avec Piscines Fildair Frères Tunisie
+            {translations.about.heading}
           </h1>
           <p className='text-zinc-500 text-sm sm:text-base'>
-            Fildair Frères vous offre des services complets pour vos projets de piscine : conception sur mesure, rénovation, entretien annuel, vente en gros d&apos;équipements et de mosaïques, ainsi que l&apos;installation de chauffage et de climatisation. Avec plus de 20 ans d&apos;expérience, nous vous garantissons des solutions personnalisées et de qualité pour répondre à tous vos besoins. Confiez-nous votre projet et obtenez un devis gratuit !
+            {translations.about.description}
           </p>
         </div>
 
         {/* Replaced grid with flex */}
         <div className='flex flex-wrap justify-center gap-5'>
-          <StatCard number={500} label="Projets terminés" />
-          <StatCard number={30} label="Membres de l'équipe d'experts" />
-          <StatCard number={1000} label="Clients satisfaits" />
+          <StatCard number={500} label={translations.about.completed_projects} />
+          <StatCard number={30} label={translations.about.team_members} />
+          <StatCard number={1000} label={translations.about.satisfied_clients} />
         </div>
       </div>
     </section>

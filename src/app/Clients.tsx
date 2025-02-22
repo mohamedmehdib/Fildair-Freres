@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { supabase } from "@/lib/supabase";
+import { loadTranslations } from "../utils/loadTranslations";
 
 interface Logo {
   id: number;
@@ -14,8 +15,25 @@ interface Logo {
 
 const Clients: React.FC = () => {
   const [logos, setLogos] = useState<Logo[]>([]);
+  const [translations, setTranslations] = useState<{
+    clients: {
+      our_clients: string;
+      our_partners: string;
+    };
+  }>({
+    clients: {
+      our_clients: "Nos Clients",
+      our_partners: "Nos Partenaires",
+    },
+  });
 
   useEffect(() => {
+    // Detect the user's browser language
+    const userLanguage = navigator.language || "fr"; // Default to French
+    const loadedTranslations = loadTranslations(userLanguage);
+    setTranslations(loadedTranslations);
+
+    // Fetch logos from Supabase
     const fetchLogos = async () => {
       try {
         const { data, error } = await supabase.from("logos").select("*");
@@ -34,10 +52,11 @@ const Clients: React.FC = () => {
 
   return (
     <div>
+      {/* Clients Section */}
       <div className="flex items-center justify-center py-5 space-x-4">
         <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
         <span className="text-[#305eb8] text-2xl sm:text-4xl font-semibold">
-          Nos Clients
+          {translations.clients.our_clients}
         </span>
         <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
       </div>
@@ -57,16 +76,17 @@ const Clients: React.FC = () => {
         </Marquee>
       </div>
 
+      {/* Partners Section */}
       <div className="flex items-center justify-center py-5 space-x-4 mt-8">
         <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
         <span className="text-[#305eb8] text-2xl sm:text-4xl font-semibold">
-          Nos Partenaires
+          {translations.clients.our_partners}
         </span>
         <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
       </div>
       <div className="">
         <Marquee speed={50} gradient={false} direction="right" pauseOnHover loop={0}>
-          {[...partenaireLogos,...partenaireLogos,...partenaireLogos].map((logo, index) => (
+          {[...partenaireLogos, ...partenaireLogos, ...partenaireLogos].map((logo, index) => (
             <div key={index} className="flex-shrink-0 px-5">
               <Image
                 src={logo.src}

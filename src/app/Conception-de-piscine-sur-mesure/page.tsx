@@ -1,9 +1,35 @@
+"use client";
 import React from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import Slider from "./Slider";
+import { loadTranslations } from "@/utils/loadTranslations";
+import { useState,useEffect } from "react";
 
 export default function Page() {
+  const [translations, setTranslations] = useState<{
+    custom_pool_design: {
+      heading: string;
+      description_1: string;
+      description_2: string;
+      description_3: string;
+    };
+  }>({
+    custom_pool_design: {
+      heading: "Conception de piscine sur mesure",
+      description_1: "Nous allons explorer en profondeur les différentes options et étapes pour concrétiser le projet de piscine dont vous avez toujours rêvé. Que vous envisagiez une piscine de luxe, une mini piscine ou même une piscine naturelle, une piscine semi-enterrée, enterrée ou hors sol, nous sommes là pour vous accompagner à chaque étape de ce projet passionnant.",
+      description_2: "Découvrez nos avantages et le procédé de construction préféré de Piscines Fildair Freres, ainsi que les nombreuses possibilités de personnalisation pour rendre votre piscine unique. Nous aborderons également les autorisations nécessaires, les délais moyens de construction, les aspects budgétaires et bien plus encore.",
+      description_3: "Découvrez ici la méthode de béton armé que nous employons pour votre projet personnalisé et les étapes majeures de sa construction."
+    },
+  });
+
+  useEffect(() => {
+    // Detect the user's browser language
+    const userLanguage = navigator.language || "fr"; // Default to French
+    const loadedTranslations = loadTranslations(userLanguage);
+    setTranslations(loadedTranslations);
+  }, []);
+
   const images = [
     { src: "/bilel.jpeg" },
     { src: "/x1.jpeg" },
@@ -45,7 +71,7 @@ export default function Page() {
       <div className="h-[40vh] md:h-[60vh] pt-20 md:pt-0 flex justify-center items-center bg-[#274e9d]">
         <div className="text-center px-4">
           <h1 className="text-4xl md:text-6xl text-white font-medium w-full md:w-2/3 mx-auto">
-            Conception de piscine sur mesure
+            {translations.custom_pool_design.heading}
           </h1>
           <hr className="w-1/4 mx-auto border-2 border-white mt-4" />
         </div>
@@ -55,13 +81,13 @@ export default function Page() {
         <div className="flex flex-col md:flex-row gap-6 md:gap-8">
           <div className="flex-1 text-base md:text-lg text-gray-700 leading-relaxed">
             <p className="mb-4 md:mb-6">
-              Nous allons explorer en profondeur les différentes options et étapes pour concrétiser le projet de piscine dont vous avez toujours rêvé. Que vous envisagiez une piscine de luxe, une mini piscine ou même une piscine naturelle, une piscine semi-enterrée, enterrée ou hors sol, nous sommes là pour vous accompagner à chaque étape de ce projet passionnant.
+              {translations.custom_pool_design.description_1}
             </p>
             <p className="mb-4 md:mb-6">
-              Découvrez nos avantages et le procédé de construction préféré de Piscines Fildair Freres, ainsi que les nombreuses possibilités de personnalisation pour rendre votre piscine unique. Nous aborderons également les autorisations nécessaires, les délais moyens de construction, les aspects budgétaires et bien plus encore.
+              {translations.custom_pool_design.description_2}
             </p>
             <p>
-              Découvrez ici la méthode de béton armé que nous employons pour votre projet personnalisé et les étapes majeures de sa construction.
+              {translations.custom_pool_design.description_3}
             </p>
           </div>
 

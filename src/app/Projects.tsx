@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import { Swiper as SwiperType } from 'swiper';
 import { createClient } from '@supabase/supabase-js';
 import Image from 'next/image';
+import { loadTranslations } from '../utils/loadTranslations';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL as string,
@@ -15,9 +16,25 @@ const supabase = createClient(
 
 export default function Projects() {
   const [projectImages, setProjectImages] = useState<string[]>([]);
+  const [translations, setTranslations] = useState<{
+    projects: {
+      latest_projects: string;
+    };
+  }>({
+    projects: {
+      latest_projects: "Nos derniers projets",
+    },
+  });
+
   const swiperRef = React.useRef<SwiperType | null>(null);
 
   useEffect(() => {
+    // Detect the user's browser language
+    const userLanguage = navigator.language || "fr"; // Default to French
+    const loadedTranslations = loadTranslations(userLanguage);
+    setTranslations(loadedTranslations);
+
+    // Fetch project images from Supabase
     async function fetchImages() {
       const { data, error } = await supabase
         .from('projects')
@@ -42,7 +59,7 @@ export default function Projects() {
       <div className='flex items-center justify-center space-x-4 py-10 sm:py-14 px-3'>
         <hr className='bg-[#305eb8] h-1 w-10 md:w-14' />
         <span className='text-[#305eb8] text-2xl sm:text-4xl font-semibold text-center'>
-          Nos derniers projets
+          {translations.projects.latest_projects}
         </span>
         <hr className='bg-[#305eb8] h-1 w-10 md:w-14' />
       </div>

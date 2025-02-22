@@ -3,8 +3,31 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { LatLngExpression } from "leaflet";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { loadTranslations } from "../utils/loadTranslations";
 
 const Map = () => {
+  const [translations, setTranslations] = useState<{
+    map: {
+      visit_us: string;
+      popup_text: string;
+      popup_aria_label: string;
+    };
+  }>({
+    map: {
+      visit_us: "Visitez-nous !",
+      popup_text: "FILDAIR FRERES",
+      popup_aria_label: "Ouvrir l'emplacement de Fildair Frères sur Google Maps",
+    },
+  });
+
+  useEffect(() => {
+    // Detect the user's browser language
+    const userLanguage = navigator.language || "fr"; // Default to French
+    const loadedTranslations = loadTranslations(userLanguage);
+    setTranslations(loadedTranslations);
+  }, []);
+
   const position: LatLngExpression = [36.87884987742904, 10.26525650200852];
 
   const customIcon = new L.Icon({
@@ -19,23 +42,24 @@ const Map = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Place",
-    "name": "Fildair Frères",
-    "description": "Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
-    "address": {
+    name: "Fildair Frères",
+    description:
+      "Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": "km 13 av Fatouma Bourguiba",
-      "addressLocality": "La Soukra",
-      "postalCode": "2036",
-      "addressCountry": "Tunisia",
+      streetAddress: "km 13 av Fatouma Bourguiba",
+      addressLocality: "La Soukra",
+      postalCode: "2036",
+      addressCountry: "Tunisia",
     },
-    "geo": {
+    geo: {
       "@type": "GeoCoordinates",
-      "latitude": 36.87884987742904,
-      "longitude": 10.26525650200852,
+      latitude: 36.87884987742904,
+      longitude: 10.26525650200852,
     },
-    "url": "https://piscinesfildairfrerestunisie.com",
-    "telephone": "+216 71 865 319",
-    "sameAs": [
+    url: "https://piscinesfildairfrerestunisie.com",
+    telephone: "+216 71 865 319",
+    sameAs: [
       "https://www.facebook.com/profile.php?id=100007108443086&ref=ig_profile_ac",
       "https://www.instagram.com/fildair_bilel_abassi/",
       "https://www.tiktok.com/@fildairbilelabass",
@@ -51,7 +75,7 @@ const Map = () => {
       <div className="flex items-center justify-center py-5 space-x-4">
         <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
         <h2 className="text-[#305eb8] text-2xl sm:text-4xl font-semibold">
-          Visitez-nous !
+          {translations.map.visit_us}
         </h2>
         <hr className="bg-[#305eb8] h-1 w-10 sm:w-14" />
       </div>
@@ -74,9 +98,9 @@ const Map = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline"
-                aria-label="Ouvrir l'emplacement de Fildair Frères sur Google Maps"
+                aria-label={translations.map.popup_aria_label}
               >
-                FILDAIR FRERES
+                {translations.map.popup_text}
               </Link>
             </Popup>
           </Marker>

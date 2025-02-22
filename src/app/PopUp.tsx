@@ -1,9 +1,31 @@
+"use client";
 import { useEffect, useState } from "react";
+import { loadTranslations } from "../utils/loadTranslations";
 
 export default function PopUp({ onDevisClick }: { onDevisClick: () => void }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [translations, setTranslations] = useState<{
+    popup: {
+      get_quote: string;
+      welcome: string;
+      message: string;
+      get_quote_button: string;
+    };
+  }>({
+    popup: {
+      get_quote: "Obtenir un devis",
+      welcome: "Bienvenue!",
+      message: "Merci de visiter notre site Web. Voici une offre spéciale pour vous !",
+      get_quote_button: "Obtenir un devis",
+    },
+  });
 
   useEffect(() => {
+    // Detect the user's browser language
+    const userLanguage = navigator.language || "fr"; // Default to French
+    const loadedTranslations = loadTranslations(userLanguage);
+    setTranslations(loadedTranslations);
+
     const timer = setTimeout(() => {
       setIsPopupOpen(true);
     }, 10000);
@@ -22,7 +44,7 @@ export default function PopUp({ onDevisClick }: { onDevisClick: () => void }) {
         onClick={() => setIsPopupOpen(true)}
         className="fixed bottom-4 right-4 bg-[#274e9d] text-white px-4 py-2 rounded hover:bg-[#305eb8] duration-200 focus:outline-none shadow-lg z-50"
       >
-        Obtenir un devis
+        {translations.popup.get_quote}
       </button>
 
       {isPopupOpen && (
@@ -52,12 +74,11 @@ export default function PopUp({ onDevisClick }: { onDevisClick: () => void }) {
             </button>
 
             <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
-              Bienvenue!
+              {translations.popup.welcome}
             </h2>
 
             <p className="text-sm sm:text-base mb-4">
-              Merci de visiter notre site Web. Voici une offre spéciale pour
-              vous !
+              {translations.popup.message}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-2">
@@ -65,7 +86,7 @@ export default function PopUp({ onDevisClick }: { onDevisClick: () => void }) {
                 onClick={handleDevisClick}
                 className="bg-[#274e9d] text-white px-4 py-2 rounded hover:bg-[#305eb8] duration-200 focus:outline-none"
               >
-                Obtenir un devis
+                {translations.popup.get_quote_button}
               </button>
             </div>
           </div>

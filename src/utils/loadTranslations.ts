@@ -2,27 +2,32 @@ import en from '../locales/en.json';
 import fr from '../locales/fr.json';
 import es from '../locales/es.json';
 
-// Define the Translations type
+// Define the correct shape based on your state
 type Translations = {
-  about: {
-    about_us: string;
+  form: {
     heading: string;
-    description: string;
-    completed_projects: string;
-    team_members: string;
-    satisfied_clients: string;
+    loading: string;
+    sign_in_prompt: string;
+    labels: {
+      email: string;
+      name: string;
+      phone: string;
+      address: string;
+    };
+    update_button: string;
+    update_success: string;
   };
-  // Add other sections as needed
+  // Add other sections if necessary
 };
 
-// Create the translations object with the correct type
+// Store translations
 const translations: Record<string, Translations> = {
   en,
   fr,
   es,
 };
 
-// Function to load translations based on the user's language
+// Function to load translations while ensuring the correct shape
 export const loadTranslations = (language: string): Translations => {
   const languageCode = language.split('-')[0];
   return translations[languageCode] ?? translations['fr'];

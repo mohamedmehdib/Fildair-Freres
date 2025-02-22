@@ -142,9 +142,30 @@
         "categories": "Categorías",
         "loading": "Cargando...",
         "no_results": "No se encontraron resultados."
+    },
+    "dashboard": {
+        "heading": "Mi Cuenta",
+        "welcome": "Bienvenido, {firstName} !",
+        "login_prompt": "Por favor, inicie sesión para acceder a su cuenta.",
+        "sign_in": "Iniciar Sesión",
+        "sign_up": "Registrarse"
+    },
+    "form": {
+        "heading": "Información Personal",
+        "loading": "Cargando su información...",
+        "sign_in_prompt": "Debe iniciar sesión para acceder a este formulario.",
+        "labels": {
+        "email": "Correo Electrónico",
+        "name": "Nombre",
+        "phone": "Teléfono",
+        "address": "Dirección"
+        },
+        "update_button": "Actualizar",
+        "update_success": "¡Su información ha sido actualizada con éxito!"
+    },
+    "sign_out": {
+        "signing_out": "Cerrando sesión...",
+        "sign_out": "Cerrar Sesión"
     }
       
-    
-
-    
 }

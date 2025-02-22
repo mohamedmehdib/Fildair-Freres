@@ -142,8 +142,30 @@
         "categories": "Categories",
         "loading": "Loading...",
         "no_results": "No results found."
+    },
+    "dashboard": {
+        "heading": "My Account",
+        "welcome": "Welcome, {firstName} !",
+        "login_prompt": "Please log in to access your account.",
+        "sign_in": "Sign In",
+        "sign_up": "Sign Up"
+    },
+    "form": {
+        "heading": "Personal Information",
+        "loading": "Loading your information...",
+        "sign_in_prompt": "You need to sign in to access this form.",
+        "labels": {
+        "email": "Email",
+        "name": "Name",
+        "phone": "Phone",
+        "address": "Address"
+        },
+        "update_button": "Update",
+        "update_success": "Your information has been updated successfully!"
+    },
+    "sign_out": {
+        "signing_out": "Signing Out...",
+        "sign_out": "Sign Out"
     }
-    
-    
-    
+      
 }

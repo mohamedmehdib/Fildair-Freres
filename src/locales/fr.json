@@ -142,8 +142,30 @@
         "categories": "Catégories",
         "loading": "Chargement en cours...",
         "no_results": "Aucun résultat trouvé."
+    },
+    "dashboard": {
+        "heading": "Mon Compte",
+        "welcome": "Bienvenue, {firstName} !",
+        "login_prompt": "Veuillez vous connecter pour accéder à votre compte.",
+        "sign_in": "Se Connecter",
+        "sign_up": "S'inscrire"
+    },
+    "form": {
+        "heading": "Informations Personnelles",
+        "loading": "Chargement de vos informations...",
+        "sign_in_prompt": "Vous devez vous connecter pour accéder à ce formulaire.",
+        "labels": {
+        "email": "Email",
+        "name": "Nom",
+        "phone": "Téléphone",
+        "address": "Adresse"
+        },
+        "update_button": "Mettre à jour",
+        "update_success": "Vos informations ont été mises à jour avec succès !"
+    },
+    "sign_out": {
+        "signing_out": "Déconnexion en cours...",
+        "sign_out": "Se Déconnecter"
     }
-    
-    
-    
+      
 }

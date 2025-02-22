@@ -62,6 +62,7 @@
         "follow_us": "Follow Us",
         "contact_us": "Contact Us",
         "customer_service": "Customer Service:",
+        "customer_number":"2242621509",
         "email": "Email:",
         "address": "Address:",
         "copyright": "© 2025 Fildair & Brothers. All rights reserved.",
@@ -166,6 +167,36 @@
     "sign_out": {
         "signing_out": "Signing Out...",
         "sign_out": "Sign Out"
+    },
+    "testimonials": {
+        "heading": "Customer Reviews",
+        "testimonials": [
+        {
+            "name": "Karim Ben Fradj",
+            "role": "Hotel Manager",
+            "stars": 5,
+            "feedback": "From start to finish, Fildair Frères met all my expectations. They guided me in choosing the design and equipment, and the result exceeded my expectations. Top-notch customer service, highly recommended!"
+        },
+        {
+            "name": "Amin Trabelsi",
+            "role": "Teacher",
+            "stars": 4,
+            "feedback": "I was afraid that building a pool would take months, but with Fildair Frères, everything was done within the announced timeframe and with great attention to detail. Their team is serious and efficient. I now enjoy a beautiful pool at home. Thank you again!"
+        },
+        {
+            "name": "Chokri Mansour",
+            "role": "Real Estate Investor",
+            "stars": 5,
+            "feedback": "I called on Fildair Frères to build my pool, and I am delighted with the result! The team was very professional, meeting deadlines and providing valuable advice. The quality of materials and finish is impeccable. Thank you for this exceptional work!"
+        },
+        {
+            "name": "Amina Chaouech",
+            "role": "Businesswoman",
+            "stars": 5,
+            "feedback": "Not only did Fildair Frères create a superb pool for us, but their after-sales service is equally remarkable. They remain available for maintenance and respond quickly to all our questions. A trustworthy company that I highly recommend!"
+        }
+        ]
     }
+    
       
 }

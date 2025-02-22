@@ -62,6 +62,7 @@
       "follow_us": "Síganos",
       "contact_us": "Contáctenos",
       "customer_service": "Servicio al cliente:",
+      "customer_number":"2242621509",
       "email": "Correo electrónico:",
       "address": "Dirección:",
       "copyright": "© 2025 Fildair Freres. Todos los derechos reservados.",
@@ -166,6 +167,36 @@
     "sign_out": {
         "signing_out": "Cerrando sesión...",
         "sign_out": "Cerrar Sesión"
+    },
+    "testimonials": {
+      "heading": "Opiniones de Clientes",
+      "testimonials": [
+        {
+          "name": "Karim Ben Fradj",
+          "role": "Director de hotel",
+          "stars": 5,
+          "feedback": "Desde el principio hasta el final del proyecto, Fildair Frères cumplió con todas mis expectativas. Me guiaron en la elección del diseño y los equipos, y el resultado superó mis expectativas. ¡Servicio al cliente de primera clase, muy recomendado!"
+        },
+        {
+          "name": "Amin Trabelsi",
+          "role": "Profesor",
+          "stars": 4,
+          "feedback": "Tenía miedo de que la construcción de una piscina tomara meses, pero con Fildair Frères, todo se hizo dentro del plazo anunciado y con gran atención al detalle. Su equipo es serio y eficiente. ¡Ahora disfruto de una hermosa piscina en casa. Gracias de nuevo!"
+        },
+        {
+          "name": "Chokri Mansour",
+          "role": "Inversionista inmobiliario",
+          "stars": 5,
+          "feedback": "¡Llamé a Fildair Frères para construir mi piscina, y estoy encantado con el resultado! El equipo fue muy profesional, cumpliendo los plazos y brindando consejos valiosos. La calidad de los materiales y el acabado son impecables. ¡Gracias por este trabajo excepcional!"
+        },
+        {
+          "name": "Amina Chaouech",
+          "role": "Empresaria",
+          "stars": 5,
+          "feedback": "No solo Fildair Frères creó una piscina magnífica para nosotros, sino que su servicio postventa es igualmente notable. Siguen disponibles para el mantenimiento y responden rápidamente a todas nuestras preguntas. ¡Una empresa confiable que recomiendo sin dudarlo!"
+        }
+      ]
     }
-      
+  
+    
 }

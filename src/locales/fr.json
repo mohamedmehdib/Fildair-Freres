@@ -62,6 +62,7 @@
         "follow_us": "Suivez-nous",
         "contact_us": "Contactez-nous",
         "customer_service": "Service client:",
+        "customer_number":"71 865 319  / 27 870 016",
         "email": "Email:",
         "address": "Adresse:",
         "copyright": "© 2025 Fildair Freres. Tous droits réservés.",
@@ -166,6 +167,36 @@
     "sign_out": {
         "signing_out": "Déconnexion en cours...",
         "sign_out": "Se Déconnecter"
+    },
+    "testimonials": {
+        "heading": "Avis Clients",
+        "testimonials": [
+        {
+            "name": "Karim Ben Fradj",
+            "role": "Directeur d'hôtel",
+            "stars": 5,
+            "feedback": "Du début à la fin du projet, Fildair Frères a su répondre à toutes mes attentes. Ils m'ont guidé dans le choix du design et des équipements, et le résultat est au-delà de mes espérances. Service client au top, je recommande vivement !"
+        },
+        {
+            "name": "Amin Trabelsi",
+            "role": "Professeur",
+            "stars": 4,
+            "feedback": "J’avais peur que la construction d’une piscine prenne des mois, mais avec Fildair Frères, tout a été fait dans les délais annoncés et avec un grand souci du détail. Leur équipe est sérieuse et efficace. Je profite maintenant d’une magnifique piscine chez moi. Merci encore !"
+        },
+        {
+            "name": "Chokri Mansour",
+            "role": "Investisseur immobilier",
+            "stars": 5,
+            "feedback": "J’ai fait appel à Fildair Frères pour la construction de ma piscine, et je suis ravi du résultat ! L’équipe a été très professionnelle, respectant les délais et apportant des conseils précieux. La qualité des matériaux et la finition sont irréprochables. Merci pour ce travail exceptionnel !"
+        },
+        {
+            "name": "Amina Chaouech",
+            "role": "Femme d’affaire",
+            "stars": 5,
+            "feedback": "Non seulement Fildair Frères a réalisé une superbe piscine pour nous, mais leur service après-vente est tout aussi remarquable. Ils restent disponibles pour l’entretien et répondent rapidement à toutes nos questions. Une entreprise de confiance que je recommande sans hésitation !"
+        }
+        ]
     }
-      
+    
+    
 }

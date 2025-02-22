@@ -16,6 +16,7 @@ export default function Footer() {
       follow_us: string;
       contact_us: string;
       customer_service: string;
+      customer_number:string;
       email: string;
       address: string;
       copyright: string;
@@ -26,6 +27,7 @@ export default function Footer() {
       follow_us: "Suivez-nous",
       contact_us: "Contactez-nous",
       customer_service: "Service client:",
+      customer_number:"71 865 319  / 27 870 016",
       email: "Email:",
       address: "Adresse:",
       copyright: "© 2025 Fildair Freres. Tous droits réservés.",
@@ -136,13 +138,9 @@ export default function Footer() {
                 <span className="font-medium">
                   {translations.footer.customer_service}
                 </span>{" "}
-                <a href="tel:+21671865319" className="hover:text-blue-500 transition">
-                  71 865 319 
-                </a>
-                {` / `}
-                <a href="tel:+21627870016" className="hover:text-blue-500 transition">
-                  27 870 016
-                </a>
+                <span className="hover:text-blue-500 transition">
+                  {translations.footer.customer_number}
+                </span>
               </li>
               <li>
                 <span className="font-medium">{translations.footer.email}</span>{" "}

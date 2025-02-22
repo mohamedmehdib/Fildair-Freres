@@ -18,6 +18,7 @@ export default function Footer() {
       customer_service: string;
       customer_number:string;
       email: string;
+      location: string;
       address: string;
       copyright: string;
       developed_by: string;
@@ -29,6 +30,7 @@ export default function Footer() {
       customer_service: "Service client:",
       customer_number:"71 865 319  / 27 870 016",
       email: "Email:",
+      location:"km 13 av Fatouma Bourguiba, La Soukra 2036, en face UTC",
       address: "Adresse:",
       copyright: "© 2025 Fildair Freres. Tous droits réservés.",
       developed_by: "Développé par Fildair Freres",
@@ -152,7 +154,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <span className="font-medium">{translations.footer.address}</span> km 13 av Fatouma Bourguiba, La Soukra 2036, en face UTC
+                <span className="font-medium">{translations.footer.address}</span> {translations.footer.location}
               </li>
             </ul>
           </div>

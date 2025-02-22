@@ -172,24 +172,28 @@
       "heading": "Opiniones de Clientes",
       "testimonials": [
         {
+          "id":1,
           "name": "Karim Ben Fradj",
           "role": "Director de hotel",
           "stars": 5,
           "feedback": "Desde el principio hasta el final del proyecto, Fildair Frères cumplió con todas mis expectativas. Me guiaron en la elección del diseño y los equipos, y el resultado superó mis expectativas. ¡Servicio al cliente de primera clase, muy recomendado!"
         },
         {
+          "id":2,
           "name": "Amin Trabelsi",
           "role": "Profesor",
           "stars": 4,
           "feedback": "Tenía miedo de que la construcción de una piscina tomara meses, pero con Fildair Frères, todo se hizo dentro del plazo anunciado y con gran atención al detalle. Su equipo es serio y eficiente. ¡Ahora disfruto de una hermosa piscina en casa. Gracias de nuevo!"
         },
         {
+          "id":3,
           "name": "Chokri Mansour",
           "role": "Inversionista inmobiliario",
           "stars": 5,
           "feedback": "¡Llamé a Fildair Frères para construir mi piscina, y estoy encantado con el resultado! El equipo fue muy profesional, cumpliendo los plazos y brindando consejos valiosos. La calidad de los materiales y el acabado son impecables. ¡Gracias por este trabajo excepcional!"
         },
         {
+          "id":4,
           "name": "Amina Chaouech",
           "role": "Empresaria",
           "stars": 5,

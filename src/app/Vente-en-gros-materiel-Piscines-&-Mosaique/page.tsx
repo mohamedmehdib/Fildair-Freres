@@ -81,6 +81,7 @@ const Page: React.FC = () => {
               src="/sell.jpg"
               height={500}
               width={500}
+              unoptimized
               alt="Piscine sur mesure"
               className="w-full h-auto rounded-lg shadow-lg"
             />
@@ -100,6 +101,7 @@ const Page: React.FC = () => {
                     alt="Emaux"
                     width={300}
                     height={300}
+                    unoptimized
                     className="w-full h-full p-5 object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </Link>
@@ -116,6 +118,7 @@ const Page: React.FC = () => {
                     alt="Prestigio"
                     width={300}
                     height={300}
+                    unoptimized
                     className="w-full h-full p-5 object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </Link>

@@ -316,6 +316,7 @@ const UploadMosaique: React.FC = () => {
                 width={500}
                 src={item.src}
                 alt={`Pool equipment ${item.id}`}
+                unoptimized
                 className="w-full h-48 object-cover rounded-md"
               />
               <div className="mt-4 text-center">

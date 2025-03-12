@@ -70,6 +70,7 @@ const Clients: React.FC = () => {
                 className="h-32 w-32 rounded-lg border-2 border-black"
                 width={500}
                 height={500}
+                unoptimized
               />
             </div>
           ))}
@@ -94,6 +95,7 @@ const Clients: React.FC = () => {
                 className="h-32 w-32 rounded-lg border-2 border-black"
                 width={500}
                 height={500}
+                unoptimized
               />
             </div>
           ))}

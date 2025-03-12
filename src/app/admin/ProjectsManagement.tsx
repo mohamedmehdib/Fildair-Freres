@@ -179,6 +179,7 @@ const ProjectsManagement = () => {
                     height={500}
                     src={project.image_url}
                     alt={`Project ${project.id}`}
+                    unoptimized
                     className="w-full sm:w-24 sm:h-24 object-cover rounded-lg"
                   />
                 </div>

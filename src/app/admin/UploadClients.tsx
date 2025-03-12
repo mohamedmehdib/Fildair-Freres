@@ -229,6 +229,7 @@ const UploadClient: React.FC = () => {
                   width={500}
                   src={logo.src}
                   alt={logo.alt}
+                  unoptimized
                   className="h-16 w-auto mb-4"
                 />
                 <p className="text-sm text-gray-500">{logo.alt}</p>
@@ -268,6 +269,7 @@ const UploadClient: React.FC = () => {
                   width={500}
                   src={logo.src}
                   alt={logo.alt}
+                  unoptimized
                   className="h-16 w-auto mb-4"
                 />
                 <p className="text-sm text-gray-500">{logo.alt}</p>

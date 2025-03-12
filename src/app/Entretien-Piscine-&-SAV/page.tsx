@@ -68,6 +68,7 @@ const Page: React.FC = () => {
               alt="Conception"
               layout="fill"
               objectFit="cover"
+              unoptimized
               className="transition-transform duration-300 hover:scale-105"
             />
           </div>
@@ -77,6 +78,7 @@ const Page: React.FC = () => {
               alt="Conception"
               layout="fill"
               objectFit="cover"
+              unoptimized
               className="transition-transform duration-300 hover:scale-105"
             />
           </div>
@@ -86,6 +88,7 @@ const Page: React.FC = () => {
               alt="Conception"
               layout="fill"
               objectFit="cover"
+              unoptimized
               className="transition-transform duration-300 hover:scale-105"
             />
           </div>

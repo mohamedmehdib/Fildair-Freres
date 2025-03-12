@@ -139,6 +139,7 @@ const Page: React.FC = () => {
                       width={500}
                       src={item.src}
                       alt={`Pool mosaic ${item.id}`}
+                      unoptimized
                       className="w-full h-48 object-cover rounded-md"
                     />
                   </div>

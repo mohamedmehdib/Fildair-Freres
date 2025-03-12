@@ -170,9 +170,10 @@ export default function Contact() {
           <Image
             src="/contact.jpg"
             alt='Contact'
-            fill
+            width={500}
+            height={500}
             className='object-cover rounded-lg'
-            priority
+            unoptimized
           />
         </div>
         <form

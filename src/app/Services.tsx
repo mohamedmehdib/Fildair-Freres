@@ -145,6 +145,7 @@ export default function Services() {
             alt='Bilel Abassi, Fondateur de Fildair Frères'
             width={100}
             height={100}
+            unoptimized
             className='rounded-full w-14 sm:w-16 border-2 border-indigo-500'
           />
           <div className='flex flex-col'>
@@ -160,6 +161,7 @@ export default function Services() {
             alt='Signature de Bilel Abassi'
             width={100}
             height={100}
+            unoptimized
             className='pl-4 w-16 sm:w-24 transition-transform duration-300'
           />
         </div>
@@ -186,6 +188,7 @@ export default function Services() {
                 alt={service.title}
                 width={60}
                 height={60}
+                unoptimized
                 className='w-10 h-10 sm:w-12 sm:h-12'
               />
             </div>

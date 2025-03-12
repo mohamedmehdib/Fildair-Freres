@@ -36,6 +36,7 @@ const Slider = ({ images }: { images: { src: string }[] }) => {
                 height={500}
                 src={image.src}
                 alt={`Project ${index + 1}`}
+                unoptimized
                 className="w-full h-full object-cover"
               />
             </div>

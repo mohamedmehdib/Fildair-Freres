@@ -139,7 +139,9 @@ const Page: React.FC = () => {
                       <Image
                         src={item.src}
                         alt={`Pool equipment ${item.id}`}
-                        fill
+                        width={500}
+                        height={500}
+                        unoptimized
                         className="object-cover rounded-md"
                       />
                     </div>

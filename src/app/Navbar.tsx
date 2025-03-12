@@ -66,7 +66,7 @@ export default function Navbar() {
       } transition-all`}
     >
       <Link href="/" className="w-16">
-        <Image src="/logo.png" alt="Logo" width={500} height={500} />
+        <Image src="/logo.png" alt="Logo" width={500} height={500} unoptimized />
       </Link>
       <button
         onClick={toggleMenu}

@@ -97,7 +97,7 @@ const AboutUs: React.FC = () => {
           width={5000}
           height={5000}
           className='rounded-xl'
-          priority
+          unoptimized
         />
       </div>
 

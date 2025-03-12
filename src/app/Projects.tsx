@@ -103,6 +103,7 @@ export default function Projects() {
                   src={image}
                   alt={`Project ${index + 1}`}
                   className='w-full h-full object-cover'
+                  unoptimized
                 />
               </div>
             </SwiperSlide>

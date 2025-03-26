@@ -57,7 +57,7 @@ const Map = () => {
       latitude: 36.87884987742904,
       longitude: 10.26525650200852,
     },
-    url: "https://piscinesfildairfrerestunisie.com",
+    url: "https://bilelabassi.com",
     telephone: "+216 71 865 319",
     sameAs: [
       "https://www.facebook.com/profile.php?id=100007108443086&ref=ig_profile_ac",

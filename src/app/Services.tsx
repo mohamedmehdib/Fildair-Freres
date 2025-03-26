@@ -66,7 +66,7 @@ export default function Services() {
     "provider": {
       "@type": "LocalBusiness",
       "name": "Fildair Frères",
-      "image": "https://piscinesfildairfrerestunisie.com/logo.jpg",
+      "image": "https://bilelabassi.com/logo.jpg",
       "description": "Découvrez Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
       "address": {
         "@type": "PostalAddress",
@@ -77,7 +77,7 @@ export default function Services() {
       },
       "telephone": "+216 71 865 319",
       "email": "fildairfreres@gmail.com",
-      "url": "https://piscinesfildairfrerestunisie.com",
+      "url": "https://bilelabassi.com",
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

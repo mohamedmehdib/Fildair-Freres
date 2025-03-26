@@ -79,7 +79,7 @@ export default function Contact() {
     const emailData = {
       sender: {
         name: 'Fildair Frères',
-        email: 'contact@piscinesfildairfrerestunisie.com',
+        email: 'contact@bilelabassi.com',
       },
       to: [
         {

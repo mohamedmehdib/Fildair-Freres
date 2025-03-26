@@ -60,8 +60,8 @@ const AboutUs: React.FC = () => {
     "@type": "AboutPage",
     "name": translations.about.about_us,
     "description": translations.about.description,
-    "url": "https://piscinesfildairfrerestunisie.com/a-propos",
-    "image": "https://piscinesfildairfrerestunisie.com/about.jpeg",
+    "url": "https://bilelabassi.com/a-propos",
+    "image": "https://bilelabassi.com/about.jpeg",
     "mainEntity": {
       "@type": "Organization",
       "name": "Fildair Frères",

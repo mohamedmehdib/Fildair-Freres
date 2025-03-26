@@ -48,7 +48,7 @@ export default function Footer() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Fildair Frères",
-    image: "https://piscinesfildairfrerestunisie.com/logo.jpg",
+    image: "https://bilelabassi.com/logo.jpg",
     description:
       "Découvrez Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
     address: {
@@ -60,7 +60,7 @@ export default function Footer() {
     },
     telephone: "+216 71 865 319",
     email: "fildairfreres@gmail.com",
-    url: "https://piscinesfildairfrerestunisie.com",
+    url: "https://bilelabassi.com",
     sameAs: [
       "https://www.facebook.com/share/18cy9Avd15/?mibextid=wwXIfr",
       "https://www.instagram.com/fildair_bilel_abassi/",

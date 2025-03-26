@@ -16,20 +16,24 @@ export const metadata: Metadata = {
     "Bilel Abassi",
     "piscines hors sol",
     "piscines en Tunisie",
+    "Construction piscine tunisie", 
+    "Equipenents piscine tunisie",
+    "Tunisie piscine ",
+    "Pisciniste tunisie"
   ],
   authors: [{ name: "Bilel Abassi", url: "https://bilelabassi.com" }],
   openGraph: {
-    title: "Bilel Abassi",
+    title: "Bilel Abassi - Pisciniste De Père en Fils",
     description:
       "Bilel Abassi vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     url: "https://bilelabassi.com",
-    siteName: "Bilel Abassi",
+    siteName: "Bilel Abassi - Pisciniste De Père en Fils",
     images: [
       {
         url: "https://www.bilelabassi.com/_next/image?url=%2Flogo.png&w=640&q=75",
         width: 1200,
         height: 630,
-        alt: "Bilel Abassi",
+        alt: "Bilel Abassi - Pisciniste De Père en Fils",
       },
     ],
     locale: "fr_TN",
@@ -37,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bilel Abassi",
+    title: "Bilel Abassi - Pisciniste De Père en Fils",
     description:
       "Bilel Abassi vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     images: ["https://www.bilelabassi.com/_next/image?url=%2Flogo.png&w=640&q=75"],

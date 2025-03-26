@@ -5,31 +5,31 @@ import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: {
-    default: "Fildair Frères",
-    template: "%s | Fildair Frères",
+    default: "Bilel Abassi",
+    template: "%s | Bilel Abassi",
   },
   description:
-    "Fildair Frères vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
+    "Bilel Abassi vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
   keywords: [
     "piscines Tunisie",
     "équipements piscines",
-    "Fildair Frères",
+    "Bilel Abassi",
     "piscines hors sol",
     "piscines en Tunisie",
   ],
-  authors: [{ name: "Fildair Frères", url: "https://piscinesfildairfrerestunisie.com" }],
+  authors: [{ name: "Bilel Abassi", url: "https://bilelabassi.com" }],
   openGraph: {
-    title: "Fildair Frères - Pisciniste De Père en Fils",
+    title: "Bilel Abassi",
     description:
-      "Fildair Frères vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
-    url: "https://piscinesfildairfrerestunisie.com",
-    siteName: "Fildair Frères - Pisciniste De Père en Fils",
+      "Bilel Abassi vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
+    url: "https://bilelabassi.com",
+    siteName: "Bilel Abassi",
     images: [
       {
-        url: "https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75",
+        url: "https://www.bilelabassi.com/_next/image?url=%2Flogo.png&w=640&q=75",
         width: 1200,
         height: 630,
-        alt: "Fildair Frères - Pisciniste De Père en Fils",
+        alt: "Bilel Abassi",
       },
     ],
     locale: "fr_TN",
@@ -37,10 +37,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fildair Frères - Pisciniste De Père en Fils",
+    title: "Bilel Abassi",
     description:
-      "Fildair Frères vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
-    images: ["https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75"],
+      "Bilel Abassi vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
+    images: ["https://www.bilelabassi.com/_next/image?url=%2Flogo.png&w=640&q=75"],
   },
   robots: {
     index: true,
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  metadataBase: new URL("https://piscinesfildairfrerestunisie.com"),
+  metadataBase: new URL("https://bilelabassi.com"),
   alternates: {
     canonical: "/",
   },
@@ -68,10 +68,10 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "Fildair Frères",
-    image: "https://www.piscinesfildairfrerestunisie.com/_next/image?url=%2Flogo.png&w=640&q=75",
+    name: "Bilel Abassi",
+    image: "https://www.bilelabassi.com/_next/image?url=%2Flogo.png&w=640&q=75",
     description:
-      "Fildair Frères vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
+      "Bilel Abassi vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",
     address: {
       "@type": "PostalAddress",
       streetAddress: "km 13 av Fatouma Bourguiba",
@@ -81,7 +81,7 @@ export default function RootLayout({
     },
     telephone: "+216 71 865 319",
     email: "fildairfreres@gmail.com",
-    url: "https://piscinesfildairfrerestunisie.com",
+    url: "https://bilelabassi.com",
     sameAs: [
       "https://www.facebook.com/profile.php?id=100007108443086&ref=ig_profile_ac",
       "https://www.instagram.com/fildair_bilel_abassi/",
@@ -97,8 +97,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#274e9d" />
 
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Fildair Frères" />
-        <meta name="application-name" content="Fildair Frères" />
+        <meta name="apple-mobile-web-app-title" content="Bilel Abassi" />
+        <meta name="application-name" content="Bilel Abassi" />
 
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />

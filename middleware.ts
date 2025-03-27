@@ -6,34 +6,33 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl;
   const hostname = request.headers.get('host') || 'bilelabassi.com';
 
-  // Remove `www.` (redirect to bare domain)
-  if (hostname.startsWith('www.')) {
-    return NextResponse.redirect(
-      new URL(`https://${hostname.replace('www.', '')}${url.pathname}`, request.url),
-    );
+  // Skip redirects for static files and API routes
+  if (
+    url.pathname.startsWith('/_next') ||
+    url.pathname.startsWith('/api') ||
+    url.pathname.startsWith('/favicon.ico')
+  ) {
+    return NextResponse.next();
   }
 
-  // Force HTTPS (if not already)
+  // Redirect HTTP → HTTPS (if not already)
   if (url.protocol === 'http:') {
     return NextResponse.redirect(
       new URL(`https://${hostname}${url.pathname}`, request.url),
     );
   }
 
-  // Strip all paths (e.g., /%F0%9F%93%A7 → /)
-  if (url.pathname !== '/') {
-    return NextResponse.redirect(new URL('/', request.url));
+  // Redirect `www` → bare domain (only if host is www)
+  if (hostname.startsWith('www.')) {
+    return NextResponse.redirect(
+      new URL(`https://${hostname.replace('www.', '')}${url.pathname}`, request.url),
+    );
   }
 
-  // Optional: Remove all query parameters (e.g., ?fbclid=...)
-  if (url.search) {
+  // Redirect all non-root paths to homepage (except excluded ones)
+  if (url.pathname !== '/') {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
   return NextResponse.next();
 }
-
-// Apply middleware to all paths except static files
-export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)'],
-};

@@ -42,7 +42,7 @@ const Map = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Place",
-    name: "Fildair Frères",
+    name: "Bilel Abassi - Pisciniste de Père en Fils",
     description:
       "Fildair Frères, votre partenaire de confiance pour les piscines et équipements en Tunisie.",
     address: {

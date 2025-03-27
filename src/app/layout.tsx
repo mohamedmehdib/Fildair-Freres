@@ -115,6 +115,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const redirectScript = `
+  if (window.location.pathname !== '/' && window.location.pathname !== '/fr-TN') {
+    window.location.href = window.location.origin;
+  }
+`;
   const structuredData = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService", "HomeAndConstructionBusiness"],
@@ -236,6 +241,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         
+        <script dangerouslySetInnerHTML={{ __html: redirectScript }} />
 
         <script
           type="application/ld+json"

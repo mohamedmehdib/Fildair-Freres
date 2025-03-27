@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: {
-    default: "Bilel Abassi",
+    default: "Bilel Abassi - Pisciniste De Père en Fils",
     template: "%s | Bilel Abassi",
   },
   description:
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Tunisie piscine ",
     "Pisciniste tunisie"
   ],
-  authors: [{ name: "Bilel Abassi", url: "https://bilelabassi.com" }],
+  authors: [{ name: "Bilel Abassi - Pisciniste De Père en Fils", url: "https://bilelabassi.com" }],
   openGraph: {
     title: "Bilel Abassi - Pisciniste De Père en Fils",
     description:
@@ -72,7 +72,7 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "Bilel Abassi",
+    name: "Bilel Abassi - Pisciniste De Père en Fils",
     image: "https://www.bilelabassi.com/_next/image?url=%2Flogo.png&w=640&q=75",
     description:
       "Bilel Abassi vous propose des services complets pour vos projets de piscines : construction sur mesure, rénovation, entretien annuel, vente en gros de matériel.",

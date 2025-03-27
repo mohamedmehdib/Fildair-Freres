@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     default: "Bilel Abassi - Pisciniste Expert en Tunisie | Depuis 20 Ans",
     template: "%s | Bilel Abassi Pisciniste",
   },
+
   description:
     "Pisciniste expert en Tunisie depuis 20 ans. Construction, rénovation et équipement de piscines haut de gamme. Devis gratuit et accompagnement personnalisé.",
   keywords: [
@@ -234,6 +235,7 @@ export default function RootLayout({
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        
 
         <script
           type="application/ld+json"

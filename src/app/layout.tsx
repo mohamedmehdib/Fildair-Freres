@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 import { Analytics } from "@vercel/analytics/react";
-import icon1 from "./icon1.png"; // Import your 96x96 icon
 
 export const metadata: Metadata = {
   title: {
@@ -88,26 +87,7 @@ export const metadata: Metadata = {
     address: true,
     email: true,
     url: true,
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: icon1.src, sizes: "96x96", type: "image/png" }, // Using imported icon
-      { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-icon.png" },
-      { url: "/apple-icon-180x180.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      {
-        rel: "mask-icon",
-        url: "/safari-pinned-tab.svg",
-        color: "#274e9d",
-      },
-    ],
-  },
+  }
 };
 
 export default function RootLayout({
@@ -220,24 +200,8 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
         <meta name="theme-color" content="#274e9d" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Bilel Abassi Pisciniste" />
-        <meta name="application-name" content="Bilel Abassi Pisciniste" />
-        <meta name="msapplication-TileColor" content="#274e9d" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
-
-        <link rel="canonical" href="https://bilelabassi.com" />
-        <link rel="alternate" hrefLang="fr-TN" href="https://bilelabassi.com" />
         
-        {/* Favicon Links */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href={icon1.src} type="image/png" sizes="96x96" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import icon1 from "./icon1.png"; // Import your 96x96 icon
 
 export const metadata: Metadata = {
   title: {
     default: "Bilel Abassi - Pisciniste de Père en Fils",
     template: "%s | Bilel Abassi Pisciniste",
   },
-
-  description:
-    "Pisciniste expert en Tunisie depuis 20 ans. Construction, rénovation et équipement de piscines haut de gamme. Devis gratuit et accompagnement personnalisé.",
+  description: "Pisciniste expert en Tunisie depuis 20 ans. Construction, rénovation et équipement de piscines haut de gamme. Devis gratuit et accompagnement personnalisé.",
   keywords: [
     "pisciniste Tunisie",
     "construction piscine Tunisie",
@@ -93,6 +92,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico" },
+      { url: icon1.src, sizes: "96x96", type: "image/png" }, // Using imported icon
       { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
@@ -115,7 +115,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  
   const structuredData = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService", "HomeAndConstructionBusiness"],
@@ -232,11 +231,12 @@ export default function RootLayout({
         <link rel="canonical" href="https://bilelabassi.com" />
         <link rel="alternate" hrefLang="fr-TN" href="https://bilelabassi.com" />
         
+        {/* Favicon Links */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href={icon1.src} type="image/png" sizes="96x96" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        
 
         <script
           type="application/ld+json"

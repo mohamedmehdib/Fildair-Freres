@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: {
-    default: "Bilel Abassi - Pisciniste Expert en Tunisie | Depuis 20 Ans",
+    default: "Bilel Abassi - Pisciniste de Père en Fils",
     template: "%s | Bilel Abassi Pisciniste",
   },
 
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   applicationName: "Bilel Abassi Pisciniste",
   category: "Construction de piscines",
   openGraph: {
-    title: "Bilel Abassi - Pisciniste Expert en Tunisie | Depuis 20 Ans",
+    title: "Bilel Abassi - Pisciniste de Père en Fils",
     description: "Pisciniste expert en Tunisie depuis 20 ans. Construction, rénovation et équipement de piscines haut de gamme.",
     url: "https://bilelabassi.com",
     siteName: "Bilel Abassi Pisciniste",

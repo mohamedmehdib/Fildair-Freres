@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     default: "Bilel Abassi - Pisciniste de Père en Fils",
     template: "%s | Bilel Abassi Pisciniste",
   },
-  description: "Pisciniste expert en Tunisie depuis 20 ans. Construction, rénovation et équipement de piscines haut de gamme. Devis gratuit et accompagnement personnalisé.",
+  description: "Pisciniste de Père en Fils depuis 20 ans. Construction, rénovation et équipement de piscines haut de gamme. Devis gratuit et accompagnement personnalisé.",
   keywords: [
     "pisciniste Tunisie",
     "construction piscine Tunisie",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   category: "Construction de piscines",
   openGraph: {
     title: "Bilel Abassi - Pisciniste de Père en Fils",
-    description: "Pisciniste expert en Tunisie depuis 20 ans. Construction, rénovation et équipement de piscines haut de gamme.",
+    description: "Pisciniste de Père en Fils depuis 20 ans. Construction, rénovation et équipement de piscines haut de gamme.",
     url: "https://bilelabassi.com",
     siteName: "Bilel Abassi Pisciniste",
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "https://www.bilelabassi.com/_next/image?url=%2Flogo.png&w=1200&q=80",
         width: 1200,
         height: 630,
-        alt: "Bilel Abassi - Pisciniste Expert en Tunisie",
+        alt: "Bilel Abassi - Pisciniste de Père en Fils",
       },
     ],
     locale: "fr_TN",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@bilelabassi",
     creator: "@bilelabassi",
-    title: "Bilel Abassi - Pisciniste Expert en Tunisie",
+    title: "Bilel Abassi - Pisciniste de Père en Fils",
     description: "Expert en construction et rénovation de piscines en Tunisie depuis 20 ans.",
     images: ["https://www.bilelabassi.com/_next/image?url=%2Flogo.png&w=1200&q=80"],
   },
@@ -98,7 +98,7 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService", "HomeAndConstructionBusiness"],
-    "name": "Bilel Abassi - Pisciniste Expert en Tunisie",
+    "name": "Bilel Abassi - Pisciniste de Père en Fils",
     "legalName": "Bilel Abassi Pisciniste",
     "image": "https://www.bilelabassi.com/_next/image?url=%2Flogo.png&w=1200&q=80",
     "description": "Expert en construction, rénovation et équipement de piscines en Tunisie depuis 20 ans.",
